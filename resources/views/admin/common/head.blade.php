@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/common/admin/css/pintuer.css">
     <link rel="stylesheet" href="/common/admin/css/admin.css">
     <script src="/common/admin/js/jquery.js"></script>   
+    <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color:#f2f9fd;">
 <div class="header bg-main">
@@ -21,9 +24,19 @@
   <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
   <h2><span class="icon-user"></span>首页详情</h2>
   <ul style="display:block">
-    <li><a href="" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
-  </ul>    
+
+    <li><a href="/adver/create" target="right"><span class="icon-caret-right"></span>广告位</a></li>
+    <li><a href="/cates/create" target="right"><span class="icon-caret-right"></span>栏目管理</a></li>
+    <li><a href="/adminproduct/create" target="right"><span class="icon-caret-right"></span>产品详情</a></li>
+  </ul>
+  <h2><span class="icon-user"></span>友情链接</h2>
+
+  <ul style="display:block">
+    <li><a href="/fri/index"><span class="icon-caret-right"></span>链接列表</a></li>
+    <li><a href="/fri/create"><span class="icon-caret-right"></span>添加链接</a></li>
+  </ul>
 </div>
+
 <script type="text/javascript">
 $(function(){
   $(".leftnav h2").click(function(){
