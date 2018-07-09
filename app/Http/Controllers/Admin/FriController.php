@@ -146,12 +146,12 @@ class FriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function postDestroy($id)
+    public function getDestroy($id)
     {
        //Fri::destory($id);
-
-        if (Fri::destroy($id)) {
-            return redirect('/fri');
+        $fri = Fri::find($id);
+        if ($fri->delete()) {
+            return redirect('/fri') -> with('success');
         } else {
             return back();
         }        
