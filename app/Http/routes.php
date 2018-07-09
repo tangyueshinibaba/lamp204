@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 //后台首页
 Route::controller('/admin','Admin\AdminController');
+<<<<<<< HEAD
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -33,6 +34,12 @@ Route::controller('/hostadver','Host\AdverController');
 
 //后台栏目位
 Route::controller('/cates','Admin\CatesController');
+=======
+
+
+
+
+>>>>>>> origin/xyf
 
 
 
@@ -80,6 +87,7 @@ Route::controller('/cates','Admin\CatesController');
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -136,3 +144,6 @@ Route::controller('/cates','Admin\CatesController');
 
 Route::controller('/fri','Admin\FriController');
 
+=======
+Route::controller('/carousel','Admin\CarouselController');
+>>>>>>> origin/xyf
