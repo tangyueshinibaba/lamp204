@@ -106,6 +106,12 @@ class FriController extends Controller
         return view('admin.fri.edit',['data' => $data]);
     }
 
+
+
+
+
+    
+
     /**
      * Update the specified resource in storage.
      *
