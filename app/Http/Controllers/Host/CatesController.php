@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Host;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-class AdminController extends Controller
+use App\Models\host\Cates;
+class CatesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex()
-    {
-       return view('/admin/index/index');
+    {   
+        $data=Cates::all();
+        return view('/host/common/head',['data'=>$data]);
     }
 
     /**
@@ -26,7 +27,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**

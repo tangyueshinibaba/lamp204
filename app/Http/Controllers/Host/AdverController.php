@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Host;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class AdminController extends Controller
+class AdverController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class AdminController extends Controller
      */
     public function getIndex()
     {
-       return view('/admin/index/index');
+        return view('/host/common/head');
     }
 
     /**
@@ -26,7 +26,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-
+       
     }
 
     /**

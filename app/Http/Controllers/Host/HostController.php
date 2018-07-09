@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Host;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-class AdminController extends Controller
+use App\Models\host\Advers;
+use App\Models\host\Cates;
+class HostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,21 @@ class AdminController extends Controller
      */
     public function getIndex()
     {
-       return view('/admin/index/index');
+        $data=Advers::all();
+        $cates=Cates::all();
+        
+        foreach($cates as $k=>$v){
+                //统计出现的次数
+                if(substr_count($v->path,",")==1) {
+                $b[]=$v;
+                }
+                if(substr_count($v->path,",")==2) {
+                $c[]=$v;
+                }
+              
+            }
+        // dump($b);die;
+       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c]);
     }
 
     /**
@@ -26,7 +41,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
