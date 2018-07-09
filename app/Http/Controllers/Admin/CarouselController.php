@@ -30,6 +30,8 @@ class CarouselController extends Controller
     {
         //加载添加页面
         return view('admin.carousel.create');
+		
+		
     }
 
     /**
