@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Host;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\host\Advers;
-use App\Models\host\Cates;
-use App\Models\host\Products;
-class HostController extends Controller
+use App\Models\admin\Orders;
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,22 +15,9 @@ class HostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex()
-    {
-        $data=Advers::all();
-        $cates=Cates::all();
-        $products=Products::all();
-        foreach($cates as $k=>$v){
-                //统计出现的次数
-                if(substr_count($v->path,",")==1) {
-                $b[]=$v;
-                }
-                if(substr_count($v->path,",")==2) {
-                $c[]=$v;
-                }
-              
-            }
-        // dump($b);die;
-       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products]);
+    {   
+        $order=Orders::all();
+        return view('admin/order/index',['order'=>$order]);
     }
 
     /**

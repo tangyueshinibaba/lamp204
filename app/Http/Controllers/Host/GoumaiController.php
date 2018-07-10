@@ -6,33 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\host\Advers;
-use App\Models\host\Cates;
 use App\Models\host\Products;
-class HostController extends Controller
+use App\Models\host\Orders;
+use App\Http\Requests\OrderRequest;
+class GoumaiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
-    {
-        $data=Advers::all();
-        $cates=Cates::all();
-        $products=Products::all();
-        foreach($cates as $k=>$v){
-                //统计出现的次数
-                if(substr_count($v->path,",")==1) {
-                $b[]=$v;
-                }
-                if(substr_count($v->path,",")==2) {
-                $c[]=$v;
-                }
-              
-            }
-        // dump($b);die;
-       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products]);
+    public function getIndex($id)
+    {   
+        $products=Products::find($id);
+        //分配模板
+        return view('host/goumai/index',['products'=>$products]);
     }
 
     /**
@@ -42,7 +30,7 @@ class HostController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -51,9 +39,38 @@ class HostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function getStore(OrderRequest $request,$id)
+    {   
+       $data=Products::find($id);
+       $pname=$data->pname;
+       $sl=$request->input('shuliang');
+       $price=$request->input('price');
+       $guige=$request->input('guige');
+       $data->kucun=$data->kucun-$sl;
+       $a1=$data->save();
+       //随机一个20位得订单号
+       $ddh=str_random(20);
+       //实例化一个表
+       $order=new Orders;
+       $order->pid=$id;
+       $order->oname=$pname;
+       $order->shuliang=$sl;
+       $order->guige=$guige;
+       $order->zongjia=$price;
+       $order->huohao=$data['huohao'];
+       $order->ddh=$ddh;
+       $a2=$order->save();
+       if($a1 && $a2){
+        return redirect('/goumai/dingdan')->with('success','下单成功');
+       }else{
+        return back()->with('error','下单失败');
+       }
+     
+       
+    }
+    public function getDingdan()
     {
-        //
+        echo "string";
     }
 
     /**
