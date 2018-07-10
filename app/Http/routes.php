@@ -12,10 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
 });
 
+
+
 //后台首页
+//Route::controller('/admin','Admin\AdminController');
+
+
+
+
 Route::controller('/admin','Admin\AdminController');
 //前台首页
 Route::controller('/host','Host\HostController');
@@ -148,6 +155,106 @@ Route::controller('/shoucang','Host\ShoucangController');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::controller('/admin/user','Admin\UserController');
+Route::controller('/admin/manage', 'Admin\ManageController');
 
 
 Route::controller('/fri','Admin\FriController');
