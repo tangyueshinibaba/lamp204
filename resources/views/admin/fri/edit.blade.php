@@ -17,7 +17,7 @@
           <label>LOGO上传：</label>
         </div>
         <div class="field">
-          <input type="file" id="url1" name="pic" class="input tips" style="width:25%; float:left;" value="{{ $data -> pic}}">
+          <input type="file" id="url1" name="pic" class="input tips" style="width:25%; float:left;" value="/common/admin/images/fri/{{ $data -> pic}}">
         </div>
       </div>
       <div class="form-group">

@@ -33,7 +33,6 @@
 			@elseif($v->weizhi==3)
 			<td>右</td>
 			@endif
-
 			<td>
 				<a href="/adver/edit/{{$v->id}}" class="btn btn-warning">修改</a>
 				<a href="/adver/destroy/{{$v->id}}" class="btn btn-danger" onclick="return confirm('确认删除吗？')">删除</a>
