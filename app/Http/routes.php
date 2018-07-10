@@ -32,12 +32,14 @@ Route::controller('/adminproduct','Admin\ProductController');
 
 //前台广告位
 Route::controller('/hostadver','Host\AdverController');
+//前台产品详情 购买
+Route::controller('/goumai','Host\GoumaiController');
+//后台顾客订单表
+Route::controller('/adminorder','Admin\OrderController');
 
 
 //后台栏目位
 Route::controller('/cates','Admin\CatesController');
-
-
 
 
 
@@ -142,4 +144,7 @@ Route::controller('/user','Host\UserController');
 //前台用户登录 zsg
 Route::controller('/login','Host\LoginController');
 
+
+
+Route::controller('/carousel','Admin\CarouselController');
 

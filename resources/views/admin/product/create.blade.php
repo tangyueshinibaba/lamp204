@@ -13,7 +13,7 @@
      	<p>{{session('error')}}</p>
     </div>
 @endif
-<a href="/adver/index" class="btn btn-info">产品详情</a>
+<a href="/adminproduct/index" class="btn btn-info">产品列表</a>
 <div class="body-content">
     <form method="post" class="form-x" action="/adminproduct/store" enctype="multipart/form-data">  
     	{{csrf_field()}}
@@ -31,7 +31,11 @@
 	  </div>
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">介绍</label>
-	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="价格" name="price" value="">
+	    <textarea name="jieshao" cols="100" rows="10"></textarea>
+	  </div>
+	   <div class="form-group">
+	    <label for="exampleInputEmail1">货号</label>
+	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="货号" name="huohao" value="">
 	  </div>
 	   <div class="form-group">
 	    <label for="exampleInputEmail1">库存</label>

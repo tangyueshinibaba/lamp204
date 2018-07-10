@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Fri;
+use App\Models\Admin\Fri;
 use App\Http\Requests\FriInsertRequest;
 
 class FriController extends Controller
