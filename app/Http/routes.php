@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 //后台首页
 Route::controller('/admin','Admin\AdminController');
-
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -86,10 +85,17 @@ Route::controller('/cates','Admin\CatesController');
 
 
 
+//后台轮播
+Route::controller('/carousel','Admin\CarouselController');
 
 
 
 
+
+
+
+//前台收藏夹
+Route::controller('/shoucang','Host\ShoucangController');
 
 
 
@@ -145,6 +151,7 @@ Route::controller('/cates','Admin\CatesController');
 
 
 Route::controller('/fri','Admin\FriController');
+
 
 
 Route::controller('/carousel','Admin\CarouselController');

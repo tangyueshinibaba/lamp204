@@ -20,8 +20,9 @@
 	    <tr>
 	      <th width="10%">ID</th>
 	      <th width="20%">图片</th>
-	      <th width="15%">名称</th>
+	      <th width="10%">名称</th>
 	      <th width="20%">描述</th>
+	      <th width="15%">地址</th>
 	      <th width="10%">更改时间</th>
 	      <th width="15%">操作</th>
 	    </tr>
@@ -31,6 +32,7 @@
 	      <td><img src="/common/admin/images/lunbo/{{ $v->img }}" alt="" width="120" height="50" /></td>     
 	      <td>{{ $v->title }}</td>
 	      <td>{{ $v->describe }}</td>
+	      <td>{{ $v->url }}</td>
 	      <td>{{ $v->updated_at }}</td>
 	      <td><div class="button-group">
 	      	<a class="button border-main" href="/carousel/edit/{{ $v->id }}"><span class="icon-edit"></span> 修改</a>

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\host;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Carousel extends Model
+class Shoucang extends Model
 {
-    //
     
 }

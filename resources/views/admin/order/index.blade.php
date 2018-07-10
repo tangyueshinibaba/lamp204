@@ -1,5 +1,6 @@
 @extends('admin.common.head')
 @section('content')
+
 <table class="table table-hover table-borderd">
 		<tr>
 			<td>ID</td>
@@ -35,4 +36,5 @@
 			</tr>
 		@endforeach
 </table>
+
 @endsection

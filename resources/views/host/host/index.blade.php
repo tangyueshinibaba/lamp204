@@ -103,3 +103,55 @@
   </div>
 @endsection
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{--轮播图--}}
+@section('carousel')
+<div id="slideBox" class="slideBox">
+			<div class="hd">
+				<ul class="smallUl"></ul>
+			</div>
+			<div class="bd">
+				
+				<ul>
+					@foreach($carousel as $k => $v)
+					<li><a href="{{$v->url}}" target="_blank"><div style="background:url(/common/admin/images/lunbo/{{$v->img}}) no-repeat; background-position:center; width:100%; height:450px;"></div></a></li>
+					@endforeach
+				</ul>
+				
+			</div>
+			<!-- 下面是前/后按钮-->
+			<a class="prev" href="javascript:void(0)"></a>
+			<a class="next" href="javascript:void(0)"></a>
+
+		</div>
+		<script type="text/javascript">
+		jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPlay:true,autoPage:true});
+		</script>
+@endsection
+
+{{--收藏夹--}}
+<script type="text/javascript">
+	$('.Collect').click(function(){
+		$('.Collect').text('已收藏')
+	})
+</script>

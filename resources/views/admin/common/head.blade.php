@@ -25,7 +25,10 @@
   <h2><span class="icon-user"></span>首页详情</h2>
   <ul style="display:block">
 
+    <li><a href="/carousel" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
+     
 
+  
     <li><a href="/adver/create" target="right"><span class="icon-caret-right"></span>广告位</a></li>
     <li><a href="/cates/create" target="right"><span class="icon-caret-right"></span>栏目管理</a></li>
     <li><a href="/adminproduct/create" target="right"><span class="icon-caret-right"></span>产品详情</a></li>
@@ -43,6 +46,9 @@
   <ul style="display:block">
     <li><a href="/adminorder/index"><span class="icon-caret-right"></span>订单详情</a></li>
   </ul>
+
+
+
 </div>
 
 <script type="text/javascript">

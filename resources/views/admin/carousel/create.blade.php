@@ -29,10 +29,17 @@
         </div>
         <div class="field">
           <textarea class="input" name="describe" style=" height:90px;"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>地址：</label>
+        </div>
+        <div class="field">
+          <input type="url" class="input w50" value="" name="url" data-validate="required:请输入地址" />
           <div class="tips"></div>
         </div>
       </div>
-     
      
       
   

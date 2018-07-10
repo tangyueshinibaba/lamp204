@@ -83,29 +83,10 @@
 	<script>$("#Navigation").slide({titCell:".Navigation_name li",trigger:"click"});</script>
     </div>
 </head>
-<!--广告幻灯片样式-->
-   	<div id="slideBox" class="slideBox">
-			<div class="hd">
-				<ul class="smallUl"></ul>
-			</div>
-			<div class="bd">
-				<ul>
-					<li><a href="#" target="_blank"><div style="background:url(/common/host/AD/ad-1.jpg) no-repeat; background-position:center; width:100%; height:450px;"></div></a></li>
-					<li><a href="#" target="_blank"><div style="background:url(/common/host/AD/ad-2.jpg) no-repeat; background-position:center ; width:100%; height:450px;"></div></a></li>
-					<li><a href="#" target="_blank"><div style="background:url(/common/host/AD/ad-1.jpg) no-repeat; background-position:center ; width:100%; height:450px;"></div></a></li>
-					<li><a href="#" target="_blank"><div style="background:url(/common/host/AD/ad-2.jpg) no-repeat; background-position:center ; width:100%; height:450px;"></div></a></li>
-				</ul>
-			</div>
-			<!-- 下面是前/后按钮-->
-			<a class="prev" href="javascript:void(0)"></a>
-			<a class="next" href="javascript:void(0)"></a>
-
-		</div>
-		<script type="text/javascript">
-		jQuery(".slideBox").slide({titCell:".hd ul",mainCell:".bd ul",autoPlay:true,autoPage:true});
-		</script>
- </div>
-
+<!--轮播图开始-->
+   	@section('carousel')
+	@show
+<!-- 轮播图结束 -->
 <!--内容样式-->
 <div id="mian">
  <div class="clearfix marginbottom">
@@ -309,8 +290,68 @@
   </div>
  </div>
  <!--板块栏目样式-->
+<<<<<<< HEAD
  @section('product')
  @show
+=======
+ <div class="clearfix Plate_style">
+  <div class="Plate_column Plate_column_left">
+    <div class="Plate_name">
+    <h2>产品名称</h2>
+    <div class="Sort_link"><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a></div>
+    <a href="#" class="Plate_link"> <img src="/common/host/images/bk_img_14.png" /></a>
+   
+    </div>
+    <div class="Plate_product">
+    <ul id="lists">
+     <li class="product_display">
+     <a href="javascript:void;" class="Collect"><em></em>收藏</a>
+     <a href="#" class="img_link"><img src="/common/host/products/p_44.jpg"  width="140" height="140"/></a>
+     <a href="#" class="name">墨西哥原装进口 科罗娜啤酒</a>
+     <h3><b>￥</b>34.00</h3>
+    <div class="Detailed">
+	   <div class="content">
+		  <p class="center"><a href="#" class="Buy_btn">立即购买</a></p>
+		  </div>
+	   </div>
+     </li>
+     <li class="product_display">
+      <a href="" class="Collect"><em></em>收藏</a>
+     <a href="#" class="img_link"><img src="/common/host/products/p_43.jpg"  width="140" height="140"/></a>
+     <a href="#" class="name">墨西哥原装进口 科罗娜啤酒</a>
+     <h3><b>￥</b>34.00</h3>
+      <div class="Detailed">
+	   <div class="content">
+		  <p class="center"><a href="#" class="Buy_btn">立即购买</a></p>
+		  </div>
+	   </div>
+     </li>
+     <li class="product_display">
+      <a href="" class="Collect"><em></em>收藏</a>
+     <a href="#" class="img_link"><img src="/common/host/products/p_41.jpg"  width="140" height="140"/></a>
+     <a href="#" class="name">墨西哥原装进口 科罗娜啤酒</a>
+     <h3><b>￥</b>34.00</h3>
+       <div class="Detailed">
+	   <div class="content">
+		  <p class="center"><a href="#" class="Buy_btn">立即购买</a></p>
+		  </div>
+	   </div>
+     </li>
+     <li class="product_display">
+      <a href="" class="Collect"><em></em>收藏</a>
+     <a href="#" class="img_link"><img src="/common/host/products/p_42.jpg"  width="140" height="140"/></a>
+     <a href="#" class="name">墨西哥原装进口 科罗娜啤酒</a>
+     <h3><b>￥</b>34.00</h3>
+     <div class="Detailed">
+	   <div class="content">
+		  <p class="center"><a href="#" class="Buy_btn">立即购买</a></p>
+		  </div>
+	   </div>
+     </li>
+    </ul>
+    </div>
+  </div>
+>>>>>>> origin/xyf
   <!--板块名称-->
     <div class="Plate_column Plate_column_right">
     <div class="Plate_name">
@@ -616,10 +657,15 @@
 			</div>
 			</li>
 
-    <li class="fixeBoxLi Home"> <a href="./"> <span class="fixeBoxSpan"></span> <strong>收藏夹</strong> </a> </li>
+    <li class="fixeBoxLi Home"> <a href="/shoucang/index"> <span class="fixeBoxSpan"></span> <strong>收藏夹</strong> </a> </li>
     <li class="fixeBoxLi BackToTop"> <span class="fixeBoxSpan"></span> <strong>返回顶部</strong> </li>
   </ul>
 </div>
-
+{{--收藏夹--}}
+<script type="text/javascript">
+	$('.Collect').click(function(){
+		$('.Collect').text('已收藏')
+	})
+</script>
 </body>
 </html>

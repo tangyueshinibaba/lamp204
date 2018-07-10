@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Carousel;
+use App\Models\admin\Carousel;
 class CarouselController extends Controller
 {
     /**
@@ -47,7 +47,7 @@ class CarouselController extends Controller
         //dump($carousel);die;
         $carousel -> title = $request -> input('title','');
         $carousel -> describe = $request -> input('describe','');
-        
+        $carousel -> url = $request -> input('url','');
         // 使用request 创建文件上传对象
         if($request -> hasFile('img')){
             $img = $request -> file('img');
@@ -104,7 +104,7 @@ class CarouselController extends Controller
         //dump($carousel);die; 
         $carousel -> title = $request -> input('title','');
         $carousel -> describe = $request -> input('describe','');
-        
+        $carousel -> url = $request -> input('url','');
         // 使用request 创建文件上传对象
         if($request -> hasFile('img')){
             $img = $request -> file('img');
