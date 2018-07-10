@@ -23,6 +23,22 @@ Route::controller('/admin','Admin\AdminController');
 
 
 
+//前台首页
+Route::controller('/host','Host\HostController');
+//前台栏目表
+Route::controller('/hostcates','Host\CatesController');
+
+//后台广告位
+Route::controller('/adver','Admin\AdversController');
+//后台产品详情
+Route::controller('/adminproduct','Admin\ProductController');
+
+//前台广告位
+Route::controller('/hostadver','Host\AdverController');
+
+
+//后台栏目位
+Route::controller('/cates','Admin\CatesController');
 
 
 
@@ -68,4 +84,67 @@ Route::controller('/admin','Admin\AdminController');
 
 
 
+
+
+
+//后台轮播
 Route::controller('/carousel','Admin\CarouselController');
+
+//前台收藏夹
+Route::controller('/shoucang','Host\ShoucangController');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::controller('/fri','Admin\FriController');
+
+
