@@ -1,19 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Host;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\host\Advers;
-use App\Models\host\Cates;
-<<<<<<< HEAD
-use App\Models\host\Carousel;
-=======
-use App\Models\host\Products;
->>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252
-class HostController extends Controller
+use App\Models\admin\Orders;
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,31 +15,9 @@ class HostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex()
-    {
-        $data=Advers::all();
-        $cates=Cates::all();
-<<<<<<< HEAD
-        $carousel = Carousel::all();
-        
-=======
-        $products=Products::all();
->>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252
-        foreach($cates as $k=>$v){
-                //统计出现的次数
-                if(substr_count($v->path,",")==1) {
-                $b[]=$v;
-                }
-                if(substr_count($v->path,",")==2) {
-                $c[]=$v;
-                }
-              
-            }
-        // dump($b);die;
-<<<<<<< HEAD
-       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'carousel'=>$carousel,'b'=>$b,'c'=>$c]);
-=======
-       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products]);
->>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252
+    {   
+        $order=Orders::all();
+        return view('admin/order/index',['order'=>$order]);
     }
 
     /**

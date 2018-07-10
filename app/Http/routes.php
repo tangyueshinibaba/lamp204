@@ -18,11 +18,14 @@ Route::get('/', function () {
 //后台首页
 Route::controller('/admin','Admin\AdminController');
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -35,6 +38,10 @@ Route::controller('/adminproduct','Admin\ProductController');
 
 //前台广告位
 Route::controller('/hostadver','Host\AdverController');
+//前台产品详情 购买
+Route::controller('/goumai','Host\GoumaiController');
+//后台顾客订单表
+Route::controller('/adminorder','Admin\OrderController');
 
 
 //后台栏目位
@@ -90,8 +97,15 @@ Route::controller('/cates','Admin\CatesController');
 //后台轮播
 Route::controller('/carousel','Admin\CarouselController');
 
+<<<<<<< HEAD
 //前台收藏夹
 Route::controller('/shoucang','Host\ShoucangController');
+=======
+
+
+
+
+>>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252
 
 
 
@@ -148,3 +162,8 @@ Route::controller('/shoucang','Host\ShoucangController');
 Route::controller('/fri','Admin\FriController');
 
 
+<<<<<<< HEAD
+=======
+Route::controller('/carousel','Admin\CarouselController');
+
+>>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252

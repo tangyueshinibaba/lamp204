@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\host;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Fri extends Model
+class Orders extends Model
 {
     //
 }

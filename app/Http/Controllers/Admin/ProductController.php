@@ -16,7 +16,8 @@ class ProductController extends Controller
      */
     public function getIndex()
     {
-      
+      $data=products::all();
+      return view('admin/product/index',['data'=>$data]);
     }
 
     /**
@@ -55,6 +56,8 @@ class ProductController extends Controller
         $products->pname=$request->input('pname');
         $products->profile=$name;
         $products->kucun=$request->input('kucun');
+        $products->jieshao=$request->input('jieshao');
+        $products->price=$request->input('price');
         if($products->save()){
             return redirect('adminproduct/index')->with('success','添加成功');
         }else{

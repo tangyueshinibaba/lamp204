@@ -290,6 +290,7 @@
   </div>
  </div>
  <!--板块栏目样式-->
+<<<<<<< HEAD
  <div class="clearfix Plate_style">
   <div class="Plate_column Plate_column_left">
     <div class="Plate_name">
@@ -347,6 +348,10 @@
     </ul>
     </div>
   </div>
+=======
+ @section('product')
+ @show
+>>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252
   <!--板块名称-->
     <div class="Plate_column Plate_column_right">
     <div class="Plate_name">
