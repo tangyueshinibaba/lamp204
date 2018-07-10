@@ -23,7 +23,6 @@ Route::get('/', function () {
 
 
 
-=======
 Route::controller('/admin','Admin\AdminController');
 //前台首页
 Route::controller('/host','Host\HostController');
@@ -243,6 +242,7 @@ Route::controller('/cates','Admin\CatesController');
 
 
 Route::controller('/admin/user','Admin\UserController');
-=======
+Route::controller('/admin/manage', 'Admin\ManageController');
+
 Route::controller('/fri','Admin\FriController');
 

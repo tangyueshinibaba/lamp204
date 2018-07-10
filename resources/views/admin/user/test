@@ -1,0 +1,17 @@
+@if($info->currentPage() == 1)
+
+            @else
+                <li><a href="{{url('info?page=1')}}">首页</a></li>
+                <li><a href="{{$info->previousPageUrl()}}">上一页</a></li>
+                <li><a href="{{$info->previousPageUrl()}}">{{$news->currentPage()-1}}</a></li>
+            @endif
+
+            <li><a class="active">{{$info->currentPage()}}</a></li>
+
+            @if($info->currentPage() == $info->lastPage())
+
+            @else
+                <li><a href="{{$info->nextPageUrl()}}">{{$news->currentPage()+1}}</a></li>
+                <li><a href="{{$info->nextPageUrl()}}">下一页</a></li>
+                <li><a href="{{url('info?page=').$info->lastPage()}}">尾页</a></li>
+            @endif

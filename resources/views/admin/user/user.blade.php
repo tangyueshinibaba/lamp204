@@ -14,13 +14,13 @@
   <script src="js/pintuer.js"></script>
   </head>
   <body>
-  <form method="post" action="" id="listform">
+  <form method="get" action="/admin/user" id="listform">
     <div class="panel admin-panel">
       <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong> <a href="" style="float:right; display:none;">添加字段</a></div>
       <div class="padding border-bottom">
         <ul class="search" style="padding-left:10px;">
             <input type="text" placeholder="请输入搜索关键字" name="keywords" class="input" style="width:250px; line-height:17px;display:inline-block;" />
-            <a href="javascript:void(0)" class="button border-main icon-search" onclick="changesearch()" > 搜索</a></li>
+            <button type="submit" class="button border-main icon-search" onclick="changesearch()" > 搜索</button></li>
         </ul>
       </div>
       <table class="table table-hover text-center">
@@ -48,25 +48,10 @@
           </tr>
           @endforeach
         <tr>
-          
           <!--<td colspan="8"><div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div></td>-->
-          @if($news->currentPage() == 1)
-
-@else
-    <li><a href="{{url('news?page=1')}}">首页</a></li>
-    <li><a href="{{$news->previousPageUrl()}}">上一页</a></li>
-    <li><a href="{{$news->previousPageUrl()}}">{{$news->currentPage()-1}}</a></li>
-@endif
-
-<li><a class="active">{{$news->currentPage()}}</a></li>
-
-@if($news->currentPage() == $news->lastPage())
-
-@else
-    <li><a href="{{$news->nextPageUrl()}}">{{$news->currentPage()+1}}</a></li>
-    <li><a href="{{$news->nextPageUrl()}}">下一页</a></li>
-    <li><a href="{{url('news?page=').$news->lastPage()}}">尾页</a></li>
-@endif
+          <td colspan="8"><div class="pagelist">
+          {!! $info->appends(['keywords'=>$keywords])->render() !!}
+            </div></td>
         </tr>
       </table>
 

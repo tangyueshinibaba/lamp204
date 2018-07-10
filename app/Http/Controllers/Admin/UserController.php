@@ -15,12 +15,21 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function getIndex(Request $request)
     {
         //
+        $keywords = $request -> input('keywords', '');
         $user = new user;
-        $info = $user::paginate();
-        return view('/admin/user/user', ['info' => $info]);
+        $info = $user->where('uname', 'like', '%'.$keywords.'%')->paginate(1);
+        return view('/admin/user/user', ['info' => $info, 'keywords' => $keywords]);
+
+        // $info->setPath('user');//  
+        //    $num=$info->lastPage();  
+        //    $next_page=$num-$info->currentPage() ==0 ? $num : $info->currentPage()+1 ;  
+        //    $last_page=$info->currentPage()-1 <0 ? 1 : $info->currentPage()-1 ;  
+        //    $info->next=$next_page;  
+        //    $info->last=$last_page;  
+        //    return view('/admin/user/user')->with('info',$info); 
     }
 
     /**
