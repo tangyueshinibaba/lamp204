@@ -22,11 +22,11 @@ Route::get('/', function () {
 
 
 
-<<<<<<< HEAD
+
 
 Route::controller('/admin','Admin\AdminController');
-=======
->>>>>>> origin/zsg
+
+
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -227,13 +227,13 @@ Route::controller('/shoucang','Host\ShoucangController');
 Route::controller('/fri','Admin\FriController');
 //前台用户注册 zsg
 Route::controller('/user','Host\UserController');
-
 //前台用户登录 zsg
 Route::controller('/login','Host\LoginController');
+//后台优惠券
+Route::controller('/yhq','Admin\YhqController');
 
 
 
-<<<<<<< HEAD
 
 
 
@@ -268,11 +268,9 @@ Route::controller('/admin/user','Admin\UserController');
 Route::controller('/admin/manage', 'Admin\ManageController');
 
 
-Route::controller('/fri','Admin\FriController');
 
 
 
-=======
->>>>>>> origin/zsg
+
 Route::controller('/carousel','Admin\CarouselController');
 

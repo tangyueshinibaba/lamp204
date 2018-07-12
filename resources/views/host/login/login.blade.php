@@ -65,7 +65,7 @@ $(function(){
                 <p>
                     <input type="password" class="loginuserpassword" name = "password">
                 </p>
-                <p><span class="fl fntz14 margin-t10"><a href="#" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
+                <p><span class="fl fntz14 margin-t10"><a href="/user/create" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
                 <p>
                     <input type="submit" class="loginbtn" value="登  录">
                 </p>

@@ -14,9 +14,10 @@
 <body>
 <head>
  <div id="header_top">
+ <!-- 顶部开始 -->
   <div id="top">
     <div class="Inside_pages">
-      <div class="Collection"><a href="#" class="green">请登录</a> <a href="#" class="green">免费注册</a></div>
+      <div class="Collection"><a href="#" class="green">请登录</a> <a href="/user/create" class="green">免费注册</a></div>
 	<div class="hd_top_manu clearfix">
 	  <ul class="clearfix">
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">首页</a></li> 
@@ -28,6 +29,7 @@
 	</div>
     </div>
   </div>
+  <!-- 顶部结束 -->
   <div id="header"  class="header page_style">
   <div class="logo"><a href="index.html"><img src="/common/host/images/logo.png" /></a></div>
   <!--结束图层-->
@@ -290,10 +292,10 @@
   </div>
  </div>
  <!--板块栏目样式-->
-<<<<<<< HEAD
+
  @section('product')
  @show
-=======
+
  <div class="clearfix Plate_style">
   <div class="Plate_column Plate_column_left">
     <div class="Plate_name">
@@ -351,7 +353,7 @@
     </ul>
     </div>
   </div>
->>>>>>> origin/xyf
+
   <!--板块名称-->
     <div class="Plate_column Plate_column_right">
     <div class="Plate_name">

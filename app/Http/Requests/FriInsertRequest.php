@@ -24,9 +24,8 @@ class FriInsertRequest extends Request
     public function rules()
     {
         return [
-        'title' => 'required',
-        'logo' => 'required',
-        'url' => 'required',
+            'title' => 'required',
+            'url' => 'required',
         ];
     }
 
@@ -34,7 +33,6 @@ class FriInsertRequest extends Request
     {
         return[
             'title.required' => '链接名称不能为空',
-            'logo.required' => '链接logo不能为空',
             'url.required' => '链接地址不能为空',
         ];
     }
