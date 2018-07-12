@@ -5,17 +5,21 @@
 <link href="/common/host/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/user_style.css" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
 <link href="/common/host/skins/all.css" rel="stylesheet" type="text/css" />
 
 <link href="/common/host/css/base.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/css.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/style1.css" rel="stylesheet" type="text/css" />
 
+=======
+>>>>>>> origin/xyf
 <script src="/common/host/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="/common/host/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
 <script src="/common/host/js/common_js.js" type="text/javascript"></script>
 <script src="/common/host/js/footer.js" type="text/javascript"></script>
 <script src="/common/host/layer/layer.js" type="text/javascript"></script>
+<<<<<<< HEAD
 <script src="/common/host/js/jquery.simpleGal.js"></script>
 <script type="text/javascript" src="/common/host/js/jquery.imagezoom.min.js"></script>
 
@@ -25,6 +29,8 @@
 <script src="/common/host/js/iCheck.js" type="text/javascript"></script>
 <script src="/common/host/js/custom.js" type="text/javascript"></script>
 
+=======
+>>>>>>> origin/xyf
 <title>网站首页</title>
 </head>
 
@@ -40,7 +46,11 @@
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
+<<<<<<< HEAD
         <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>({{session('res')}})</b></a></li> 
+=======
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li> 
+>>>>>>> origin/xyf
       </ul>
     </div>
     </div>
@@ -63,7 +73,11 @@
 </div>
  <!--购物车样式-->
  <div class="hd_Shopping_list" id="Shopping_list">
+<<<<<<< HEAD
    <div class="s_cart"><a href="/cur/index">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">{{session('res')}}</i></div>
+=======
+   <div class="s_cart"><a href="#">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i></div>
+>>>>>>> origin/xyf
    <div class="dorpdown-layer">
     <div class="spacer"></div>
      <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
@@ -77,8 +91,13 @@
           </li>
         </ul>       
      <div class="Shopping_style">
+<<<<<<< HEAD
      <div class="p-total">共<b>{{$res}}</b>件商品　共计<strong>￥{{$s}}</strong></div>
       <a href="/cur/index" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
+=======
+     <div class="p-total">共<b>1</b>件商品　共计<strong>￥ 515.00</strong></div>
+      <a href="Shop_cart.html" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
+>>>>>>> origin/xyf
      </div>  
    </div>
  </div>
@@ -166,7 +185,11 @@
 </div>
 <!--网站地图END-->
 <!--网站页脚-->
+<<<<<<< HEAD
 <!-- <div class="copyright">
+=======
+<div class="copyright">
+>>>>>>> origin/xyf
     <div class="copyright-bg">
         <div class="hotline">为生活充电在线 <span>招商热线：****-********</span> 客服热线：400-******</div>
         <div class="hotline co-ph">
@@ -177,13 +200,21 @@
                 <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
         </div>
     </div>
+<<<<<<< HEAD
 </div> -->
+=======
+</div>
+>>>>>>> origin/xyf
  <!--右侧菜单栏购物车样式-->
 <div class="fixedBox">
   <ul class="fixedBoxList">
       <li class="fixeBoxLi user"><a href="#"> <span class="fixeBoxSpan"></span> <strong>消息中心</strong></a> </li>
     <li class="fixeBoxLi cart_bd" style="display:block;" id="cartboxs">
+<<<<<<< HEAD
 		<p class="good_cart">{{session('res')}}</p>
+=======
+		<p class="good_cart">9</p>
+>>>>>>> origin/xyf
 			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
 			<div class="cartBox">
        		<div class="bjfff"></div><div class="message">购物车内暂无商品，赶紧选购吧</div>    </div></li>

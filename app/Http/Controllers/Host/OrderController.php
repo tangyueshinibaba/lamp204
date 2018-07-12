@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Host;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\admin\Orders;
 use App\Models\admin\Products;
 use App\Models\admin\User;
+use App\Models\admin\Orders;
 class OrderController extends Controller
 {
     /**
@@ -17,9 +17,12 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex()
-    {   
-        $order=Orders::all();
-        return view('admin/order/index',['order'=>$order]);
+    {
+        $user = User::find(10);
+        $data = $user->order_product;
+        //dd($data->userorder);
+        //dd($data);
+        return view('host.order.index',['data'=>$data]);
     }
 
     /**
@@ -49,11 +52,9 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getShow($id)
+    public function show($id)
     {
-        $orders = Orders::find($id);
-        
-        return view('admin.order.show',['orders'=>$orders]);
+        //
     }
 
     /**
@@ -85,8 +86,8 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getDestroy($id)
+    public function destroy($id)
     {
-        echo "string";
+        //
     }
 }

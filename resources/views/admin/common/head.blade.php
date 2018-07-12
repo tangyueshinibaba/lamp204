@@ -33,6 +33,7 @@
     <li><a href="/adminproduct/create" ><span class="icon-caret-right"></span>产品详情</a></li>
   </ul>   
 
+<<<<<<< HEAD
 
   <ul>
     <li><a href="/adver/create" target="right"><span class="icon-caret-right"></span>广告位</a></li>
@@ -41,6 +42,8 @@
     <li><a href="/carousel" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
      
   </ul>
+=======
+>>>>>>> origin/xyf
 
 
   <h2><span class="icon-user"></span>友情链接</h2>
@@ -49,18 +52,29 @@
     <li><a href="/fri/index"><span class="icon-caret-right"></span>链接列表</a></li>
     <li><a href="/fri/create"><span class="icon-caret-right"></span>添加链接</a></li>
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> origin/xyf
+  </ul>
 
 
   </ul>
+
   <h2><span class="icon-user"></span>订单表</h2>
   <ul style="display:block">
     <li><a href="/adminorder/index"><span class="icon-caret-right"></span>订单详情</a></li>
   </ul>
+<<<<<<< HEAD
 
 
 
 
  
+=======
+
+>>>>>>> origin/xyf
 </div>
 
 <script type="text/javascript">

@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 
 
+
 //后台首页
 Route::controller('/admin','Admin\AdminController');
 
@@ -26,7 +27,10 @@ Route::controller('/admin','Admin\AdminController');
 
 Route::controller('/admin','Admin\AdminController');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/xyf
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -100,15 +104,14 @@ Route::controller('/cates','Admin\CatesController');
 
 //后台轮播
 Route::controller('/carousel','Admin\CarouselController');
-
-
-
-
-
-
-
 //前台收藏夹
 Route::controller('/shoucang','Host\ShoucangController');
+//前台订单
+Route::controller('/hostorder','Host\OrderController');
+
+
+
+
 
 
 
@@ -235,7 +238,10 @@ Route::controller('/login','Host\LoginController');
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/xyf
 
 
 
@@ -268,5 +274,14 @@ Route::controller('/login','Host\LoginController');
 Route::controller('/admin/user','Admin\UserController');
 Route::controller('/admin/manage', 'Admin\ManageController');
 
+<<<<<<< HEAD
 Route::controller('/carousel','Admin\CarouselController');
+=======
+
+
+
+
+
+
+>>>>>>> origin/xyf
 
