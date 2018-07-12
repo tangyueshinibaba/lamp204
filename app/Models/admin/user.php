@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class user extends Model
 {
+<<<<<<< HEAD
     public function shoucang()
     {
          return $this->belongsToMany('App\Models\admin\Products','shoucangs','uid','shop_id');
@@ -21,3 +22,8 @@ class user extends Model
     	return $this->hasMany('App\Models\admin\Orders','uid');
     }
 }
+=======
+    //
+    
+}
+>>>>>>> origin/zsg

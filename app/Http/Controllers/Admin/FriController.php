@@ -43,7 +43,7 @@ class FriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postStore(Request $request)
+    public function postStore(FriInsertRequest $request)
     {
         // /dump($request -> all());die;
         // $this->validate($request, [
@@ -76,9 +76,9 @@ class FriController extends Controller
         $fri ->save();
         //验证添加
         if ($fri -> save()) {
-            return redirect('/fri');
+            return redirect('/fri') -> with('success','添加成功');
         } else {
-            return back();
+            return back() -> with('error','添加失败');
         }
     }
 
@@ -140,9 +140,9 @@ class FriController extends Controller
         }               
         $fri -> url = $request -> input('url','');
         if ($fri -> save()) {
-            return redirect('/fri');
+            return redirect('/fri') -> with('success','修改成功');
         } else {
-            return back();
+            return back() -> with('error','修改失败');
         }
     }
 
@@ -157,9 +157,9 @@ class FriController extends Controller
        //Fri::destory($id);
         $fri = Fri::find($id);
         if ($fri->delete()) {
-            return redirect('/fri') -> with('success');
+            return redirect('/fri') -> with('success','删除成功');
         } else {
-            return back();
+            return back() -> with('error','删除失败');;
         }        
     }
 }

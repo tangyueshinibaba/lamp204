@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\host\User;
 use Hash;
+use App\Http\Requests\UserCreateRequest;
 
 class UserController extends Controller
 {
@@ -16,9 +17,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getIndex()
     {
+        //读取数据库数据
+        $users = User::paginate(2);
 
+        //渲染到模板
+        return view('admin.quser.index',['users' => $users]);
     }
 
     /**
@@ -31,26 +36,38 @@ class UserController extends Controller
         //加载到注册模板
         return view('host.user.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * 用户注册
      */
-    public function postStore(Request $request)
+    public function postStore(UserCreateRequest $request)
     {
-        //接受用户提交信息
-        $data = $request -> except('_token');
-        //执行添加
         $users = new User;
-        $users -> uname = $request -> input('uname');
-        $users -> pass = Hash::make($request -> input('pass'));
-        $users -> phone = $request -> input('phone');
-        $users -> save();
+        //接收数据
+        $username = $request -> input('uname');
+        $password = $request -> input('pass');
+        $phone = $request -> input('phone');
+            
+        $users -> pass = Hash::make($password);
+        $users -> uname = $username;
+        $users -> phone = $phone; 
+    
+        if ($users -> save()) {
+            return redirect('/host')-> with('success','登录成功');
+        } else {
+            return back() -> with('error','密码不一致');
+        }
         
-    }
-
+        //执行添加
+        //$data = $request -> except('_token');
+        // $users = new User;
+        // $users -> uname = $request -> input('uname');
+        // $users -> pass = $request -> input('pass');
+        // $users -> phone = $request -> input('phone');
+        // $users -> save();
+     }
     /**
      * Display the specified resource.
      *
@@ -119,9 +136,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
-        //
+    
+        $user = User::find($id);
+        if ($user->delete()) {
+            return redirect('/user') -> with('success','删除成功');
+        } else {
+            return back() -> with('error','删除失败');;
+        }   
     }
 
 }

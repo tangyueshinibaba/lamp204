@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class FriInsertRequest extends Request
+class UserEditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class FriInsertRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,16 +24,14 @@ class FriInsertRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
-            'url' => 'required',
+            //
         ];
     }
 
-    public function messages()
+    public function rules()
     {
-        return[
-            'title.required' => '链接名称不能为空',
-            'url.required' => '链接地址不能为空',
+        return [
+            //
         ];
     }
 }

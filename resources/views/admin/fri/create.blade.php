@@ -1,6 +1,16 @@
 @extends('admin.common.head')
 @section('content')
+<!-- 显示错误信息 -->
 
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
    <form method="post" class="form-x" action="/fri/store" enctype="multipart/form-data">
    {{ csrf_field() }}
       <div class="form-group">

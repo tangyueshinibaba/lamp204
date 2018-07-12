@@ -24,6 +24,7 @@ Route::controller('/admin','Admin\AdminController');
 
 
 
+<<<<<<< HEAD
 
 Route::controller('/admin','Admin\AdminController');
 
@@ -31,6 +32,13 @@ Route::controller('/admin','Admin\AdminController');
 
 =======
 >>>>>>> origin/xyf
+=======
+
+
+Route::controller('/admin','Admin\AdminController');
+
+
+>>>>>>> origin/zsg
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -232,13 +240,13 @@ Route::controller('/hostorder','Host\OrderController');
 Route::controller('/fri','Admin\FriController');
 //前台用户注册 zsg
 Route::controller('/user','Host\UserController');
-
 //前台用户登录 zsg
 Route::controller('/login','Host\LoginController');
+//后台优惠券
+Route::controller('/yhq','Admin\YhqController');
 
 
 
-<<<<<<< HEAD
 
 =======
 >>>>>>> origin/xyf
@@ -282,6 +290,10 @@ Route::controller('/carousel','Admin\CarouselController');
 
 
 
+<<<<<<< HEAD
 
 >>>>>>> origin/xyf
+=======
+Route::controller('/carousel','Admin\CarouselController');
+>>>>>>> origin/zsg
 
