@@ -24,21 +24,17 @@ Route::controller('/admin','Admin\AdminController');
 
 
 
-<<<<<<< HEAD
-
-Route::controller('/admin','Admin\AdminController');
-
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/xyf
-=======
 
 
 Route::controller('/admin','Admin\AdminController');
 
 
->>>>>>> origin/zsg
+
+
+Route::controller('/admin','Admin\AdminController');
+
+
+
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -248,9 +244,6 @@ Route::controller('/yhq','Admin\YhqController');
 
 
 
-=======
->>>>>>> origin/xyf
-
 
 
 
@@ -282,18 +275,15 @@ Route::controller('/yhq','Admin\YhqController');
 Route::controller('/admin/user','Admin\UserController');
 Route::controller('/admin/manage', 'Admin\ManageController');
 
-<<<<<<< HEAD
+
 Route::controller('/carousel','Admin\CarouselController');
-=======
 
 
 
 
 
-<<<<<<< HEAD
 
->>>>>>> origin/xyf
-=======
+
+
 Route::controller('/carousel','Admin\CarouselController');
->>>>>>> origin/zsg
 

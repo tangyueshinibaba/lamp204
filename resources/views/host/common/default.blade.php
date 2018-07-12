@@ -5,25 +5,20 @@
 <link href="/common/host/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/user_style.css" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <link href="/common/host/skins/all.css" rel="stylesheet" type="text/css" />
 
 <link href="/common/host/css/base.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/css.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/style1.css" rel="stylesheet" type="text/css" />
 
-=======
->>>>>>> origin/xyf
-=======
->>>>>>> origin/zsg
+
 <script src="/common/host/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="/common/host/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
 <script src="/common/host/js/common_js.js" type="text/javascript"></script>
 <script src="/common/host/js/footer.js" type="text/javascript"></script>
 <script src="/common/host/layer/layer.js" type="text/javascript"></script>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <script src="/common/host/js/jquery.simpleGal.js"></script>
 <script type="text/javascript" src="/common/host/js/jquery.imagezoom.min.js"></script>
 
@@ -33,38 +28,12 @@
 <script src="/common/host/js/iCheck.js" type="text/javascript"></script>
 <script src="/common/host/js/custom.js" type="text/javascript"></script>
 
-=======
->>>>>>> origin/xyf
-=======
->>>>>>> origin/zsg
+
 <title>网站首页</title>
 </head>
 
 <body>
 <head>
-<<<<<<< HEAD
- <div id="header_top">
-  <div id="top">
-    <div class="Inside_pages">
-      <div class="Collection"><a href="#" class="green">请登录</a> <a href="#" class="green">免费注册</a></div>
-    <div class="hd_top_manu clearfix">
-      <ul class="clearfix">
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">首页</a></li> 
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-<<<<<<< HEAD
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>({{session('res')}})</b></a></li> 
-=======
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li> 
->>>>>>> origin/xyf
-      </ul>
-    </div>
-    </div>
-  </div>
-  <div id="header"  class="header page_style">
-  <div class="logo"><a href="index.html"><img src="/common/host/images/logo.png" /></a></div>
-=======
  @if(session('username') !== null)
  <!--顶部开始-->
  <div id="header_top">
@@ -77,7 +46,7 @@
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li> 
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>({{session('res')}})</b></a></li> 
       </ul>
     </div>
   </div>
@@ -94,7 +63,7 @@
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li> 
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>({{session('res')}})</b></a></li> 
       </ul>
     </div>
   </div>
@@ -104,7 +73,6 @@
   <div id="header"  class="header page_style">
   <div class="logo"><a href="index.html"><img src="/common/host/images/logo.png" /></a></div>
 <!--logo结束--> 
->>>>>>> origin/zsg
   <!--结束图层-->
   <div class="Search">
         <div class="search_list">
@@ -121,15 +89,9 @@
 </div>
  <!--购物车样式-->
  <div class="hd_Shopping_list" id="Shopping_list">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
    <div class="s_cart"><a href="/cur/index">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">{{session('res')}}</i></div>
-=======
-   <div class="s_cart"><a href="#">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i></div>
->>>>>>> origin/xyf
-=======
-   <div class="s_cart"><a href="#">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i></div>
->>>>>>> origin/zsg
+
    <div class="dorpdown-layer">
     <div class="spacer"></div>
      <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
@@ -143,18 +105,11 @@
           </li>
         </ul>       
      <div class="Shopping_style">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
      <div class="p-total">共<b>{{$res}}</b>件商品　共计<strong>￥{{$s}}</strong></div>
       <a href="/cur/index" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
-=======
-     <div class="p-total">共<b>1</b>件商品　共计<strong>￥ 515.00</strong></div>
-      <a href="Shop_cart.html" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
->>>>>>> origin/xyf
-=======
-     <div class="p-total">共<b>1</b>件商品　共计<strong>￥ 515.00</strong></div>
-      <a href="Shop_cart.html" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
->>>>>>> origin/zsg
+
+
      </div>  
    </div>
  </div>
@@ -162,11 +117,10 @@
 <!--菜单栏-->
     <div class="Navigation" id="Navigation">
          <ul class="Navigation_name">
-<<<<<<< HEAD
+
             <li><a href="Home.html">首页</a></li>
-=======
+
             <li><a href="/host">首页</a></li>
->>>>>>> origin/zsg
             <li class="hour"><span class="bg_muen"></span><a href="#">半小时生活圈</a></li>
             <li><a href="#">你身边的超市</a></li>
             <li><a href="#">预售专区</a><em class="hot_icon"></em></li>
@@ -246,8 +200,6 @@
 </div>
 <!--网站地图END-->
 <!--网站页脚-->
-<<<<<<< HEAD
-<<<<<<< HEAD
 <!-- <div class="copyright">
 =======
 <div class="copyright">
@@ -263,31 +215,29 @@
             <p>总机电话：****-*********/194/195/196 客服电话：4000****** 传 真：********
                 
                 <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-        </div>
+        </div>p
     </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
 </div> -->
-=======
+
 </div>
->>>>>>> origin/xyf
-=======
+
+
 </div>
->>>>>>> origin/zsg
+
  <!--右侧菜单栏购物车样式-->
 <div class="fixedBox">
   <ul class="fixedBoxList">
       <li class="fixeBoxLi user"><a href="#"> <span class="fixeBoxSpan"></span> <strong>消息中心</strong></a> </li>
     <li class="fixeBoxLi cart_bd" style="display:block;" id="cartboxs">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		<p class="good_cart">{{session('res')}}</p>
-=======
+
 		<p class="good_cart">9</p>
->>>>>>> origin/xyf
-=======
+
 		<p class="good_cart">9</p>
->>>>>>> origin/zsg
+
 			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
 			<div class="cartBox">
        		<div class="bjfff"></div><div class="message">购物车内暂无商品，赶紧选购吧</div>    </div></li>
