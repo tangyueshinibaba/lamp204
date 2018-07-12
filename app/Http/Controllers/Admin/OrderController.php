@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Orders;
+use App\Models\admin\Products;
+use App\Models\admin\User;
 class OrderController extends Controller
 {
     /**
@@ -47,9 +49,11 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow($id)
     {
-        //
+        $orders = Orders::find($id);
+        
+        return view('admin.order.show',['orders'=>$orders]);
     }
 
     /**

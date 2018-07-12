@@ -12,20 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
 });
 
+
+
+
 //后台首页
+//Route::controller('/admin','Admin\AdminController');
+
+
+
+
 Route::controller('/admin','Admin\AdminController');
 
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -35,6 +35,7 @@ Route::controller('/hostcates','Host\CatesController');
 Route::controller('/adver','Admin\AdversController');
 //后台产品详情
 Route::controller('/adminproduct','Admin\ProductController');
+
 
 //前台广告位
 Route::controller('/hostadver','Host\AdverController');
@@ -96,17 +97,10 @@ Route::controller('/cates','Admin\CatesController');
 
 //后台轮播
 Route::controller('/carousel','Admin\CarouselController');
-
-<<<<<<< HEAD
 //前台收藏夹
 Route::controller('/shoucang','Host\ShoucangController');
-=======
-
-
-
-
->>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252
-
+//前台订单
+Route::controller('/hostorder','Host\OrderController');
 
 
 
@@ -159,11 +153,120 @@ Route::controller('/shoucang','Host\ShoucangController');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//友情链接 zsg
 Route::controller('/fri','Admin\FriController');
+//前台用户注册 zsg
+Route::controller('/user','Host\UserController');
+
+//前台用户登录 zsg
+Route::controller('/login','Host\LoginController');
 
 
-<<<<<<< HEAD
-=======
-Route::controller('/carousel','Admin\CarouselController');
 
->>>>>>> 5d7314f321f99af6f886b96167b2261727fdc252
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::controller('/admin/user','Admin\UserController');
+Route::controller('/admin/manage', 'Admin\ManageController');
+
+
+
+
+
+
+
+

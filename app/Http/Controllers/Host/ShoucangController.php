@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Models\admin\Products;
+use App\Models\admin\User;
 class ShoucangController extends Controller
 {
     /**
@@ -16,6 +17,8 @@ class ShoucangController extends Controller
      */
     public function getIndex()
     {
+        
+
         return view('host.shoucang.index');
     }
 
@@ -46,9 +49,13 @@ class ShoucangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow($id)
     {
-        //
+        $users = User::find(10);
+        $products = Products::find($id);
+        if($products->shoucang != 1){
+
+        }
     }
 
     /**
