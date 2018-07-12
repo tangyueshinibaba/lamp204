@@ -18,19 +18,21 @@ Route::get('/', function () {
 
 
 //后台首页
-//Route::controller('/admin','Admin\AdminController');
+Route::controller('/admin','Admin\AdminController');
 
 
 
-<<<<<<< HEAD
+
 
 Route::controller('/admin','Admin\AdminController');
-=======
->>>>>>> origin/zsg
+
+
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
 Route::controller('/hostcates','Host\CatesController');
+//前台购物车
+Route::controller('/cur','Host\CurController');
 
 //后台广告位
 Route::controller('/adver','Admin\AdversController');
@@ -233,7 +235,6 @@ Route::controller('/login','Host\LoginController');
 
 
 
-<<<<<<< HEAD
 
 
 
@@ -267,12 +268,5 @@ Route::controller('/login','Host\LoginController');
 Route::controller('/admin/user','Admin\UserController');
 Route::controller('/admin/manage', 'Admin\ManageController');
 
-
-Route::controller('/fri','Admin\FriController');
-
-
-
-=======
->>>>>>> origin/zsg
 Route::controller('/carousel','Admin\CarouselController');
 

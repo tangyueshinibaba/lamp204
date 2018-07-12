@@ -7,6 +7,7 @@
 			<td>用户</td>
 			<td>商品id</td>
 			<td>商品名称</td>
+			<td>商品缩略图</td>
 			<td>商品货号</td>
 			<td>买的数量</td>
 			<td>总价</td>
@@ -20,6 +21,7 @@
 				<td></td>
 				<td>{{$v->pid}}</td>
 				<td>{{$v->oname}}</td>
+				<td><img src="cpxq/{{$v->profile}}" width="60px;height:60px;"></td>
 				<td>{{$v->huohao}}</td>
 				<td>{{$v->shuliang}}</td>
 				<td>{{$v->zongjia}}元</td>

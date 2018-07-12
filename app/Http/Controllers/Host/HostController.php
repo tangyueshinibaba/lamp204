@@ -12,6 +12,7 @@ use App\Models\host\Cates;
 use App\Models\host\Products;
 
 use App\Models\host\Carousel;
+use App\Models\host\Hostcurs;
 
 class HostController extends Controller
 {
@@ -29,7 +30,6 @@ class HostController extends Controller
 
         $carousel = Carousel::all();
         
-
         foreach($cates as $k=>$v){
                 //统计出现的次数
                 if(substr_count($v->path,",")==1) {
@@ -41,10 +41,15 @@ class HostController extends Controller
               
             }
         // dump($b);die;
-
-       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel]);
-
-       //return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c]);
+         $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+       foreach ($data1 as $k=>$v){
+        $s+=$v->fukuan;
+       }
+        session(['res'=>$res]);
+       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s]);
+       //return view('/host/cc/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel]);
 
     }
 
@@ -53,9 +58,9 @@ class HostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getCreate()
     {
-        //
+        return view('host/cc/index');
     }
 
     /**

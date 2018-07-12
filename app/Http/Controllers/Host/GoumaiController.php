@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\host\Products;
 use App\Models\host\Orders;
+use App\Models\host\Hostcurs;
 use App\Http\Requests\OrderRequest;
 class GoumaiController extends Controller
 {
@@ -19,8 +20,17 @@ class GoumaiController extends Controller
     public function getIndex($id)
     {   
         $products=Products::find($id);
+        $pro=$products->profile;
+        $n=explode('#', $pro);
+         $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+       foreach ($data1 as $k=>$v){
+        $s+=$v->fukuan;
+       }
+        session(['res'=>$res]);
         //分配模板
-        return view('host/goumai/index',['products'=>$products]);
+        return view('host/goumai/index',['products'=>$products,'n'=>$n,'res'=>$res,'s'=>$s]);
     }
 
     /**
@@ -59,6 +69,7 @@ class GoumaiController extends Controller
        $order->zongjia=$price;
        $order->huohao=$data['huohao'];
        $order->ddh=$ddh;
+       $order->profile=$data['profile'];
        $a2=$order->save();
        if($a1 && $a2){
         return redirect('/goumai/dingdan')->with('success','下单成功');
@@ -79,9 +90,9 @@ class GoumaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow()
     {
-        //
+        
     }
 
     /**
