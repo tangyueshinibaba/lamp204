@@ -30,17 +30,17 @@ class HostController extends Controller
         $carousel = Carousel::all();
         $products=Products::all();
         foreach($cates as $k=>$v){
-                //统计出现的次数
-                if(substr_count($v->path,",")==1) {
-                $b[]=$v;
-                }
-                if(substr_count($v->path,",")==2) {
-                $c[]=$v;
-                }
+        //统计出现的次数
+        if(substr_count($v->path,",")==1) {
+        $b[]=$v;
+        }
+        if(substr_count($v->path,",")==2) {
+        $c[]=$v;
+        }
               
-            }
-        // dump($b);die;
-         $data1=Hostcurs::all();
+         }
+        $id=session('id');
+        $data1=Hostcurs::where('uid','=',$id)->get();
         $res=count($data1);
         $s=0;
        foreach ($data1 as $k=>$v){
@@ -48,7 +48,6 @@ class HostController extends Controller
        }
         session(['res'=>$res]);
        return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s]);
-       //return view('/host/cc/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel]);
 
     }
 
@@ -60,7 +59,6 @@ class HostController extends Controller
     public function getCreate()
     {
 
-        return view('host/cc/index');
 
         return view('host.common.default');
     }

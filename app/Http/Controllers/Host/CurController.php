@@ -10,6 +10,7 @@ use App\Http\Requests\OrderRequest;
 use App\Models\host\Products;
 use App\Models\host\Hostcurs;
 use App\Models\host\Orders;
+use App\Models\host\User;
 
 class CurController extends Controller
 {
@@ -19,16 +20,18 @@ class CurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex(Request $request)
-    {   
-        $data1=Hostcurs::all();
+    {    
+        $id=session('id');
+        $data1=Hostcurs::where('uid','=',$id)->get();
         $res=count($data1);
         $s=0;
        foreach ($data1 as $k=>$v){
         $s+=$v->fukuan;
        }
-        $data=Hostcurs::all();
+        $user=User::find($id);
+        $data=Hostcurs::where('uid','=',$id)->get();
         session(['res'=>$res]);
-       return view('host.cur.index',['data'=>$data,'res'=>$res,'s'=>$s]);
+       return view('host.cur.index',['data'=>$data,'res'=>$res,'s'=>$s,'user'=>$user]);
     }
 
     /**
@@ -56,15 +59,22 @@ class CurController extends Controller
          $d=$request->input('d');
          $e=$request->input('e');
          $f=$request->input('f');
+         $g=$request->input('g');
         $data=new Hostcurs;
-        $data->shuliang=$a;
-        $data->fukuan=$b;
-        $data->price=$d;
-        $data->guige=$c;
-        $data->pid=$id;
-        $data->profile=$e;
-        $data->pname=$f;
-       $data->save();
+        if($c!=null && session('username')!=null){
+             $data->shuliang=$a;
+            $data->fukuan=$b;
+            $data->price=$d;
+            $data->guige=$c;
+            $data->pid=$id;
+            $data->profile=$e;
+            $data->pname=$f;
+            $data->uid=$g;
+            $data->save();
+            echo "success";
+        }else{
+            echo "error";
+        }
       
     }
 
@@ -74,9 +84,10 @@ class CurController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow()
     {
-        //
+        $a=session('uname');
+        dump($a);
     }
 
     /**
@@ -87,7 +98,7 @@ class CurController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -126,5 +137,16 @@ class CurController extends Controller
         $s+=$v->fukuan;
        }
         return view('host.common.default',['res'=>$res,'s'=>$s]);
+    }
+    //批量删除
+    public function getDeleteall(request $request)
+    {   
+        $id=$request->input('che');
+        $data=Hostcurs::destroy($id);
+        if($data){
+            echo "success";
+        }else{
+            echo 'error';
+        }
     }
 }

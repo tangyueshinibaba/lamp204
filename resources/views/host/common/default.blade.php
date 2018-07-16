@@ -5,6 +5,8 @@
 <link href="/common/host/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/user_style.css" rel="stylesheet" type="text/css" />
+<link href="/layui/css/layui.css" rel="stylesheet" type="text/css" />
+
 
 <link href="/common/host/skins/all.css" rel="stylesheet" type="text/css" />
 
@@ -25,8 +27,10 @@
 
 
 
+
 <script src="/common/host/js/iCheck.js" type="text/javascript"></script>
 <script src="/common/host/js/custom.js" type="text/javascript"></script>
+
 
 
 <title>网站首页</title>
@@ -90,14 +94,29 @@
  <!--购物车样式-->
  <div class="hd_Shopping_list" id="Shopping_list">
 
-   <div class="s_cart"><a href="/cur/index">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">{{session('res')}}</i></div>
+   <div class="s_cart">
+   @if(session('username')==null)
+    <a href="/cur/index" class="mycar">我的购物车</a> 
+   <i class="ci-right"></i><i class="ci-count" id="shopping-amount">0</i>
+   <script>
+      $('.mycar').click(function(){
+        layer.alert('请登录', {icon: 6});
+        return false;
+      })
+   </script>
+   @elseif(session('username')!=null)
+   <a href="/cur/index">我的购物车</a> 
+   <i class="ci-right">&gt;</i><i class="ci-count jiesuan" id="shopping-amount">{{session('res')}}</i>
+   @endif
+   
+   </div>
 
    <div class="dorpdown-layer">
     <div class="spacer"></div>
      <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
      <ul class="p_s_list">     
         <li>
-            <div class="img"><img src="/common/host/images/tianma.png"></div>
+            <div class="img"><img src=""></div>
             <div class="content"><p class="name"><a href="#">产品名称</a></p><p>颜色分类:紫花8255尺码:XL</p></div>
             <div class="Operations">
             <p class="Price">￥55.00</p>
@@ -106,7 +125,7 @@
         </ul>       
      <div class="Shopping_style">
 
-     <div class="p-total">共<b>{{$res}}</b>件商品　共计<strong>￥{{$s}}</strong></div>
+     <div class="p-total">共<b>{{session('res')}}</b>件商品　共计<strong>￥55</strong></div>
       <a href="/cur/index" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
 
 
@@ -114,6 +133,9 @@
    </div>
  </div>
 </div>
+<script>
+
+</script>
 <!--菜单栏-->
     <div class="Navigation" id="Navigation">
          <ul class="Navigation_name">
@@ -179,47 +201,12 @@
 	 <dd><a href="#">保险需求测试</a></dd>
      <dd><a href="#">专题及活动</a></dd>
      <dd><a href="#">挑选保险产品</a> </dd>
-     <dd><a href="#">常见问题 </a></dd>
+     <dd><a href="#">常见问题</a></dd>
 	</dl>
-     <dl>
-	 <dt>帮助中心</dt>
-	 <dd><a href="#">保险需求测试</a></dd>
-     <dd><a href="#">专题及活动</a></dd>
-     <dd><a href="#">挑选保险产品</a> </dd>
-     <dd><a href="#">常见问题 </a></dd>
-	</dl>
-     <dl>
-	 <dt>帮助中心</dt>
-	 <dd><a href="#">保险需求测试</a></dd>
-     <dd><a href="#">专题及活动</a></dd>
-     <dd><a href="#">挑选保险产品</a> </dd>
-     <dd><a href="#">常见问题 </a></dd>
-	</dl>	   
    </div>
     </div>
 </div>
-<!--网站地图END-->
-<!--网站页脚-->
-<!-- <div class="copyright">
-=======
-<div class="copyright">
->>>>>>> origin/xyf
-=======
-<div class="copyright">
->>>>>>> origin/zsg
-    <div class="copyright-bg">
-        <div class="hotline">为生活充电在线 <span>招商热线：****-********</span> 客服热线：400-******</div>
-        <div class="hotline co-ph">
-            <p>版权所有Copyright ©***************</p>
-            <p>*ICP备***************号 不良信息举报</p>
-            <p>总机电话：****-*********/194/195/196 客服电话：4000****** 传 真：********
-                
-                <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-        </div>p
-    </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-</div> -->
+
 
 </div>
 
@@ -234,10 +221,6 @@
 
 		<p class="good_cart">{{session('res')}}</p>
 
-		<p class="good_cart">9</p>
-
-		<p class="good_cart">9</p>
-
 			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
 			<div class="cartBox">
        		<div class="bjfff"></div><div class="message">购物车内暂无商品，赶紧选购吧</div>    </div></li>
@@ -245,17 +228,10 @@
       <div class="ServiceBox">
         <div class="bjfffs"></div>
         <dl onclick="javascript:;">
-		    <dt><img src="/common/host/images/Service1.png"></dt>
+		    <dt><img src=""></dt>
 		       <dd><strong>QQ客服1</strong>
 		          <p class="p1">9:00-22:00</p>
 		           <p class="p2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=DGG三端同步&amp;menu=yes">点击交谈</a></p>
-		          </dd>
-		        </dl>
-				<dl onclick="javascript:;">
-		          <dt><img src="/common/host/images/Service1.png"></dt>
-		          <dd> <strong>QQ客服1</strong>
-		            <p class="p1">9:00-22:00</p>
-		            <p class="p2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=DGG三端同步&amp;menu=yes">点击交谈</a></p>
 		          </dd>
 		        </dl>
 	          </div>
@@ -265,7 +241,7 @@
 			<div class="cartBox">
        		<div class="bjfff"></div>
 			<div class="QR_code">
-			 <p><img src="/common/host/images/erweim.jpg" width="180px" height="180px" /></p>
+			 <p><img src="" width="180px" height="180px" /></p>
 			 <p>微信扫一扫，关注我们</p>
 			</div>		
 			</div>

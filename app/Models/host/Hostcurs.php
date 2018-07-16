@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hostcurs extends Model
 {
-    //一对一关系
+   /* //一对一关系
     public function userinfo()
     {
     	return $this->hasOne('App\Models\host\Products','id');
@@ -19,6 +19,11 @@ class Hostcurs extends Model
     public function yiduiduo()
     {
     	return $this->hasMany('App\Models\host\Products','pid');
+    }*/
+    //购物车和用户是一对一关系
+    public function userinfo()
+    {
+        return $this->hasOne('App\Models\host\User','uid');
     }
 }
 

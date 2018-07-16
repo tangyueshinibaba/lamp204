@@ -69,7 +69,7 @@ div.zoomDiv {
 
 div.zoomMask {
     position: absolute;
-    background: url("images/mask.png") repeat;
+    background: url() repeat;
     cursor: move;
     z-index: 1;
 }
@@ -200,7 +200,7 @@ document.getElementById(bg_div).style.display='none';
        <div class="float-lt pro_detail_con">
 <form action="/goumai/store/{{$products->id}}" method="get">
     <div class="pro_detail_tit">{{$products->pname}}</div>
-   
+   <input type="hidden" value="{{session('id')}}" class="yonghuid">
     <div class="clear"></div>
    <!--  <div class="pro_detail_price  margin-t20"><span class="margin-r20">市场价</span><span style=" font-size:16px"><s>￥450.00</s></span></div> -->
     <div class="clear"></div>
@@ -219,6 +219,8 @@ document.getElementById(bg_div).style.display='none';
         <div class="clear"></div>
     </div>
     <input type="hidden" class="sllll" value="{{$products->shuliang}}" name="shuliang">
+    <!-- 用户的id -->
+    <input type="hidden" name="yonghuid" value="{{session('id')}}">
     <div class="guige">
         <div class="margin-r20 float-lt" style="line-height:25px;">规格</div>
         
@@ -240,23 +242,36 @@ document.getElementById(bg_div).style.display='none';
     <div class="clear"></div>
     <div class="pro_detail_btn margin-t30">
         <ul>
-            <!-- //<li class="pro_detail_shop"><a href="/goumai/store/{{$products->id}}">立即购买</a></li> -->
-            
-            <input type="submit" class="pro_detail_shop shopping" value="立即购买" style="display:inline;">
-            <a href="#" class="pro_detail_shop gouwu" style="float:left;">加入购物车</a>
-            <!-- <li class="pro_detail_shop"><a href="#" onclick="ShowDiv('MyDiv','fade')">加入购物车</a></li> -->
+            @if(session('username')==null)
+            <input type="submit" class="pro_detail_shop shopping liji" value="立即购买" style="display:inline;">
+            <script>
+                 $('.liji').click(function(){
+                layer.alert('请登录', {icon: 6});
+                return false;
+              })
+            </script>
+            @elseif(session('username')!=null)
+             <input type="submit" class="pro_detail_shop shopping" value="立即购买" style="display:inline;">
+            @endif
+           
+           
+              <a href="#" class="pro_detail_shop gouwu" style="float:left;">加入购物车</a>
+          
+          
         </ul>
     </div>
     </form>
     
 </div>
 <script>
+
   $('.gouwu').click(function(){
   
         //接受数量
         var sl=$('.sllll');
         var shuliang=sl.val();
-
+        //获取用户id
+        var id=$('.yonghuid').val();
         //获取总价
         var price=$('.totalMoney');
         var zj=price.text();
@@ -268,12 +283,27 @@ document.getElementById(bg_div).style.display='none';
         var pname=$('.pro_detail_tit').html();
         //console.log(guige+'--'+shuliang);return;
        
-        $.get('/cur/store/{{$products->id}}',{'a':shuliang,'b':zj,'c':guige,'d':dj,'e':img,'f':pname},function(msg){
-            layer.alert('添加成功', {icon: 6});
+        $.get('/cur/store/{{$products->id}}',{'a':shuliang,'b':zj,'c':guige,'d':dj,'e':img,'f':pname,'g':id},function(msg){
+            if(msg=='success'){
+                layer.alert('添加成功', {icon: 6});
+            }else{
+                
+               layer.open({
+                  type: 1
+                  ,offset: 't' //具体配置参考：offset参数项
+                  ,content: '<div style="padding: 20px 80px;">请选择规格或者登录</div>'
+                  ,btn: '关闭'
+                  ,btnAlign: 'c' //按钮居中
+                  ,shade: 0 //不显示遮罩
+                  ,yes: function(){
+                    layer.closeAll();
+                  }
+                });
+
+            }
+                
+            
         },'html');
-         
-       
-      
   })
 </script>
 <script>
@@ -377,25 +407,21 @@ document.getElementById(bg_div).style.display='none';
                     <ul>
                         <li class="cur">
                             <input name="RadioGroup1" type="radio" value="" checked="checked" id="RadioGroup1_0" />
-                            全部（100）</li>
-                        <li>
-                            <input name="RadioGroup1" type="radio" value="" id="RadioGroup1_1" />
-                            好评（80）</li>
-                        <li>
-                            <input name="RadioGroup1" type="radio" value="" id="RadioGroup1_2" />
-                            中评（10）</li>
-                        <li>
-                            <input name="RadioGroup1" type="radio" value="" id="RadioGroup1_3" />
-                            差评（10）</li>
+                            全部（{{$sptj}}）
+                        </li>
+                        
                     </ul>
                     <table width="100%" border="0">
+                    @foreach($sp as $k2=>$v2)
                         <tr>
                             <td width="80" align="left"><a href="" rel="" class="preview"><img src="/uploads/{{$n[0]}}" width="60" height="60" class="border_gry" /></a></td>
-                            <td>茶泡出来颜色很好！味道很清香！非常喜欢！包装也很精致，下次还来买！好评！<br />
+                            <td>{{$v2->content}}<br />
                                 <br />
-                                <span class="pro_judge_time">2014.1.3</span></td>
-                            <td>张三</td>
+                                <span class="pro_judge_time">{{$v2->created_at}}</span></td>
+                            <td>{{$v2->uname}}</td>
                         </tr>
+                    @endforeach
+                        
                     </table>
                 </div>
             </div>

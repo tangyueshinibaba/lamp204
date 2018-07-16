@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\host\Products;
 use App\Models\host\Orders;
 use App\Models\host\Hostcurs;
+use App\Models\host\Shoppingjias;
 use App\Http\Requests\OrderRequest;
 class GoumaiController extends Controller
 {
@@ -18,11 +19,16 @@ class GoumaiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex($id)
-    {   
+    {  
         $products=Products::find($id);
         $pro=$products->profile;
         $n=explode('#', $pro);
-         $data1=Hostcurs::all();
+        $ids=session('id');
+        $data1=Hostcurs::where('uid','=',$ids)->get();
+         //评价表与商品表关联
+        $sp=Shoppingjias::where('pid','=',$id)->get();
+        //商品对应的id的统计
+        $sptj=count($sp);
         $res=count($data1);
         $s=0;
        foreach ($data1 as $k=>$v){
@@ -30,7 +36,7 @@ class GoumaiController extends Controller
        }
         session(['res'=>$res]);
         //分配模板
-        return view('host/goumai/index',['products'=>$products,'n'=>$n,'res'=>$res,'s'=>$s]);
+        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj]);
     }
 
     /**
@@ -56,10 +62,11 @@ class GoumaiController extends Controller
        $sl=$request->input('shuliang');
        $price=$request->input('price');
        $guige=$request->input('guige');
+       $uid=$request->input('yonghuid');
        $data->kucun=$data->kucun-$sl;
        $a1=$data->save();
        //随机一个20位得订单号
-       $ddh=str_random(20);
+       $ddh=rand();
        //实例化一个表
        $order=new Orders;
        $order->pid=$id;
@@ -69,6 +76,7 @@ class GoumaiController extends Controller
        $order->zongjia=$price;
        $order->huohao=$data['huohao'];
        $order->ddh=$ddh;
+       $order->uid=$uid;
        $order->profile=$data['profile'];
        $a2=$order->save();
        if($a1 && $a2){

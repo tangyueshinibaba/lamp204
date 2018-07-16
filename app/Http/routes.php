@@ -21,32 +21,21 @@ Route::get('/', function () {
 //后台首页
 Route::controller('/admin','Admin\AdminController');
 
-
-
-
-
-
-Route::controller('/admin','Admin\AdminController');
-
-
-
-
-Route::controller('/admin','Admin\AdminController');
-
-
-
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
 Route::controller('/hostcates','Host\CatesController');
 //前台购物车
 Route::controller('/cur','Host\CurController');
+//前台评价
+Route::controller('/pingjia','Host\PingjiaController');
 
 //后台广告位
 Route::controller('/adver','Admin\AdversController');
 //后台产品详情
 Route::controller('/adminproduct','Admin\ProductController');
-
+//后台评价
+Route::controller('/adminpingjia','Admin\PingjiaController');
 
 //前台广告位
 Route::controller('/hostadver','Host\AdverController');

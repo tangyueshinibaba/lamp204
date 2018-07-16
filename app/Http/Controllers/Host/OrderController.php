@@ -8,7 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Products;
 use App\Models\admin\User;
-use App\Models\admin\Orders;
+use App\Models\host\Shoppingjias;
+use App\Models\host\Orders;
 class OrderController extends Controller
 {
     /**
@@ -18,11 +19,12 @@ class OrderController extends Controller
      */
     public function getIndex()
     {
-        $user = User::find(10);
-        $data = $user->order_product;
-        //dd($data->userorder);
-        //dd($data);
-        return view('host.order.index',['data'=>$data]);
+        $data=Orders::where('uid','=',session('id'))->get();
+        $r=count($data);
+        //$sp=Shoppingjias::where('uid','=',session('id'))->get();
+        $res=Shoppingjias::get();
+        $user=User::find(session('id'));
+        return view('host.order.index',['data'=>$data,'r'=>$r,'res'=>$res,'user'=>$user]);  
     }
 
     /**

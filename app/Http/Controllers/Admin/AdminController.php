@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\admin\Orders;
 
 class AdminController extends Controller
 {
@@ -15,8 +16,26 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex()
-    {
-       return view('/admin/index/index');
+    {   
+         //获取今天凌晨12点
+/*       $t = strtotime(date('Y-m-d',time()));
+       //获取今天24点
+       $end=$t + 24 * 60 * 60;
+       //差时间
+       $cha=$end-$t;
+       $e=date('Y-m-d H:i:s',$end);
+       //获取订单总数
+     
+       $tt=data('Y-m-d H:i:s',$t);*/
+         $time=date('Y-m-d',time());
+        $data=Orders::all();
+        $ss=0;
+        foreach($data as $k=>$v){
+            $ss+=$v->zongjia;
+        }
+        $dingdan=count($data);
+        
+       return view('/admin/index/index',['dingdan'=>$dingdan,'data'=>$data,'ss'=>$ss]);
     }
 
     /**

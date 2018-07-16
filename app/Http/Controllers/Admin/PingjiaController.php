@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\host;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\admin\Products;
-use App\Models\admin\User;
-class ShoucangController extends Controller
+use App\Models\admin\Shoppingjias;
+
+class PingjiaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function getIndex(Request $request)
     {
-        
-
-        return view('host.shoucang.index');
+      $spddh=$request->input('spddh');
+      $data=Shoppingjias::where('spddh','like','%'.$spddh.'%')->paginate(1);
+      return view('admin/pingjia/index',['data'=>$data,'spddh'=>$spddh]);
     }
 
     /**
@@ -51,7 +51,8 @@ class ShoucangController extends Controller
      */
     public function getShow($id)
     {
-        
+       $data=Shoppingjias::find($id);
+       return view('admin/pingjia/show',['data'=>$data]);
     }
 
     /**
@@ -83,8 +84,15 @@ class ShoucangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
-        //
+       /* $data=Shoppingjias::find($id);
+        $data->delete();
+         if($data->delete()) {  
+            return redirect('/adminpingjia/index')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
+    }*/
     }
 }

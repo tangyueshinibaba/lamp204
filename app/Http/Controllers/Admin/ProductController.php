@@ -50,7 +50,6 @@ class ProductController extends Controller
             $hz=$v->getClientOriginalExtension();
            //随机拼接一个10位字符
             $dirname=str_random(10);
-            dd($hz);
             //拼接一个文件名
             $name=$dirname.'.'.$hz;
 
