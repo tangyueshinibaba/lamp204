@@ -26,12 +26,7 @@ Route::controller('/admin','Admin\AdminController');
 
 
 
-Route::controller('/admin','Admin\AdminController');
 
-
-
-
-Route::controller('/admin','Admin\AdminController');
 
 
 
@@ -113,7 +108,8 @@ Route::controller('/shoucang','Host\ShoucangController');
 //前台订单
 Route::controller('/hostorder','Host\OrderController');
 
-
+//地址管理
+Route::controller('/address','Host\AddressController');
 
 
 
@@ -276,7 +272,6 @@ Route::controller('/admin/user','Admin\UserController');
 Route::controller('/admin/manage', 'Admin\ManageController');
 
 
-Route::controller('/carousel','Admin\CarouselController');
 
 
 
@@ -285,5 +280,5 @@ Route::controller('/carousel','Admin\CarouselController');
 
 
 
-Route::controller('/carousel','Admin\CarouselController');
+
 

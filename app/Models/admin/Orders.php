@@ -10,7 +10,7 @@ class Orders extends Model
     //属于关系
     public function user()
     {
-    	return $this->belongsTo('App\Models\admin\user','uid');
+    	return $this->belongsTo('App\Models\host\user','uid');
     }
 
     public function product()

@@ -29,6 +29,7 @@ class HostController extends Controller
         $cates=Cates::all();
         $carousel = Carousel::all();
         $products=Products::all();
+        
         foreach($cates as $k=>$v){
                 //统计出现的次数
                 if(substr_count($v->path,",")==1) {

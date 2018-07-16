@@ -307,7 +307,8 @@
     <ul id="lists">
     @foreach($products as $k3=>$v3)
      <li class="product_display">
-     <a href="/shoucang/show/{{$v->id}}" class="Collect"><em></em>收藏</a>
+      <input type="hidden" value="{{$v3->id}}" class="shoucang">
+     <a href="#" class="Collect"><em></em>收藏</a>
      <a href="#" class="img_link"><img src="/common/host/products/p_44.jpg"  width="140" height="140"/></a>
      <a href="#" class="name">{{$v3->pname}}</a>
      <h3><b>￥</b>{{$v3->price}}</h3>
@@ -317,11 +318,22 @@
       </div>
      </div>
      </li>
+
      @endforeach
     </ul>
     </div>
   </div>
-   
+   <script type="text/javascript">
+    $('.Collect').click(function(){
+      var id = $('.shoucang').val();
+      
+      alert(id);
+     /* $.get('/shoucang/show',{'name',pname},function(msg){
+          alert(1);
+      },'html');*/
+    });
+      
+   </script>
   <!--板块名称-->
     
  </div>

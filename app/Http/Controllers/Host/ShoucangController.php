@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Products;
 use App\Models\admin\User;
+use App\Models\host\Hostcurs;
 class ShoucangController extends Controller
 {
     /**
@@ -18,8 +19,15 @@ class ShoucangController extends Controller
     public function getIndex()
     {
         
-
-        return view('host.shoucang.index');
+        $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+       foreach ($data1 as $k=>$v){
+        $s+=$v->fukuan;
+       }
+        $data2=Hostcurs::all();
+        session(['res'=>$res]);
+        return view('host.shoucang.index',['res'=>$res,'s'=>$s]);
     }
 
     /**
@@ -49,13 +57,10 @@ class ShoucangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getShow($id)
+    public function getShow(Request $request)
     {
-        $users = User::find(10);
-        $products = Products::find($id);
-        if($products->shoucang != 1){
-
-        }
+        $data = $request->input('name');
+        dd($data);
     }
 
     /**

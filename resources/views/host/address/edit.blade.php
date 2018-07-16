@@ -68,69 +68,66 @@
  </div>
  <!--右侧样式-->
   <div class="right_style">
-  <div class="title_style"><em></em>订单管理</div> 
-   <div class="Order_form_style">
-      <div class="Order_form_filter">
-       <a href="#" class="on">全部订单（23）</a>
-       <a href="#" class="">代付款（2）</a>
-       <a href="#" class="">代发货（3）</a>
-       <a href="#" class="">待收货（5）</a>
-       <a href="#" class="">退货/退款（0）</a>
-       <a href="#" class="">交易成功（0）</a>
-       <a href="#" class="">交易关闭（0）</a>
-      </div>
-      <div class="Order_Operation">
-     <div class="left"> <label><input name="" type="checkbox" value=""  class="checkbox"/>全选</label> <input name="" type="submit" value="批量确认收货"  class="confirm_Order"/></div>
-     <div class="right_search"><input name="" type="text"  class="add_Ordertext" placeholder="请输入产品标题或订单号进行搜索"/><input name="" type="submit" value="搜索订单"  class="search_order"/></div>
-      </div>
-      <div class="Order_form_list">
-         <table>
-         <thead>
-          <tr><td class="list_name_title0">商品</td>
-          <td class="list_name_title1">单价(元)</td>
-          <td class="list_name_title2">数量</td>
-          <td class="list_name_title4">实付款(元)</td>
-          <td class="list_name_title5">订单状态</td>
-          <td class="list_name_title6">操作</td>
-         </tr>
-         </thead> 
-          @foreach($data as $k => $v)
-            <tbody>       
-           <tr class="Order_info"><td colspan="6" class="Order_form_time"><input name="" type="checkbox" value=""  class="checkbox"/>下单时间：2015-12-3 | 订单号：{{$v->ddh}}</td></tr>
-           <tr class="Order_Details" >
-           <td colspan="3">
-           <table class="Order_product_style">
-           <tbody><tr>
-           <td>
-            <div class="product_name clearfix">
-            <a href="#" class="product_img"><img src="Products/p_12.jpg" width="80px" height="80px"></a>
-            <a href="3" class="p_name">{{$v->pname}}</a>
-            <p class="specification">礼盒装20个/盒</p>
-            </div>
-            </td>
-            <td>{{$v->price}}</td>
-           <td>{{$v->shuliang}}</td>
-            </tr>
-            </tbody></table>
-           </td>   
-           <td class="split_line">{{$v->zongjia}}</td>
-           <td class="split_line"><p style="color:#F33">买家已付款</p></td>
-           <td class="operating">
-                <a href="/hostorder/show/{{$v->id}}">查看订单</a>
-                <a href="#">在线客服</a>
-                <a href="#">去评价</a>
-                
+ <!--地址管理-->
+  <div class="user_address_style">
+    <div class="title_style"><em></em>地址管理</div> 
+   <div class="add_address">
+    <span class="name">修改收货地址</span>
+    <form action="/address/update/{{$data->id}}" method="post">
+      {{csrf_field()}}
+    <table cellpadding="0" cellspacing="0" width="100%">
+     <tr>
+      <td class="label_name">收&nbsp;货&nbsp;&nbsp;人：</td>
+      <td><input name="uname" type="text"  value="{{$data->uname}}" class="add_text" style=" width:100px"/><i>*</i></td>
+    </tr>
+     <tr>
+      <td class="label_name">所在地区：</td>
+        <td>
+          <select id="Province" runat="server" name="province"  style="width: 90px" ></select>
+          <select id="Country" runat="server"  name="country" style="width: 90px"></select>
+          <select id="Town" runat="server" name="town"  style="width: 90px"></select>
+          
+          <script language="javascript">
+            setup();
+          </script>
 
-                <a href="#" class="Delivery_btn">确认收货</a>            
-           </td>
-           </tr>
-           </tbody>  
-          @endforeach   
-                       
-         </table>
-    </div>
-     </div>
+
+          <i>*</i>
+        </td>
+      </tr>
+     <tr>
+      <td class="label_name">街道地址：</td>
+      <td>
+        <textarea name="address" cols="" rows="" style=" width:500px; height:100px; margin:5px 0px">{{$data->address}}</textarea>
+      <i>*</i>
+    </td>
+    </tr>
+     <tr>
+      <td class="label_name">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编：</td><td><input name="youbian" type="text" value="{{$data->youbian}}" class="add_text" style=" width:100px"/><i>*</i></td>
+    </tr>
+     <tr><td class="label_name">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</td><td><input name="shouji" type="text" value="{{$data->shouji}}" class="add_text" style=" width:200px"/><i>*</i></td>
+     </tr>
+     <tr>
+      <td class="label_name">固定电话：</td>
+     <td><input name="dianhua" type="text" value="{{$data->dianhua}}" class="add_text" style="width:200px"></td></tr>
+     <tr class="moren_dz" style="color: #999">
+      <td class="label_name"></td>
+      
+     </tr>
+     <tr>
+      <td colspan="2" class="center">
+      <input name="" type="submit" value="保存"  class="add_dzbtn"/>
+      <input name="" type="reset" value="清空"  class="reset_btn"/>
+    </td>
+  </tr>
+    </table>
+  </form>
    </div>
+     
+  </div>
+ </div>
+ </div>
+ </div>
    <script>
     $(document).ready(function(){
       $('.Order_form_style input').iCheck({
@@ -139,8 +136,4 @@
       });
     });
     </script>
-  </div>
- </div>
-</div>
-
 @endsection

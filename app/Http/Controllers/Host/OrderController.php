@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Products;
-use App\Models\admin\User;
+use App\Models\host\User;
+use App\Models\host\Hostcurs;
 use App\Models\admin\Orders;
 class OrderController extends Controller
 {
@@ -16,13 +17,21 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function getIndex($id)
     {
-        $user = User::find(10);
+        $user = User::find($id);
+        //dd($user);
         $data = $user->order_product;
-        //dd($data->userorder);
         //dd($data);
-        return view('host.order.index',['data'=>$data]);
+        $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+       foreach ($data1 as $k=>$v){
+        $s+=$v->fukuan;
+       }
+        $data2=Hostcurs::all();
+        session(['res'=>$res]);
+        return view('host.order.index',['data'=>$data,'res'=>$res,'s'=>$s]);
     }
 
     /**
@@ -52,9 +61,14 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow($id)
     {
-        //
+        $data = Products::find($id);
+        //dd($data);
+        $data1 = $data->order_user;
+        
+        dd($data1);
+        return view('host.order.index',['data'=>$data]);
     }
 
     /**

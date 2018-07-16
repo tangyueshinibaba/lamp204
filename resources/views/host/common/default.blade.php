@@ -27,7 +27,7 @@
 
 <script src="/common/host/js/iCheck.js" type="text/javascript"></script>
 <script src="/common/host/js/custom.js" type="text/javascript"></script>
-
+<script src="/common/host/address/area.js" type="text/javascript"></script>
 
 <title>网站首页</title>
 </head>
@@ -97,7 +97,7 @@
      <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
      <ul class="p_s_list">     
         <li>
-            <div class="img"><img src="/common/host/images/tianma.png"></div>
+            <div class="img"><img src=""></div>
             <div class="content"><p class="name"><a href="#">产品名称</a></p><p>颜色分类:紫花8255尺码:XL</p></div>
             <div class="Operations">
             <p class="Price">￥55.00</p>
@@ -151,7 +151,6 @@
      <dd><a href="#">购物流程</a></dd>
      <dd><a href="#">订购方式</a> </dd>
      <dd><a href="#">隐私声明 </a></dd>
-     <dd><a href="#">推荐分享说明 </a></dd>
 	</dl>
 	<dl>
 	 <dt>配送与支付</dt>
@@ -180,33 +179,15 @@
      <dd><a href="#">专题及活动</a></dd>
      <dd><a href="#">挑选保险产品</a> </dd>
      <dd><a href="#">常见问题 </a></dd>
-	</dl>
-     <dl>
-	 <dt>帮助中心</dt>
-	 <dd><a href="#">保险需求测试</a></dd>
-     <dd><a href="#">专题及活动</a></dd>
-     <dd><a href="#">挑选保险产品</a> </dd>
-     <dd><a href="#">常见问题 </a></dd>
-	</dl>
-     <dl>
-	 <dt>帮助中心</dt>
-	 <dd><a href="#">保险需求测试</a></dd>
-     <dd><a href="#">专题及活动</a></dd>
-     <dd><a href="#">挑选保险产品</a> </dd>
-     <dd><a href="#">常见问题 </a></dd>
-	</dl>	   
+	</dl>     
    </div>
     </div>
 </div>
 <!--网站地图END-->
 <!--网站页脚-->
-<!-- <div class="copyright">
-=======
+
 <div class="copyright">
->>>>>>> origin/xyf
-=======
-<div class="copyright">
->>>>>>> origin/zsg
+
     <div class="copyright-bg">
         <div class="hotline">为生活充电在线 <span>招商热线：****-********</span> 客服热线：400-******</div>
         <div class="hotline co-ph">
@@ -215,16 +196,12 @@
             <p>总机电话：****-*********/194/195/196 客服电话：4000****** 传 真：********
                 
                 <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-        </div>p
+        </div>
     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-</div> -->
 
 </div>
 
 
-</div>
 
  <!--右侧菜单栏购物车样式-->
 <div class="fixedBox">
@@ -245,7 +222,7 @@
       <div class="ServiceBox">
         <div class="bjfffs"></div>
         <dl onclick="javascript:;">
-		    <dt><img src="/common/host/images/Service1.png"></dt>
+		    <dt><img src=""></dt>
 		       <dd><strong>QQ客服1</strong>
 		          <p class="p1">9:00-22:00</p>
 		           <p class="p2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=DGG三端同步&amp;menu=yes">点击交谈</a></p>
@@ -265,7 +242,7 @@
 			<div class="cartBox">
        		<div class="bjfff"></div>
 			<div class="QR_code">
-			 <p><img src="/common/host/images/erweim.jpg" width="180px" height="180px" /></p>
+			 <p><img src="" width="180px" height="180px" /></p>
 			 <p>微信扫一扫，关注我们</p>
 			</div>		
 			</div>
