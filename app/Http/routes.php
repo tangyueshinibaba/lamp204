@@ -275,6 +275,8 @@ Route::controller('/yhq','Admin\YhqController');
 Route::controller('/admin/user','Admin\UserController');
 Route::controller('/admin/manage', 'Admin\ManageController');
 
+Route::controller('/list', 'Host\listController');
+
 
 Route::controller('/carousel','Admin\CarouselController');
 
