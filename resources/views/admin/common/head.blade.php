@@ -29,80 +29,34 @@
 <div class="leftnav">
   <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
   <h2><span class="icon-user"></span>首页详情</h2>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
   <ul style="display:block">
-
-
-=======
-  <ul style="display:block">
-
->>>>>>> origin/zsg
-    <li><a href="/carousel" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
-     
-
+    <li><a href="/carousel" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>  
     <li><a href="/adver/create" ><span class="icon-caret-right"></span>广告位</a></li>
     <li><a href="/cates/create" ><span class="icon-caret-right"></span>栏目管理</a></li>
     <li><a href="/adminproduct/create" ><span class="icon-caret-right"></span>产品详情</a></li>
   </ul>   
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/zsg
-
-
->>>>>>> origin/xyf
-  <ul>
-    <li><a href="/adver/create" target="right"><span class="icon-caret-right"></span>广告位</a></li>
-    <li><a href="/cates/create" target="right"><span class="icon-caret-right"></span>栏目管理</a></li>
-    <li><a href="/adminproduct/create" target="right"><span class="icon-caret-right"></span>产品详情</a></li>
-    <li><a href="/carousel" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
-     
-  </ul>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/zsg
 
   <h2><span class="icon-user"></span>友情链接</h2>
 
   <ul>
     <li><a href="/fri/index"><span class="icon-caret-right"></span>链接列表</a></li>
     <li><a href="/fri/create"><span class="icon-caret-right"></span>添加链接</a></li>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
-  </ul>
-
-
->>>>>>> origin/xyf
-=======
-
-  </ul>
->>>>>>> origin/zsg
   </ul>
 
   <h2><span class="icon-user"></span>订单表</h2>
   <ul style="display:block">
     <li><a href="/adminorder/index"><span class="icon-caret-right"></span>订单详情</a></li>
   </ul>
-<<<<<<< HEAD
+
    <h2><span class="icon-user"></span>评价管理</h2>
     <ul style="display:block">
     <li><a href="/adminpingjia/index"><span class="icon-caret-right"></span>用户评价</a></li>
   </ul>
-=======
 
-
-
-<<<<<<< HEAD
-
->>>>>>> origin/xyf
-=======
->>>>>>> origin/zsg
 </div>
 
 <script type="text/javascript">

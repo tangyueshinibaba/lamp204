@@ -10,12 +10,6 @@ use App\Models\host\User;
 use App\Models\host\Hostcurs;
 use Hash;
 use App\Http\Requests\UserCreateRequest;
-<<<<<<< HEAD
-use App\Models\host\Hostcurs;
-=======
-use App\Models\Host\Hostcurs;
-
->>>>>>> origin/zsg
 class UserController extends Controller
 {
     /**
@@ -93,7 +87,7 @@ class UserController extends Controller
     {
         //从数据库中读取要修改的数据
         $data = User::find($id);
-<<<<<<< HEAD
+
         $data1=Hostcurs::all();
         $res=count($data1);
         $s=0;
@@ -102,13 +96,9 @@ class UserController extends Controller
        }
         $data2=Hostcurs::all();
         session(['res'=>$res]);
-<<<<<<< HEAD
-        return view('host.user.edit',['data' => $data,'s'=>$s]);
-=======
+
+
         return view('host.user.edit',['data' => $data,'res'=>$res,'s'=>$s]);
->>>>>>> origin/xyf
-        
-=======
        
         $data1=Hostcurs::all();
         $res=count($data1);
@@ -120,7 +110,6 @@ class UserController extends Controller
         session(['res'=>$res]);
         return view('host.user.edit',['data' => $data,'res' => $res,'s' => $s]);
 
->>>>>>> origin/zsg
     }
 
     /**

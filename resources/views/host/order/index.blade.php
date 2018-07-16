@@ -1,6 +1,6 @@
 @extends('host.common.default')
 @section('content')
-	<div class="user_style clearfix">
+  <div class="user_style clearfix">
  <div class="user_center clearfix">
    <div class="left_style">
      <div class="menu_style">
@@ -119,9 +119,8 @@
            <td class="split_line">{{$v->zongjia}}</td>
            <td class="split_line"><p style="color:#F33">买家已付款</p></td>
            <td class="operating">
-                <a href="/hostorder/show/{{$v->id}}">查看订单</a>
+                <a href="#">查看订单</a>
                 <a href="#">在线客服</a>
-<<<<<<< HEAD
               
                
                 @if($v->sfpj==1)
@@ -131,14 +130,7 @@
                <a href="/pingjia/index/{{$v->id}}" style="display:inline;">去评价</a>
                @endif
 
-                <a href="#" class="Delivery_btn">确认收货</a>   
-                      
-=======
-                <a href="#">去评价</a>
-                
-
-                <a href="#" class="Delivery_btn">确认收货</a>            
->>>>>>> origin/xyf
+                <a href="#" class="Delivery_btn">确认收货</a>     
            </td>
            </tr>
            </tbody>  

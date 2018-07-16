@@ -5,7 +5,6 @@
        <h2 class="fl">订单详情示例</h2>
       </div>
       <table class="table">
-
        <tr>
         <td>收件人：{{$orders->user->uname}}</td>
         <td>联系电话：18300000000</td>

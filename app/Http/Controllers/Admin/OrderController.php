@@ -52,7 +52,6 @@ class OrderController extends Controller
     public function getShow($id)
     {
         $orders = Orders::find($id);
-        
         return view('admin.order.show',['orders'=>$orders]);
     }
 

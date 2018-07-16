@@ -7,15 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Products;
-<<<<<<< HEAD
 use App\Models\admin\User;
 use App\Models\host\Shoppingjias;
 use App\Models\host\Orders;
-=======
-use App\Models\host\User;
 use App\Models\host\Hostcurs;
-use App\Models\admin\Orders;
->>>>>>> origin/xyf
 class OrderController extends Controller
 {
     /**
@@ -25,18 +20,13 @@ class OrderController extends Controller
      */
     public function getIndex($id)
     {
-<<<<<<< HEAD
+
         $data=Orders::where('uid','=',session('id'))->get();
+
         $r=count($data);
         //$sp=Shoppingjias::where('uid','=',session('id'))->get();
         $res=Shoppingjias::get();
         $user=User::find(session('id'));
-        return view('host.order.index',['data'=>$data,'r'=>$r,'res'=>$res,'user'=>$user]);  
-=======
-        $user = User::find($id);
-        //dd($user);
-        $data = $user->order_product;
-        //dd($data);
         $data1=Hostcurs::all();
         $res=count($data1);
         $s=0;
@@ -45,8 +35,7 @@ class OrderController extends Controller
        }
         $data2=Hostcurs::all();
         session(['res'=>$res]);
-        return view('host.order.index',['data'=>$data,'res'=>$res,'s'=>$s]);
->>>>>>> origin/xyf
+      return view('host.order.index',['data'=>$data,'r'=>$r,'res'=>$res,'user'=>$user,'s'=>$s]);  
     }
 
     /**
@@ -78,12 +67,9 @@ class OrderController extends Controller
      */
     public function getShow($id)
     {
-        $data = Products::find($id);
-        //dd($data);
-        $data1 = $data->order_user;
+       /* $data = Orders::find($id);
         
-        dd($data1);
-        return view('host.order.index',['data'=>$data]);
+        return view('host.order.index',['data'=>$data]);*/
     }
 
     /**

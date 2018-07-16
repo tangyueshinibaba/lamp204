@@ -14,10 +14,6 @@ use App\Models\host\Carousel;
 use App\Models\host\Hostcurs;
 
 use App\Models\host\Products;
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/zsg
 
 use App\Models\admin\Fri;
 class HostController extends Controller
@@ -31,74 +27,43 @@ class HostController extends Controller
     {
         $data=Advers::all();
         $cates=Cates::all();
-<<<<<<< HEAD
-=======
         $fris = Fri::all();
-
->>>>>>> origin/zsg
         $carousel = Carousel::all();
         $products=Products::all();
-<<<<<<< HEAD
-        
-=======
-
-
->>>>>>> origin/zsg
         foreach($cates as $k=>$v){
-        //统计出现的次数
-        if(substr_count($v->path,",")==1) {
-        $b[]=$v;
-        }
-        if(substr_count($v->path,",")==2) {
-        $c[]=$v;
-        }
-              
-<<<<<<< HEAD
-         }
-        $id=session('id');
-        $data1=Hostcurs::where('uid','=',$id)->get();
-=======
+            //统计出现的次数
+            if(substr_count($v->path,",")==1)
+            {
+                $b[]=$v;
             }
-        // dump($b);die;
+            if(substr_count($v->path,",")==2) 
+            {
+                $c[]=$v;
+            }
+                  
+         }
+            $id=session('id');
+            $data1=Hostcurs::where('uid','=',$id)->get();
+            $data1=Hostcurs::all();
+            $res=count($data1);
+            $s=0;
+           foreach ($data1 as $k=>$v)
+            {
+             $s+=$v->fukuan;
+            }
+            session(['res'=>$res]);
 
-        $data1=Hostcurs::all();
->>>>>>> origin/zsg
-        $res=count($data1);
-        $s=0;
-       foreach ($data1 as $k=>$v){
-        $s+=$v->fukuan;
-       }
-        session(['res'=>$res]);
-<<<<<<< HEAD
-       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s]);
-=======
        return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s,'fris' => $fris]);
-       //return view('/host/cc/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel]);
-
-
-        // return view('/host/host/index',['data'=>$data,'cates'=>$cates,'carousel'=>$carousel,'products'=>$products,'b'=>$b,'c'=>$c]);
->>>>>>> origin/zsg
-
-       
     }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function getCreate()
     {
-
-<<<<<<< HEAD
-
         return view('host.common.default');
-=======
-        return view('host/cc/index');
-
-        return view('host.common.default');
-
->>>>>>> origin/zsg
     }
 
     /**

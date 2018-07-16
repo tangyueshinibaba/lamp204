@@ -59,12 +59,10 @@ class ShoucangController extends Controller
      */
     public function getShow(Request $request)
     {
-<<<<<<< HEAD
-        
-=======
+
         $data = $request->input('name');
         dd($data);
->>>>>>> origin/xyf
+
     }
 
     /**

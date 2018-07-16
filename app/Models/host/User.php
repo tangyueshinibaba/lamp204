@@ -9,12 +9,12 @@ class User extends Model
     //
     public $table = "hostusers";
 
-<<<<<<< HEAD
+
     //一对一关系
     public function userinfo()
     {
     	return $this->hasOne('App\Models\host\Hostcurs','uid');
-=======
+    }
     public function shoucang()
     {
          return $this->belongsToMany('App\Models\admin\Products','shoucangs','uid','shop_id');
@@ -28,6 +28,5 @@ class User extends Model
     public function userorder()
     {
     	return $this->hasMany('App\Models\admin\Orders','uid');
->>>>>>> origin/xyf
     }
 }

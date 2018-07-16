@@ -21,11 +21,6 @@ Route::get('/', function () {
 //后台首页
 Route::controller('/admin','Admin\AdminController');
 
-<<<<<<< HEAD
-=======
-
-
-<<<<<<< HEAD
 
 
 
@@ -33,9 +28,6 @@ Route::controller('/admin','Admin\AdminController');
 
 
 
->>>>>>> origin/xyf
-=======
->>>>>>> origin/zsg
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -49,11 +41,10 @@ Route::controller('/pingjia','Host\PingjiaController');
 Route::controller('/adver','Admin\AdversController');
 //后台产品详情
 Route::controller('/adminproduct','Admin\ProductController');
-<<<<<<< HEAD
+
 //后台评价
 Route::controller('/adminpingjia','Admin\PingjiaController');
-=======
->>>>>>> origin/zsg
+
 
 //前台广告位
 Route::controller('/hostadver','Host\AdverController');
@@ -285,26 +276,10 @@ Route::controller('/repass','Host\RepassController');
 Route::controller('/admin/user','Admin\UserController');
 Route::controller('/admin/manage', 'Admin\ManageController');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 Route::controller('/list', 'Host\listController');
 
->>>>>>> origin/yubo_host
-
-
-
-=======
->>>>>>> origin/zsg
 
 Route::controller('/carousel','Admin\CarouselController');
 
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> origin/zsg
 
