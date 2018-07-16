@@ -30,7 +30,7 @@
 
 <script src="/common/host/js/iCheck.js" type="text/javascript"></script>
 <script src="/common/host/js/custom.js" type="text/javascript"></script>
-
+<script src="/common/host/address/area.js" type="text/javascript"></script>
 
 
 <title>网站首页</title>
@@ -173,7 +173,6 @@
      <dd><a href="#">购物流程</a></dd>
      <dd><a href="#">订购方式</a> </dd>
      <dd><a href="#">隐私声明 </a></dd>
-     <dd><a href="#">推荐分享说明 </a></dd>
 	</dl>
 	<dl>
 	 <dt>配送与支付</dt>
@@ -201,17 +200,39 @@
 	 <dd><a href="#">保险需求测试</a></dd>
      <dd><a href="#">专题及活动</a></dd>
      <dd><a href="#">挑选保险产品</a> </dd>
+<<<<<<< HEAD
      <dd><a href="#">常见问题</a></dd>
 	</dl>
    </div>
     </div>
 </div>
 
+=======
+     <dd><a href="#">常见问题 </a></dd>
+	</dl>     
+   </div>
+    </div>
+</div>
+<!--网站地图END-->
+<!--网站页脚-->
+
+<div class="copyright">
+
+    <div class="copyright-bg">
+        <div class="hotline">为生活充电在线 <span>招商热线：****-********</span> 客服热线：400-******</div>
+        <div class="hotline co-ph">
+            <p>版权所有Copyright ©***************</p>
+            <p>*ICP备***************号 不良信息举报</p>
+            <p>总机电话：****-*********/194/195/196 客服电话：4000****** 传 真：********
+                
+                <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+        </div>
+    </div>
+>>>>>>> origin/xyf
 
 </div>
 
 
-</div>
 
  <!--右侧菜单栏购物车样式-->
 <div class="fixedBox">

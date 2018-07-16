@@ -10,7 +10,7 @@ use App\Models\host\User;
 use App\Models\host\Hostcurs;
 use Hash;
 use App\Http\Requests\UserCreateRequest;
-
+use App\Models\host\Hostcurs;
 class UserController extends Controller
 {
     /**
@@ -97,7 +97,11 @@ class UserController extends Controller
        }
         $data2=Hostcurs::all();
         session(['res'=>$res]);
+<<<<<<< HEAD
         return view('host.user.edit',['data' => $data,'s'=>$s]);
+=======
+        return view('host.user.edit',['data' => $data,'res'=>$res,'s'=>$s]);
+>>>>>>> origin/xyf
         
     }
 
