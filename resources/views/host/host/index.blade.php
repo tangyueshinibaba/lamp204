@@ -1,5 +1,11 @@
 @extends('host.common.default')
 @section('content')
+<!--注册成功弹窗-->
+@if(session('success'))
+    <div class="alert alert-success">
+        <script >layer.alert('{{ session('success') }}', {icon: 6})</script>;
+    </div>  
+@endif
 <!--轮播图开始-->
   <div id="slideBox" class="slideBox">
       <div class="hd">
@@ -341,19 +347,9 @@
  <div class="link_style clearfix">
  <div class="title">友情链接</div>
  <div class="link_name">
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
+ @foreach($fris as $m => $n)
+  <a href="{{ $n -> url }}"><img src="/common/admin/images/fri/{{$n -> pic}}"  width="120" height="50"/></a>
+  @endforeach
  </div>
  </div>
 </div>

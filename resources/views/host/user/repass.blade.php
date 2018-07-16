@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
-<title>昌平F4</title>
+<title>密码修改</title>
 <meta charset="gb2312">
 <link href="/common/host/adminzc/css/home.css?v=2" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/common/host/adminzc/js/jquery-1.7.2.js"></script>
@@ -105,39 +103,38 @@
                 })();
             </script>
 	<div class="container">
-	<!-- 显示错误信息 -->
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-               <script >layer.alert('{{ $error }}', {icon: 6});</script>
-            @endforeach
-        </ul>
-    </div>
+<!-- 显示错误信息 -->
+ @if (session('error'))
+  <script>
+     layer.alert('{{session('error')}}', {
+      icon: 1,
+      skin: 'layer-ext-moon'
+    })
+  </script>   
 @endif
-
-	<form action="/user/store" method = "post">    
-  
+	<form action="/repass/update/{{session('id')}}" method = "post">     
 	 {{ csrf_field() }}
 		<div class="register-box">
-			<div class="reg-slogan"><h2>新用户注册</h2></div>
+			<div class="reg-slogan"><h2>修改密码</h2></div>
 			<div class="reg-form" id="js-form-mobile">
-				<h3>用户名：</h3><div class="cell">
-					<input type="text" name="uname" id="js-mobile_ipt" class="text"  value = "{{ old('uname')}}" placeholder="请输入6-12位用户名"/>
+				
+				<h3>原密码：</h3><div class="cell">
+					<input type="password" name="oldpass" id="js-mobile_ipt" class="text"  value = "" placeholder="请输入原密码"/>
 				</div>
-				<h3>密码：</h3><div class="cell">
-					<input type="password" name="pass" id="js-mobile_ipt" class="text"  value = "{{ old('pass')}}" placeholder="请输入6-12位密码"/>
+				<h3>新密码：</h3><div class="cell">
+					<input type="password" name="newpass" id="js-mobile_ipt" class="text"  value = "" placeholder="请输入新密码"/>
 				</div>
-				<h3>确认密码：</h3><div class="cell">
-					<input type="password" name="pass_confirmation" id="js-mobile_ipt" class="text"  value = "{{ old('pass_confirmation')}}" placeholder="请再次输入密码"/>
+				<h3>确认新密码：</h3><div class="cell">
+					<input type="password" name="newpass_confirmation" id="js-mobile_ipt" class="text"  value = "" placeholder="确认新密码"/>
 				</div>
-				<h3>手机号：</h3><div class="cell">
-					<input type="text" name="phone" id="js-mobile_ipt" class="text"  value = "{{ old('phone')}}" placeholder="请输入有效手机号"/>
+				<h3>手机号：</h3>
+				<div class="cell">
+					<input type="text" name="phone" id="js-mobile_ipt" class="text"  value = "" placeholder="请输入手机号"/>
 				</div>
 				<div class="bottom">
 					<!-- <a id="js-mobile_btn" href="" class="button btn-green">
 					确认注册</a> -->
-					<input type="submit"  value = "确认注册" id="js-mobile_btn" class="button btn-green" >
+					<input type="submit"  value = "确认修改" id="js-mobile_btn" class="button btn-green" >
 				</div>
 			</div>
 		</div>

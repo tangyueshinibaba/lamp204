@@ -15,9 +15,11 @@ class YhqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function postIndex()
+    public function getIndex()
     {
-        
+        //接收数据库
+        $yhq = Yhq::paginate(2);
+        return view('admin.yhq.index',['yhq' => $yhq]);
     }
 
     /**
@@ -78,9 +80,11 @@ class YhqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit($id)
     {
         //
+        $data = Yhq::where('id',$id)->first();
+        return view('admin.yhq.edit',['data' => $data]);
     }
 
     /**
@@ -101,8 +105,15 @@ class YhqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
-        //
+         //Fri::destory($id);
+        $yhq = Yhq::find($id);
+        if ($yhq->delete()) {
+            return redirect('/yhq') -> with('success','删除成功');
+        } else {
+            return back() -> with('error','删除失败');
+        }        
     }
+    
 }

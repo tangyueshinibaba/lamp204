@@ -5,8 +5,11 @@
 <link href="/common/host/css/common.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/user_style.css" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
 <link href="/layui/css/layui.css" rel="stylesheet" type="text/css" />
 
+=======
+>>>>>>> origin/zsg
 
 <link href="/common/host/skins/all.css" rel="stylesheet" type="text/css" />
 
@@ -20,10 +23,15 @@
 <script src="/common/host/js/common_js.js" type="text/javascript"></script>
 <script src="/common/host/js/footer.js" type="text/javascript"></script>
 <script src="/common/host/layer/layer.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+<script type="text/javascript" src="/layui/layui.all.js"></script>
+>>>>>>> origin/zsg
 
 <script src="/common/host/js/jquery.simpleGal.js"></script>
 <script type="text/javascript" src="/common/host/js/jquery.imagezoom.min.js"></script>
 
+<<<<<<< HEAD
 
 
 
@@ -33,9 +41,12 @@
 <script src="/common/host/address/area.js" type="text/javascript"></script>
 
 
+=======
+<script src="/common/host/js/iCheck.js" type="text/javascript"></script>
+<script src="/common/host/js/custom.js" type="text/javascript"></script>
+>>>>>>> origin/zsg
 <title>网站首页</title>
 </head>
-
 <body>
 <head>
  @if(session('username') !== null)
@@ -94,6 +105,7 @@
  <!--购物车样式-->
  <div class="hd_Shopping_list" id="Shopping_list">
 
+<<<<<<< HEAD
    <div class="s_cart">
    @if(session('username')==null)
     <a href="/cur/index" class="mycar">我的购物车</a> 
@@ -110,6 +122,9 @@
    @endif
    
    </div>
+=======
+   <div class="s_cart"><a href="/cur/index">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">{{session('res')}}</i></div>
+>>>>>>> origin/zsg
 
    <div class="dorpdown-layer">
     <div class="spacer"></div>
@@ -125,7 +140,11 @@
         </ul>       
      <div class="Shopping_style">
 
+<<<<<<< HEAD
      <div class="p-total">共<b>{{session('res')}}</b>件商品　共计<strong>￥55</strong></div>
+=======
+     <div class="p-total">共<b>{{$res}}</b>件商品　共计<strong>￥{{$s}}</strong></div>
+>>>>>>> origin/zsg
       <a href="/cur/index" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
 
 
@@ -215,7 +234,15 @@
 </div>
 <!--网站地图END-->
 <!--网站页脚-->
+<<<<<<< HEAD
 
+=======
+<!-- <div class="copyright">
+=======
+<div class="copyright">
+>>>>>>> origin/xyf
+=======
+>>>>>>> origin/zsg
 <div class="copyright">
 
     <div class="copyright-bg">
@@ -226,14 +253,26 @@
             <p>总机电话：****-*********/194/195/196 客服电话：4000****** 传 真：********
                 
                 <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
-        </div>
+        </div>p
     </div>
+<<<<<<< HEAD
 >>>>>>> origin/xyf
 
 </div>
 
 
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+</div> -->
+
+</div>
+
+
+</div>
+
+>>>>>>> origin/zsg
  <!--右侧菜单栏购物车样式-->
 <div class="fixedBox">
   <ul class="fixedBoxList">
@@ -242,6 +281,13 @@
 
 		<p class="good_cart">{{session('res')}}</p>
 
+<<<<<<< HEAD
+=======
+		<p class="good_cart">9</p>
+
+		<p class="good_cart">9</p>
+
+>>>>>>> origin/zsg
 			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
 			<div class="cartBox">
        		<div class="bjfff"></div><div class="message">购物车内暂无商品，赶紧选购吧</div>    </div></li>

@@ -25,6 +25,7 @@ Route::controller('/admin','Admin\AdminController');
 =======
 
 
+<<<<<<< HEAD
 
 
 
@@ -33,6 +34,8 @@ Route::controller('/admin','Admin\AdminController');
 
 
 >>>>>>> origin/xyf
+=======
+>>>>>>> origin/zsg
 //前台首页
 Route::controller('/host','Host\HostController');
 //前台栏目表
@@ -46,8 +49,11 @@ Route::controller('/pingjia','Host\PingjiaController');
 Route::controller('/adver','Admin\AdversController');
 //后台产品详情
 Route::controller('/adminproduct','Admin\ProductController');
+<<<<<<< HEAD
 //后台评价
 Route::controller('/adminpingjia','Admin\PingjiaController');
+=======
+>>>>>>> origin/zsg
 
 //前台广告位
 Route::controller('/hostadver','Host\AdverController');
@@ -240,10 +246,12 @@ Route::controller('/fri','Admin\FriController');
 Route::controller('/user','Host\UserController');
 //前台用户登录 zsg
 Route::controller('/login','Host\LoginController');
-//后台优惠券
+//后台优惠券 zsg
 Route::controller('/yhq','Admin\YhqController');
 
 
+//修改密码
+Route::controller('/repass','Host\RepassController');
 
 
 
@@ -277,14 +285,21 @@ Route::controller('/yhq','Admin\YhqController');
 Route::controller('/admin/user','Admin\UserController');
 Route::controller('/admin/manage', 'Admin\ManageController');
 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> origin/zsg
+
+Route::controller('/carousel','Admin\CarouselController');
+
+
+<<<<<<< HEAD
 
 
 
 
-
-
-
-
-
-
+=======
+>>>>>>> origin/zsg
 
