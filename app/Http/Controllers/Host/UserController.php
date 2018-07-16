@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\host\User;
 use Hash;
 use App\Http\Requests\UserCreateRequest;
+use App\Models\Host\Hostcurs;
 
 class UserController extends Controller
 {
@@ -55,9 +56,9 @@ class UserController extends Controller
         $users -> phone = $phone; 
     
         if ($users -> save()) {
-            return redirect('/host')-> with('success','登录成功');
+            return redirect('/host')-> with('success','注册成功,唐跃是你爸爸哟');
         } else {
-            return back() -> with('error','密码不一致');
+            return back() -> with('error','注册失败');
         }
         
         //执行添加
@@ -78,7 +79,6 @@ class UserController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -89,8 +89,17 @@ class UserController extends Controller
     {
         //从数据库中读取要修改的数据
         $data = User::find($id);
-        return view('host.user.edit',['data' => $data]);
-        
+       
+        $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+        foreach ($data1 as $k=>$v){
+            $s+=$v->fukuan;
+        }
+        $data2=Hostcurs::all();
+        session(['res'=>$res]);
+        return view('host.user.edit',['data' => $data,'res' => $res,'s' => $s]);
+
     }
 
     /**
@@ -126,7 +135,7 @@ class UserController extends Controller
         }
         $user -> pic = $name;
         if ($user -> save()) {
-            return redirect('/user/edit/'.$id);
+            return redirect('/user/edit/'.$id) ->with('success','修改成功');
         }
     }
 
@@ -143,7 +152,7 @@ class UserController extends Controller
         if ($user->delete()) {
             return redirect('/user') -> with('success','删除成功');
         } else {
-            return back() -> with('error','删除失败');;
+            return back() -> with('error','删除失败');
         }   
     }
 

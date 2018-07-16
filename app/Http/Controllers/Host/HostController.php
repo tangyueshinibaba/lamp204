@@ -10,12 +10,12 @@ use App\Models\host\Advers;
 use App\Models\host\Cates;
 
 use App\Models\host\Carousel;
-<<<<<<< HEAD
-use App\Models\host\Hostcurs;
-=======
-use App\Models\host\Products;
->>>>>>> origin/xyf
 
+use App\Models\host\Hostcurs;
+
+use App\Models\host\Products;
+
+use App\Models\admin\Fri;
 class HostController extends Controller
 {
     /**
@@ -27,18 +27,14 @@ class HostController extends Controller
     {
         $data=Advers::all();
         $cates=Cates::all();
+        $fris = Fri::all();
 
         $carousel = Carousel::all();
         
 
         $products=Products::all();
 
-        
-<<<<<<< HEAD
-=======
 
-
->>>>>>> origin/xyf
         foreach($cates as $k=>$v){
                 //统计出现的次数
                 if(substr_count($v->path,",")==1) {
@@ -50,24 +46,21 @@ class HostController extends Controller
               
             }
         // dump($b);die;
-<<<<<<< HEAD
-         $data1=Hostcurs::all();
+
+        $data1=Hostcurs::all();
         $res=count($data1);
         $s=0;
        foreach ($data1 as $k=>$v){
         $s+=$v->fukuan;
        }
         session(['res'=>$res]);
-       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s]);
+       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s,'fris' => $fris]);
        //return view('/host/cc/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel]);
-=======
 
-        return view('/host/host/index',['data'=>$data,'cates'=>$cates,'carousel'=>$carousel,'products'=>$products,'b'=>$b,'c'=>$c]);
+
+        // return view('/host/host/index',['data'=>$data,'cates'=>$cates,'carousel'=>$carousel,'products'=>$products,'b'=>$b,'c'=>$c]);
 
        
-
->>>>>>> origin/xyf
-
     }
 
     /**
@@ -77,11 +70,11 @@ class HostController extends Controller
      */
     public function getCreate()
     {
-<<<<<<< HEAD
+
         return view('host/cc/index');
-=======
+
         return view('host.common.default');
->>>>>>> origin/xyf
+
     }
 
     /**

@@ -1,15 +1,5 @@
 @extends('admin.common.head')
 @section('content')
-<!-- 显示错误信息 -->
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
   <div class = "panel admin-panel">
   	<div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
   	<div class="padding border-bottom">  

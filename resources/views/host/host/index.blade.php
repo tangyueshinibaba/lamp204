@@ -1,5 +1,11 @@
 @extends('host.common.default')
 @section('content')
+<!--注册成功弹窗-->
+@if(session('success'))
+    <div class="alert alert-success">
+        <script >layer.alert('{{ session('success') }}', {icon: 6})</script>;
+    </div>  
+@endif
 <!--轮播图开始-->
   <div id="slideBox" class="slideBox">
       <div class="hd">
@@ -307,7 +313,8 @@
     <ul id="lists">
     @foreach($products as $k3=>$v3)
      <li class="product_display">
-     <a href="/shoucang/show/{{$v->id}}" class="Collect"><em></em>收藏</a>
+      <input type="hidden" value="{{$v3->id}}" class="shoucang">
+     <a href="#" class="Collect"><em></em>收藏</a>
      <a href="#" class="img_link"><img src="/common/host/products/p_44.jpg"  width="140" height="140"/></a>
      <a href="#" class="name">{{$v3->pname}}</a>
      <h3><b>￥</b>{{$v3->price}}</h3>
@@ -317,11 +324,22 @@
       </div>
      </div>
      </li>
+
      @endforeach
     </ul>
     </div>
   </div>
-   
+   <script type="text/javascript">
+    $('.Collect').click(function(){
+      var id = $('.shoucang').val();
+      
+      alert(id);
+     /* $.get('/shoucang/show',{'name',pname},function(msg){
+          alert(1);
+      },'html');*/
+    });
+      
+   </script>
   <!--板块名称-->
     
  </div>
@@ -329,19 +347,9 @@
  <div class="link_style clearfix">
  <div class="title">友情链接</div>
  <div class="link_name">
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
-  <a href="#"><img src="/common/host/products/logo/34.jpg"  width="100"/></a>
+ @foreach($fris as $m => $n)
+  <a href="{{ $n -> url }}"><img src="/common/admin/images/fri/{{$n -> pic}}"  width="120" height="50"/></a>
+  @endforeach
  </div>
  </div>
 </div>

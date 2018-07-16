@@ -24,7 +24,7 @@ class UserCreateRequest extends Request
     public function rules()
     {
         return [
-            'uname' => 'required|min:6|max:12',
+            'uname' => 'required|unique:hostusers|min:6|max:12',
             'pass' => 'required|min:6|max:12|confirmed',
             'pass_confirmation' => 'required|min:6|max:12',
             'phone' => 'required|unique:hostusers|regex:/^[1][3,4,5,7,8][0-9]{9}$/'
@@ -35,6 +35,7 @@ class UserCreateRequest extends Request
     {
         return [
             'uname.required' => '用户名不能为空',
+            'uname.unique' => '用户名已被注册',
             'uname.min' => '用户名必须是6-12位',
             'pass.required' => '密码不能为空',
             'pass.min' => '密码必须是6-12位',
