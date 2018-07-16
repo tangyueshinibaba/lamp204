@@ -135,7 +135,7 @@ class UserController extends Controller
         $user -> updated_at = date('Y-m-d H:i:s',time());
         $user -> save();
         return redirect('/admin/user');
-         
+        //aaa
     }
 
     /**
