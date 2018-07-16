@@ -286,6 +286,11 @@ Route::controller('/admin/user','Admin\UserController');
 Route::controller('/admin/manage', 'Admin\ManageController');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+Route::controller('/list', 'Host\listController');
+
+>>>>>>> origin/yubo_host
 
 
 
