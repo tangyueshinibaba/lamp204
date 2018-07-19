@@ -10,6 +10,7 @@ use App\Models\host\Advers;
 use App\Models\host\Cates;
 use App\Models\host\good;
 use DB;
+use App\Http\Controllers\Host\InfoCenterController;
 
 use App\Models\host\Carousel;
 
@@ -27,6 +28,7 @@ class listController extends Controller
     public function getIndex()
     {
         //
+        InfoCenterController::create('aa', 'bb', 'shuguang');
         $data=Advers::all();
         $cates=Cates::all();
         $carousel = Carousel::all();

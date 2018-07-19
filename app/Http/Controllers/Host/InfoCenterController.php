@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\host\infoCenter;
+use DB;
 
 class InfoCenterController extends Controller
 {
@@ -31,8 +32,12 @@ class InfoCenterController extends Controller
         $ic = new infoCenter;
         $ic -> title = $title;
         $ic -> content = $content;
-        
-        $uname = 
+        $uid = DB::table('hostusers')->select('id')->where('uname', '=', $uname)->first();
+        $ic -> uid = $uid->uname;
+        $ic -> status = 0;
+        $ic -> created_at = date('Y-m-d H:i:s',time());
+        $ic -> updated_at = date('Y-m-d H:i:s',time());
+        $ic -> save();
     }
 
     /**
