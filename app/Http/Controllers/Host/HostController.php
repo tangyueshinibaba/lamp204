@@ -15,6 +15,8 @@ use App\Models\host\Hostcurs;
 
 use App\Models\host\Products;
 
+use DB;
+
 
 class HostController extends Controller
 {
@@ -47,7 +49,21 @@ class HostController extends Controller
         $s+=$v->fukuan;
        }
         session(['res'=>$res]);
-       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s]);
+       if(session('username') != ''){
+            $uid = $uid = DB::table('hostusers')->select('id')->where('uname', '=', session('username'))->first();
+            $infoCount = DB::table('infocenters')->select('id')->where('uid', '=', $uid->id)->where('status', 0)->count();
+            $infoDetail = DB::table('infocenters')->where('uid', '=', $uid->id)->where('status', 0)->get();
+            $infoCount_old = DB::table('infocenters')->select('id')->where('uid', '=', $uid->id)->where('status', 1)->count();
+            $infoDetail_old = DB::table('infocenters')->where('uid', '=', $uid->id)->where('status', 1)->get();
+            //dd($infoCount);
+            //dd($infoDetail);
+            //$infoCount = 0;
+            return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'infoCount'=>$infoCount, 'infoDetail'=>$infoDetail, 'infoCount_old'=>$infoCount_old, 'infoDetail_old'=>$infoDetail_old]);
+        }
+        else{
+            //dd('i am here');
+            return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s]);    
+        }
        //return view('/host/cc/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel]);
 
     }

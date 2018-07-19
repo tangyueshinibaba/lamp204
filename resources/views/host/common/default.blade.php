@@ -44,7 +44,13 @@
       <ul class="clearfix">
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/host">首页</a></li> 
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/ic">
+        @if($infoCount != 0)
+          <b style="color:red">消息中心({{ $infoCount }})</b>
+        @else
+          消息中心
+        @endif
+       </a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
         <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>({{session('res')}})</b></a></li> 
       </ul>

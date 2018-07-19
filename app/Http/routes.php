@@ -280,6 +280,8 @@ Route::controller('/list', 'Host\listController');
 
 Route::controller('/carousel','Admin\CarouselController');
 
+Route::controller('/ic', 'Host\InfoCenterController');
+
 
 
 

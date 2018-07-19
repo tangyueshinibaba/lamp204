@@ -28,7 +28,8 @@ class listController extends Controller
     public function getIndex()
     {
         //
-        InfoCenterController::create('aa', 'bb', 'shuguang');
+        InfoCenterController::create('ee', 'ff', 'shuguang');
+        //session(['username' => 'shuguang']);
         $data=Advers::all();
         $cates=Cates::all();
         $carousel = Carousel::all();
@@ -65,7 +66,16 @@ class listController extends Controller
                 ->paginate(1);
         $id = 0;
         //dd($goods);
-        return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id]);
+        if(session('username') != ''){
+            $uid = $uid = DB::table('hostusers')->select('id')->where('uname', '=', session('username'))->first();
+            $infoCount = DB::table('infocenters')->select('id')->where('uid', '=', $uid->id)->where('status', 0)->count();
+            $infoDetail = DB::table('infocenters')->where('uid', '=', $uid->id)->where('status', 0)->get();
+            $infoCount_old = DB::table('infocenters')->select('id')->where('uid', '=', $uid->id)->where('status', 1)->count();
+            $infoDetail_old = DB::table('infocenters')->where('uid', '=', $uid->id)->where('status', 1)->get();
+            return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id, 'infoCount'=>$infoCount, 'infoDetail'=>$infoDetail, 'infoCount_old'=>$infoCount_old, 'infoDetail_old'=>$infoDetail_old]);
+        }else{
+            return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id]);
+        }
     }
 
     /**
