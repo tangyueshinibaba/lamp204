@@ -36,7 +36,7 @@ class GoumaiController extends Controller
        }
         session(['res'=>$res]);
         //分配模板
-        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj]);
+        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj,'res'=>$res]);
     }
 
     /**

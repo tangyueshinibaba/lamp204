@@ -92,37 +92,23 @@
         <ul><li>新品上市</li><li>超值特惠</li><li>本期团购</li><li>产品精选</li><li>抢先一步</li></ul>
       </div>
       <div class="parBd">
+
           <div class="slideBoxs">
             <a class="sPrev" href="javascript:void(0)"></a>
             <ul>
+              
+              @foreach($products as $k => $v)
+              @if($v->status == 1)
               <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_11.jpg" /></a></div>
+                <div class="pic"><a href="/goumai/index/{{$v->id}}" target="_blank"><img src="/uploads/{{$v->profile}}" /></a></div>
                 <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
+                  <a href="#" target="_blank" class="name">{{$v->pname}}|{{$v->jieshao}}</a>
+                  <h3><b>￥</b>{{$v->price}}</h3>
+                </div>
               </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_12.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_13.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_15.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
+              @endif
+              @endforeach
+             
             </ul>
             <a class="sNext" href="javascript:void(0)"></a>
           </div><!-- slideBox End -->
@@ -130,34 +116,18 @@
           <div class="slideBoxs">
             <a class="sPrev" href="javascript:void(0)"></a>
             <ul>
+             @foreach($products as $k => $v)
+              @if($v->status == 2)
               <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_15.jpg" /></a></div>
+                <div class="pic"><a href="/goumai/index/{{$v->id}}" target="_blank"><img src="/uploads/{{$v->profile}}" /></a></div>
                 <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
+                  <a href="#" target="_blank" class="name">{{$v->pname}}|{{$v->jieshao}}</a>
+                  <h3><b>￥</b>{{$v->price}}</h3>
+                </div>
               </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_15.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_34.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_58.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
+              @endif
+              @endforeach
+              
             </ul>
             <a class="sNext" href="javascript:void(0)"></a>
           </div><!-- slideBox End -->
@@ -165,102 +135,51 @@
           <div class="slideBoxs">
             <a class="sPrev" href="javascript:void(0)"></a>
             <ul>
+              @foreach($products as $k => $v)
+              @if($v->status == 3)
               <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_57.jpg" /></a></div>
+                <div class="pic"><a href="/goumai/index/{{$v->id}}" target="_blank"><img src="/uploads/{{$v->profile}}" /></a></div>
                 <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
+                  <a href="#" target="_blank" class="name">{{$v->pname}}|{{$v->jieshao}}</a>
+                  <h3><b>￥</b>{{$v->price}}</h3>
+                </div>
               </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_56.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_54.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_55.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
+              @endif
+              @endforeach
             </ul>
             <a class="sNext" href="javascript:void(0)"></a>
           </div><!-- slideBox End -->
                       <div class="slideBoxs">
             <a class="sPrev" href="javascript:void(0)"></a>
             <ul>
+             @foreach($products as $k => $v)
+              @if($v->status == 4)
               <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_50.jpg" /></a></div>
+                <div class="pic"><a href="/goumai/index/{{$v->id}}" target="_blank"><img src="/uploads/{{$v->profile}}" /></a></div>
                 <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
+                  <a href="#" target="_blank" class="name">{{$v->pname}}|{{$v->jieshao}}</a>
+                  <h3><b>￥</b>{{$v->price}}</h3>
+                </div>
               </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_51.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_52.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_53.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
+              @endif
+              @endforeach
             </ul>
             <a class="sNext" href="javascript:void(0)"></a>
           </div><!-- slideBox End -->
                       <div class="slideBoxs">
             <a class="sPrev" href="javascript:void(0)"></a>
             <ul>
+             @foreach($products as $k => $v)
+              @if($v->status == 5)
               <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_15.jpg" /></a></div>
+                <div class="pic"><a href="/goumai/index/{{$v->id}}" target="_blank"><img src="/uploads/{{$v->profile}}" /></a></div>
                 <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
+                  <a href="#" target="_blank" class="name">{{$v->pname}}|{{$v->jieshao}}</a>
+                  <h3><b>￥</b>{{$v->price}}</h3>
+                </div>
               </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_17.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_16.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
-              <li>
-                <div class="pic"><a href="#" target="_blank"><img src="/common/host/products/p_19.jpg" /></a></div>
-                <div class="title">
-                                <a href="#" target="_blank" class="name">乐事 无限薯片三连装（原味+番茄+烤肉）104g*3/组</a>
-                                <h3><b>￥</b>23.00</h3>
-                                </div>
-              </li>
+              @endif
+              @endforeach
             </ul>
             <a class="sNext" href="javascript:void(0)"></a>
           </div><!-- slideBox End -->
@@ -282,7 +201,7 @@
             </div>
             @elseif($v2->status==1 && $v2->weizhi==2)
             <div class="adver" style="width:315px;height:348px;  margin-left:320px;">
-              <a href="#"><img src="/uploads/{{$v2->profile}}"style="width:318px;height:348px;" ></a>
+              <a href="#"><img src="/uploads/{{$v2->profile}}"style="width:315px;height:348px;" ></a>
             </div>
             @elseif($v2->status==1 && $v2->weizhi==3)
             <div class="adver" style="width:315px;height:348px;  float:right;">
@@ -315,7 +234,7 @@
      <li class="product_display">
       <input type="hidden" value="{{$v3->id}}" class="shoucang">
      <a href="#" class="Collect"><em></em>收藏</a>
-     <a href="#" class="img_link"><img src="/common/host/products/p_44.jpg"  width="140" height="140"/></a>
+     <a href="/goumai/index/{{$v3->id}}" class="img_link"><img src="/uploads/{{$v3->profile}}"  width="140" height="140"/></a>
      <a href="#" class="name">{{$v3->pname}}</a>
      <h3><b>￥</b>{{$v3->price}}</h3>
     <div class="Detailed">
@@ -328,18 +247,37 @@
      @endforeach
     </ul>
     </div>
+
   </div>
-   <script type="text/javascript">
-    $('.Collect').click(function(){
-      var id = $('.shoucang').val();
-      
-      alert(id);
-     /* $.get('/shoucang/show',{'name',pname},function(msg){
-          alert(1);
-      },'html');*/
-    });
-      
-   </script>
+  <div class="Plate_column Plate_column_left">
+    <div class="Plate_name">
+    <h2>产品名称</h2>
+    <div class="Sort_link"><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a></div>
+    <a href="#" class="Plate_link"> <img src="/common/host/images/bk_img_14.png" /></a>
+   
+    </div>
+    <div class="Plate_product">
+    <ul id="lists">
+    @foreach($products as $k3=>$v3)
+     <li class="product_display">
+      <input type="hidden" value="{{$v3->id}}" class="shoucang">
+     <a href="#" class="Collect"><em></em>收藏</a>
+     <a href="/goumai/index/{{$v3->id}}" class="img_link"><img src="/uploads/{{$v3->profile}}"  width="140" height="140"/></a>
+     <a href="#" class="name">{{$v3->pname}}</a>
+     <h3><b>￥</b>{{$v3->price}}</h3>
+    <div class="Detailed">
+     <div class="content">
+      <p class="center"><a href="/goumai/index/{{$v3->id}}" class="Buy_btn">立即购买</a></p>
+      </div>
+     </div>
+     </li>
+
+     @endforeach
+    </ul>
+    </div>
+    
+  </div>
+
   <!--板块名称-->
     
  </div>

@@ -195,7 +195,7 @@ document.getElementById(bg_div).style.display='none';
             }) 
 
 </script>
-            <input type="button" value="加入收藏" id="h1" class="addcart" onclick="ShowDiv('MyDiv2','fade2')" />
+            <input type="button" value="加入收藏" id="h1" class="addcart" />
         </div>
        <div class="float-lt pro_detail_con">
 <form action="/goumai/store/{{$products->id}}" method="get">
@@ -506,6 +506,45 @@ $(document).ready(function(){
     });
 
 });
+</script>
+
+<script>
+
+  $('.addcart').click(function(){
+  
+        
+        //获取用户id
+        var id=$('.yonghuid').val();
+        //获取单价
+        var dj=$('.danjia').text();
+
+        var img=$('.zhaopian img').attr('src');
+        var pname=$('.pro_detail_tit').html();
+        //console.log(guige+'--'+shuliang);return;
+       
+        $.get('/shoucang/show/{{$products->id}}',{'d':dj,'e':img,'f':pname,'g':id},function(msg){
+            if(msg=='success'){
+                layer.alert('收藏成功', {icon: 6});
+                $('.addcart').val('已收藏');
+            }else{
+                
+               layer.open({
+                  type: 1
+                  ,offset: 't' //具体配置参考：offset参数项
+                  ,content: '<div style="padding: 20px 80px;">请登录</div>'
+                  ,btn: '关闭'
+                  ,btnAlign: 'c' //按钮居中
+                  ,shade: 0 //不显示遮罩
+                  ,yes: function(){
+                    layer.closeAll();
+                  }
+                });
+
+            }    
+            
+        },'html');
+
+  })
 </script>
 </body>
 </html>

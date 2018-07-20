@@ -17,7 +17,7 @@
                             <a class="dropdown-item" href="#">3</a>
                         </div>
                     </div>
-                    <h4 class="mb-0">{{$s}}元</h4>
+                    <h4 class="mb-0">{{$ss}}元</h4>
                     <p>总销售总额</p>
                 </div>
                 <div class="chart-wrapper px-1" style="height:70px;">

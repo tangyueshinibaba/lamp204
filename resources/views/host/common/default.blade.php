@@ -133,9 +133,9 @@
      <div class="Shopping_style">
 
 
-     <div class="p-total">共<b>{{session('res')}}</b>件商品　共计<strong>￥55</strong></div>
+     <div class="p-total">共<b>{{session('res')}}</b>件商品　共计<strong>￥{{$s}}</strong></div>
 
-     <div class="p-total">共<b>{{$res}}</b>件商品　共计<strong>￥{{$s}}</strong></div>
+     
 
       <a href="/cur/index" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
 
@@ -151,7 +151,7 @@
     <div class="Navigation" id="Navigation">
          <ul class="Navigation_name">
 
-            <li><a href="Home.html">首页</a></li>
+            
 
             <li><a href="/host">首页</a></li>
             <li class="hour"><span class="bg_muen"></span><a href="#">半小时生活圈</a></li>
@@ -218,16 +218,6 @@
 </div>
 
 
-     <dd><a href="#">常见问题 </a></dd>
-	</dl>     
-   </div>
-    </div>
-</div>
-
-</div>
-
-
-</div>
 
  <!--右侧菜单栏购物车样式-->
 <div class="fixedBox">
@@ -237,7 +227,7 @@
 
 		<p class="good_cart">{{session('res')}}</p>
 
-		<p class="good_cart">9</p>
+		
 
 
 			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
@@ -266,7 +256,7 @@
 			</div>
 			</li>
 
-    <li class="fixeBoxLi Home"> <a href="/shoucang/index"> <span class="fixeBoxSpan"></span> <strong>收藏夹</strong> </a> </li>
+    <li class="fixeBoxLi Home"> <a href="/shoucang/index/{{session('id')}}"> <span class="fixeBoxSpan"></span> <strong>收藏夹</strong> </a> </li>
     <li class="fixeBoxLi BackToTop"> <span class="fixeBoxSpan"></span> <strong>返回顶部</strong> </li>
   </ul>
 </div>

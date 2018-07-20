@@ -10,7 +10,7 @@ use App\Models\host\Advers;
 use App\Models\host\Cates;
 
 use App\Models\host\Carousel;
-
+use App\Models\host\Shoucang;
 use App\Models\host\Hostcurs;
 
 use App\Models\host\Products;
@@ -52,7 +52,7 @@ class HostController extends Controller
              $s+=$v->fukuan;
             }
             session(['res'=>$res]);
-
+        
        return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s,'fris' => $fris]);
     }
     /**

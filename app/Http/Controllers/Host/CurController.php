@@ -28,7 +28,7 @@ class CurController extends Controller
        foreach ($data1 as $k=>$v){
         $s+=$v->fukuan;
        }
-        $user=User::find($id);
+        $user=User::find(session('id'));
         $data=Hostcurs::where('uid','=',$id)->get();
         session(['res'=>$res]);
        return view('host.cur.index',['data'=>$data,'res'=>$res,'s'=>$s,'user'=>$user]);

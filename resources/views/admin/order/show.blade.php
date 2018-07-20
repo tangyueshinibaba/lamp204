@@ -7,7 +7,7 @@
       <table class="table">
        <tr>
         <td>收件人：{{$orders->user->uname}}</td>
-        <td>联系电话：18300000000</td>
+        <td>联系电话：{{$orders->user->phone}}</td>
         <td>收件地址：陕西省西安市雁塔区丈八路2000集都市印象18栋2160室</td>
         <td>付款时间：2016-02-01 13:56</td>
        </tr>

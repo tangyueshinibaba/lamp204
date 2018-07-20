@@ -5,9 +5,9 @@
      <div class="user_title">用户中心</div>
      <div class="user_Head">
      <div class="user_portrait">
-     @if(session('username') != null)
-      <a href="#" title="修改头像" class="btn_link"></a> <img src="/common/host/images/people.png">
-     @endif
+     
+      <a href="#" title="修改头像" class="btn_link"></a> <img src="/common/host/images/user/{{$data->pic}}">
+     
       <div class="background_img"></div>
       </div>
       <div class="user_name">
@@ -22,7 +22,7 @@
       <dd>
         <ul>
           <li> <a href="/hostorder/index/{{$data->id}}">我的订单</a></li>
-          <li> <a href="用户中心-收货地址.html">收货地址</a></li>
+          <li> <a href="/address/index/{{$data->id}}">收货地址</a></li>
           <li> <a href="#">缺货登记</a></li>
           <li><a href="#">跟踪包裹</a></li>
         </ul>
@@ -66,3 +66,4 @@
       <script>jQuery(".sideMen").slide({titCell:"dt", targetCell:"dd",trigger:"click",defaultIndex:0,effect:"slideDown",delayTime:300,returnDefault:true});</script>
    </div>
  </div>
+

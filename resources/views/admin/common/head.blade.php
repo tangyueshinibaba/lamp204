@@ -36,8 +36,8 @@
     <li><a href="/cates/create" ><span class="icon-caret-right"></span>栏目管理</a></li>
     <li><a href="/adminproduct/create" ><span class="icon-caret-right"></span>产品详情</a></li>
   </ul>   
-
-
+  <h2><span class="icon-user"></span>活动管理</h2>
+    <ul style="display:block"><li><a href="/adminhd/index"><span class="icon-caret-right"></span>活动列表</a></li></ul>
 
   <h2><span class="icon-user"></span>友情链接</h2>
 
@@ -55,6 +55,11 @@
    <h2><span class="icon-user"></span>评价管理</h2>
     <ul style="display:block">
     <li><a href="/adminpingjia/index"><span class="icon-caret-right"></span>用户评价</a></li>
+  </ul>
+
+  <h2><span class="icon-user"></span>收藏夹管理</h2>
+    <ul style="display:block">
+    <li><a href="/adminshoucang/index"><span class="icon-caret-right"></span>收藏夹列表</a></li>
   </ul>
 
 </div>

@@ -113,13 +113,15 @@ Route::controller('/hostorder','Host\OrderController');
 
 //地址管理
 Route::controller('/address','Host\AddressController');
+//活动
+Route::controller('/adminhd','Admin\HuodongController');
 
 
+// 账户管理
+Route::controller('/zhanghu','Host\ZhanghuController');
 
-
-
-
-
+//后台收藏夹管理
+Route::controller('/adminshoucang','Admin\ShoucangController');
 
 
 

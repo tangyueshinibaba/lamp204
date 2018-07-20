@@ -56,7 +56,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -67,9 +67,17 @@ class OrderController extends Controller
      */
     public function getShow($id)
     {
-       /* $data = Orders::find($id);
-        
-        return view('host.order.index',['data'=>$data]);*/
+        $user=User::find(session('id'));
+        $orders = Orders::find($id);
+        $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+        foreach ($data1 as $k=>$v){
+            $s+=$v->fukuan;
+        }
+        $data2=Hostcurs::all();
+        session(['res'=>$res]);
+        return view('host.order.detail',['res'=>$res,'user'=>$user,'s'=>$s,'orders'=>$orders]);
     }
 
     /**
