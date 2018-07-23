@@ -44,7 +44,8 @@
         <div class="field">
           <input type="file" id="url1" name="profile" class="input tips" style="width:25%; float:left;"  value="{{ $info->profile }}"  data-toggle="hover" data-place="right" data-image="" />
           <!--<input type="file" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"  style="float:left;" name = "profile">-->
-          <div class="tipss">图片尺寸：500*500</div>
+          <!--<div class="tipss">图片尺寸：500*500</div>-->
+          <div width="10%" style="float:left"><img src="{{ $info->pic }}" alt="" width="70" height="50"></div>
         </div>
       </div>
       <div class="form-group">

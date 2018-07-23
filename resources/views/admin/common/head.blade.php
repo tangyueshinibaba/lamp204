@@ -21,10 +21,10 @@
 </head>
 <body style="background-color:#f2f9fd;">
 <div class="header bg-main">
-  <div class="logo margin-big-left fadein-top">
+  <div class="logo margin-big-left fadein-top"style="margin-top:-10px;">
     <h1><img src="/common/admin/images/y.jpg" class="radius-circle rotate-hover" height="50" alt="" />后台管理中心</h1>
   </div>
-  <div class="head-l"><a class="button button-little bg-green" href="" target="_blank"><span class="icon-home"></span> 前台首页</a> &nbsp;&nbsp;<a href="##" class="button button-little bg-blue"><span class="icon-wrench"></span> 清除缓存</a> &nbsp;&nbsp;<a class="button button-little bg-red" href="login.html"><span class="icon-power-off"></span> 退出登录</a> </div>
+  <div class="head-l"><a class="button button-little bg-green" href="" target="_blank"><span class="icon-home"></span> 前台首页</a> &nbsp;&nbsp;<a href="##" class="button button-little bg-blue"><span class="icon-wrench"></span> 清除缓存</a> &nbsp;&nbsp;<a class="button button-little bg-red" href="/adminlog"><span class="icon-power-off"></span> 退出登录</a> </div>
 </div>
 <div class="leftnav">
   <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
@@ -35,9 +35,17 @@
     <li><a href="/adver/create" ><span class="icon-caret-right"></span>广告位</a></li>
     <li><a href="/cates/create" ><span class="icon-caret-right"></span>栏目管理</a></li>
     <li><a href="/adminproduct/create" ><span class="icon-caret-right"></span>产品详情</a></li>
+    <li><a href="/adminwenti/index" ><span class="icon-caret-right"></span>反馈处理</a></li>
   </ul>   
 
+    
+  <h2><span class="icon-user"></span>用户管理</h2>
 
+  <ul>
+    <li><a href="/adminuser/create"><span class="icon-caret-right"></span>用户添加</a></li>
+    <li><a href="/adminuser"><span class="icon-caret-right"></span>用户列表</a></li>
+
+  </ul>
 
   <h2><span class="icon-user"></span>友情链接</h2>
 
@@ -55,6 +63,18 @@
    <h2><span class="icon-user"></span>评价管理</h2>
     <ul style="display:block">
     <li><a href="/adminpingjia/index"><span class="icon-caret-right"></span>用户评价</a></li>
+  </ul>
+  <h2><span class="icon-user"></span>站点管理</h2>
+    <ul style="display:block">
+    <li><a href="/admin/manage"><span class="icon-caret-right">站点详情</span></a></li>
+  </ul>
+  <h2><span class="icon-user"></span>购物车管理</h2>
+  <ul style="display:block">
+    <li><a href="/admincur/index"><span class="icon-caret-right">购物车详情</span></a></li>
+  </ul>
+    <h2><span class="icon-user"></span>屏蔽词</h2>
+  <ul style="display:block">
+    <li><a href="/adminpingbi/index"><span class="icon-caret-right">添加屏蔽词</span></a></li>
   </ul>
 
 </div>

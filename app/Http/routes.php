@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 //后台首页
-Route::controller('/admin','Admin\AdminController');
+Route::controller('/admin1','Admin\AdminController');
 
 
 
@@ -36,6 +36,8 @@ Route::controller('/hostcates','Host\CatesController');
 Route::controller('/cur','Host\CurController');
 //前台评价
 Route::controller('/pingjia','Host\PingjiaController');
+//前台问题反馈
+Route::controller('/hostwenti','Host\WentiController');
 
 //后台广告位
 Route::controller('/adver','Admin\AdversController');
@@ -44,7 +46,10 @@ Route::controller('/adminproduct','Admin\ProductController');
 
 //后台评价
 Route::controller('/adminpingjia','Admin\PingjiaController');
-
+//后台问题反馈
+Route::controller('/adminwenti','Admin\WentiController');
+//后台购物车管理
+Route::controller('/admincur','Admin\CurController');
 
 //前台广告位
 Route::controller('/hostadver','Host\AdverController');
@@ -52,7 +57,8 @@ Route::controller('/hostadver','Host\AdverController');
 Route::controller('/goumai','Host\GoumaiController');
 //后台顾客订单表
 Route::controller('/adminorder','Admin\OrderController');
-
+//后台屏蔽词
+Route::controller('/adminpingbi','Admin\PingbiController');
 
 //后台栏目位
 Route::controller('/cates','Admin\CatesController');
@@ -273,13 +279,17 @@ Route::controller('/repass','Host\RepassController');
 
 
 
-Route::controller('/admin/user','Admin\UserController');
-Route::controller('/admin/manage', 'Admin\ManageController');
+
 
 Route::controller('/list', 'Host\listController');
 
 
 Route::controller('/carousel','Admin\CarouselController');
 
+Route::group(['middleware'=>['login']], function(){
+	Route::controller('/adminuser','Admin\UserController');
+	Route::controller('/adminmanage', 'Admin\ManageController');
+});
 
+Route::controller('/adminlog', 'Admin\logcontroller');
 

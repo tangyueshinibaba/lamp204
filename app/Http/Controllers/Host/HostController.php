@@ -24,7 +24,7 @@ class HostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex()
-    {
+    {  
         $data=Advers::all();
         $cates=Cates::all();
         $fris = Fri::all();

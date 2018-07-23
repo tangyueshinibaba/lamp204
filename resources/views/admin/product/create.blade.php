@@ -37,7 +37,7 @@
 	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="广告名" name="pname" value="{{old('pname')}}">
 	  </div>
 	  <div class="form-group">
-	    <label for="file">产品图</label>
+	    <label for="file">产品图(添加四张)</label>
 		<input type="file" name="profile[]" id="file" value="" multiple> 
 	  </div>
 	  <div class="form-group">

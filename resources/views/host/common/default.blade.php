@@ -6,9 +6,8 @@
 <link href="/common/host/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/common/host/css/user_style.css" rel="stylesheet" type="text/css" />
 
+
 <link href="/layui/css/layui.css" rel="stylesheet" type="text/css" />
-
-
 <link href="/common/host/skins/all.css" rel="stylesheet" type="text/css" />
 
 <link href="/common/host/css/base.css" rel="stylesheet" type="text/css" />
@@ -16,26 +15,22 @@
 <link href="/common/host/css/style1.css" rel="stylesheet" type="text/css" />
 
 
+
+<script src="/layui/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script src="/common/host/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="/common/host/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
 <script src="/common/host/js/common_js.js" type="text/javascript"></script>
 <script src="/common/host/js/footer.js" type="text/javascript"></script>
 <script src="/common/host/layer/layer.js" type="text/javascript"></script>
-
-
 <script type="text/javascript" src="/layui/layui.all.js"></script>
-
-
 <script src="/common/host/js/jquery.simpleGal.js"></script>
 <script type="text/javascript" src="/common/host/js/jquery.imagezoom.min.js"></script>
-
-
-
-
-
 <script src="/common/host/js/iCheck.js" type="text/javascript"></script>
 <script src="/common/host/js/custom.js" type="text/javascript"></script>
 <script src="/common/host/address/area.js" type="text/javascript"></script>
+
+
+
 
 
 <title>网站首页</title>
@@ -50,11 +45,12 @@
      <div class="Collection"><a href="#" class="green">{{ session('username')}}已登录</a><a href="/user/edit/{{ session('id')}}" class="green">个人中心</a><a href="/login/logout" class="green">退出登录</a></div>
     <div class="hd_top_manu clearfix">
       <ul class="clearfix">
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/host">首页</a></li> 
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/host">首页1</a></li> 
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="/hostwenti/index">问题反馈</a> </li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>({{session('res')}})</b></a></li> 
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/cur/index">我的购物车<b>({{session('res')}})</b></a></li>
+       
       </ul>
     </div>
   </div>
@@ -67,16 +63,23 @@
     <div class="Collection"><a href="/login/login" class="green">请登录</a> <a href="/user/create" class="green">免费注册</a></div>
     <div class="hd_top_manu clearfix">
       <ul class="clearfix">
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/host">首页</a></li> 
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/host">首页1</a></li> 
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>({{session('res')}})</b></a></li> 
+       @if(session('username')==null)
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#" class="mycar">我的购物车<b>({{session('res')}})</b></a></li> 
+        @endif
       </ul>
     </div>
   </div>
 </div>
 @endif
+<script>
+  $('.mycar').click(function(){
+    layer.msg('请登录');
+  })
+</script>
 <!--logo开始-->
   <div id="header"  class="header page_style">
   <div class="logo"><a href="index.html"><img src="/common/host/images/logo.png" /></a></div>
@@ -99,23 +102,6 @@
  <div class="hd_Shopping_list" id="Shopping_list">
 
 
-   <div class="s_cart">
-   @if(session('username')==null)
-    <a href="/cur/index" class="mycar">我的购物车</a> 
-   <i class="ci-right"></i><i class="ci-count" id="shopping-amount">0</i>
-   <script>
-      $('.mycar').click(function(){
-        layer.alert('请登录', {icon: 6});
-        return false;
-      })
-   </script>
-   @elseif(session('username')!=null)
-   <a href="/cur/index">我的购物车</a> 
-   <i class="ci-right">&gt;</i><i class="ci-count jiesuan" id="shopping-amount">{{session('res')}}</i>
-   @endif
-   
-   </div>
-
    <!-- <div class="s_cart"><a href="/cur/index">我的购物车</a> <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">{{session('res')}}</i></div> -->
 
    <div class="dorpdown-layer">
@@ -135,7 +121,6 @@
 
      <div class="p-total">共<b>{{session('res')}}</b>件商品　共计<strong>￥55</strong></div>
 
-     <div class="p-total">共<b>{{$res}}</b>件商品　共计<strong>￥{{$s}}</strong></div>
 
       <a href="/cur/index" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
 
@@ -150,9 +135,6 @@
 <!--菜单栏-->
     <div class="Navigation" id="Navigation">
          <ul class="Navigation_name">
-
-            <li><a href="Home.html">首页</a></li>
-
             <li><a href="/host">首页</a></li>
             <li class="hour"><span class="bg_muen"></span><a href="#">半小时生活圈</a></li>
             <li><a href="#">你身边的超市</a></li>
@@ -216,9 +198,6 @@
    </div>
     </div>
 </div>
-
-
-     <dd><a href="#">常见问题 </a></dd>
 	</dl>     
    </div>
     </div>
@@ -237,10 +216,7 @@
 
 		<p class="good_cart">{{session('res')}}</p>
 
-		<p class="good_cart">9</p>
-
-
-			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
+			<span class="fixeBoxSpan"></span> <strong> <a href="#" class="mycar">购物车</a></strong>
 			<div class="cartBox">
        		<div class="bjfff"></div><div class="message">购物车内暂无商品，赶紧选购吧</div>    </div></li>
     <li class="fixeBoxLi Service "> <span class="fixeBoxSpan"></span> <strong>客服</strong>

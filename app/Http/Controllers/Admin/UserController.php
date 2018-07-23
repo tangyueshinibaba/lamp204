@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\admin\user;
+use App\user;
 
 class UserController extends Controller
 {
@@ -20,7 +21,7 @@ class UserController extends Controller
         //
         $keywords = $request -> input('keywords', '');
         $user = new user;
-        $info = $user->where('uname', 'like', '%'.$keywords.'%')->paginate(1);
+        $info = $user->where('uname', 'like', '%'.$keywords.'%')->paginate(5);
         return view('/admin/user/user', ['info' => $info, 'keywords' => $keywords]);
 
         // $info->setPath('user');//  
@@ -50,7 +51,14 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function postStore(Request $request)
-    {
+    {   
+        $this->validate($request, [
+            'uname' => 'required|unique:users',
+            ],[
+            'uname.unique' => '用户名重复',   
+            ]);
+
+        $pic = '';
         if($request -> hasFile('profile')){
 
             // 使用request 创建文件上传对象
@@ -66,6 +74,7 @@ class UserController extends Controller
        }
         $user = new user;
         $user -> uname = $request -> input('uname', '');
+        $user -> psword = Hash::make($request -> input('psword', ''));
         $user -> name = $request -> input('name', '');
         $user -> pic = $pic;
         $user -> phone = $request -> input('phone', '');
@@ -73,7 +82,7 @@ class UserController extends Controller
         $user -> created_at = date('Y-m-d H:i:s',time());
         $user -> updated_at = date('Y-m-d H:i:s',time());
         $user -> save();
-        return redirect('/admin/user');
+        return redirect('/adminuser');
     }
 
     /**
@@ -111,7 +120,16 @@ class UserController extends Controller
     public function postUpdate(Request $request, $id)
     {
         //
+        $user = new user;
+        $user = user::find($id);
         //dd($id);die;
+        if($user -> uname != $request -> input('uname', '')){
+            $this->validate($request, [
+                'uname' => 'required|unique:users',
+                ],[
+                'uname.unique' => '用户名重复',   
+                ]);
+        }
         if($request -> hasFile('profile')){
 
             // 使用request 创建文件上传对象
@@ -124,10 +142,17 @@ class UserController extends Controller
             $res = $profile -> move('./uploads/'.$dirname,$name);
             //sdump($res);
             $pic = '/uploads/'.$dirname.'/'.$name;
+       }else{
+            $pic = $user -> pic;
        }
-        $user = new user;
-        $user = user::find($id);
+        $psword = '';
+        if($request -> input('psword', '') == ''){
+            $psword = $user->psword;
+        }else{
+            $psword = Hash::make($request -> input('psword', ''));
+        }
         $user -> uname = $request -> input('uname', '');
+        $user -> psword = $psword;
         $user -> name = $request -> input('name', '');
         $user -> pic = $pic;
         $user -> phone = $request -> input('phone', '');
@@ -135,7 +160,7 @@ class UserController extends Controller
         $user -> updated_at = date('Y-m-d H:i:s',time());
         $user -> save();
         return redirect('/admin/user');
-        //aaa
+         
     }
 
     /**

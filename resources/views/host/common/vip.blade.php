@@ -22,7 +22,7 @@
       <dd>
         <ul>
           <li> <a href="/hostorder/index/{{$data->id}}">我的订单</a></li>
-          <li> <a href="用户中心-收货地址.html">收货地址</a></li>
+          <li> <a href="/address/index/{{$data->id}}">收货地址</a></li>
           <li> <a href="#">缺货登记</a></li>
           <li><a href="#">跟踪包裹</a></li>
         </ul>

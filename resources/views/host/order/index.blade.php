@@ -1,5 +1,13 @@
 @extends('host.common.default')
 @section('content')
+ @if (session('success'))
+  <script>
+     layer.alert('{{session('success')}}', {
+      icon: 1,
+      skin: 'layer-ext-moon'
+    })
+  </script>   
+@endif
   <div class="user_style clearfix">
  <div class="user_center clearfix">
    <div class="left_style">
@@ -80,8 +88,15 @@
        <a href="#" class="">交易关闭（0）</a>
       </div>
       <div class="Order_Operation">
-     <div class="left"> <label><input name="" type="checkbox" value=""  class="checkbox"/>全选</label> <input name="" type="submit" value="批量确认收货"  class="confirm_Order"/></div>
-     <div class="right_search"><input name="" type="text"  class="add_Ordertext" placeholder="请输入产品标题或订单号进行搜索"/><input name="" type="submit" value="搜索订单"  class="search_order"/></div>
+     <div class="left">
+     <input name="" type="checkbox" value="全选"  class="checkbox quanxua"/>全选
+      <input name="" type="submit" value="批量删除"  class="confirm_Order shanchu"/></div>
+     <div class="right_search">
+     <form action="/hostorder/index/{{session('id')}}" method="get">
+     <input name="ddh" type="text"  class="add_Ordertext" placeholder="请输入订单号进行搜索"/>
+     <input name="" type="submit" value="搜索订单"  class="search_order"/>
+     </form>
+     </div>
       </div>
       <div class="Order_form_list">
          <table>
@@ -96,7 +111,7 @@
          </thead> 
            
          @foreach($data as $k => $v)
-         
+
             <tbody>       
            <tr class="Order_info"><td colspan="6" class="Order_form_time"><input name="" type="checkbox" value=""  class="checkbox"/>下单时间:{{$v->created_at}}| 订单号：{{$v->ddh}}</td></tr>
            <tr class="Order_Details" >
@@ -111,7 +126,7 @@
               </div>
               </td>
              <td class="split_line"></td>
-             <td>{{$v->shuliang}}</td>
+            <td>{{$v->shuliang}}</td>
               </tr>
               </tbody>
             </table>
@@ -120,7 +135,7 @@
            <td class="split_line"><p style="color:#F33">买家已付款</p></td>
            <td class="operating">
                 <a href="#">查看订单</a>
-                <a href="#">在线客服</a>
+                <a href="/hostorder/destroy/{{$v->id}}">删除</a>
               
                
                 @if($v->sfpj==1)
@@ -133,13 +148,19 @@
                 <a href="#" class="Delivery_btn">确认收货</a>     
            </td>
            </tr>
-           </tbody>  
+           </tbody> 
+
            @endforeach
            
          </table>
+     
     </div>
      </div>
+        <div class="page" style="width:200px; float:left;">
+          {!! $data->appends(['ddh'=>$ddh])->render()!!}
+         </div>
    </div>
+
    <script>
     $(document).ready(function(){
       $('.Order_form_style input').iCheck({
@@ -157,7 +178,6 @@
       content: '/pingjia/show/'+$(this).attr('rel'),
     });
     })
-    
     </script>
   </div>
  </div>

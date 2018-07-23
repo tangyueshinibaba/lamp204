@@ -21,7 +21,8 @@ class AddressController extends Controller
         
         $user = User::find($id);
         $address = Address::all();
-        //dd($address);
+        $n = count($address);
+        //dd($n);
         $data1=Hostcurs::all();
         $res=count($data1);
         $s=0;
@@ -30,7 +31,7 @@ class AddressController extends Controller
        }
         $data2=Hostcurs::all();
         session(['res'=>$res]);
-        return view('host.address.index',['user'=>$user,'res'=>$res,'s'=>$s,'address'=>$address]);
+        return view('host.address.index',['user'=>$user,'res'=>$res,'s'=>$s,'address'=>$address,'n'=>$n]);
     }
 
     /**
@@ -55,6 +56,7 @@ class AddressController extends Controller
         $data = new Address;
         
         $data->uname = $request->input('uname','');
+        $data->uid   =session('id');
         $data->sheng = $request->input('province','');
         $data->shi = $request->input('country','');
         $data->xian = $request->input('town','');
@@ -145,6 +147,28 @@ class AddressController extends Controller
             return redirect('/address/index/'.$id)->with('success','删除成功');
         }else{
             return back()->with('error','删除失败');
+        }
+    }
+    //更换默认地址
+    public function getMoren(Request $request)
+    {
+        //接受id
+        $id=$request->input('id');
+        $ids=$request->input('ids');
+        //默认地址状态设为1
+        $data=Address::find($id);
+        $data->status=1;
+        $res=$data->save();
+        //其他地址状态设为0
+        $d=Address::find($ids);
+        foreach($d as $k=>$v){
+            $v->status=0;
+            $r=$v->save();
+        }
+        if($res==true && $r==true){
+            echo "success";
+        }else{
+            echo 'error';
         }
     }
 }

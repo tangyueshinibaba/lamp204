@@ -12,6 +12,13 @@
      	<p>{{session('error')}}</p>
     </div>
 @endif
+ <form class="form-inline " action="/adminproduct/index" method="get">
+	  <div class="form-group" style="display:inline;">
+	    <label for="advername">关键字</label>
+	    <input type="text" name="pname" class="form-control" id="pname" placeholder="商品名称">
+	  </div>
+	  <button type="submit" class="btn btn-success" style="margin-left:10px;margin-top:20px;">搜索</button>
+</form>
 <table class="table table-hover table-borderd">
 	<tr>
 		<td>ID</td>
@@ -37,4 +44,7 @@
 	</tr>
 	@endforeach
 </table>
+<div class="paginate">
+	{!!$data->appends(['pname'=>$pname])->render()!!}
+</div>
 @endsection

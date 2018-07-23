@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\host\Products;
 use App\Models\host\Orders;
 use App\Models\host\Shoppingjias;
+use App\Models\admin\pingbis;
 class PingjiaController extends Controller
 {
     /**

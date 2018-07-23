@@ -18,11 +18,16 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex($id)
-    {
-
-        $data=Orders::where('uid','=',session('id'))->get();
-
+    public function getIndex(Request $request,$id)
+    {  
+        //搜索ddh
+        $ddh=$request->input('ddh');
+        $data=Orders::where('uid','=',session('id'))->where('ddh','like','%'.$ddh.'%')->paginate(3);
+        foreach($data as $kk=>$vv){
+                $sl=explode(',',$vv->shuliang);
+                $pid=explode(',',$vv->pid);
+                $guige=explode(',',$vv->guige);
+        }
         $r=count($data);
         //$sp=Shoppingjias::where('uid','=',session('id'))->get();
         $res=Shoppingjias::get();
@@ -35,7 +40,7 @@ class OrderController extends Controller
        }
         $data2=Hostcurs::all();
         session(['res'=>$res]);
-      return view('host.order.index',['data'=>$data,'r'=>$r,'res'=>$res,'user'=>$user,'s'=>$s]);  
+      return view('host.order.index',['data'=>$data,'r'=>$r,'res'=>$res,'user'=>$user,'s'=>$s,'ddh'=>$ddh]);  
     }
 
     /**
@@ -101,8 +106,14 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
-        //
+        $data=Orders::find($id);
+        $res=$data->delete();
+        if($res){
+            return back()->with('success','删除成功');
+        }else{
+            return back()->with('删除失败');
+        }
     }
 }

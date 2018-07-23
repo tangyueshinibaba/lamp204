@@ -8,10 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="renderer" content="webkit">
   <title></title>
-  <link rel="stylesheet" href="css/pintuer.css">
-  <link rel="stylesheet" href="css/admin.css">
-  <script src="js/jquery.js"></script>
-  <script src="js/pintuer.js"></script>
+  <link rel="stylesheet" href="/common/admin/css/pintuer.css">
+  <link rel="stylesheet" href="/common/admin/css/admin.css">
+  <script src="/common/admin/js/jquery.js"></script>
+  <script src="/common/admin/js/pintuer.js"></script>
   </head>
   <body>
   <form method="get" action="/admin/user" id="listform">

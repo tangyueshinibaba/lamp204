@@ -10,7 +10,10 @@ use App\Models\host\Products;
 use App\Models\host\Orders;
 use App\Models\host\Hostcurs;
 use App\Models\host\Shoppingjias;
+use App\Models\host\histroy;
 use App\Http\Requests\OrderRequest;
+use App\Models\host\Address;
+use App\Models\admin\pingbis;
 class GoumaiController extends Controller
 {
     /**
@@ -19,7 +22,11 @@ class GoumaiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex($id)
-    {  
+    {   
+        $his=new histroy;
+        $his->uid=session('id');
+        $his->pid=$id;
+        $his->save();
         $products=Products::find($id);
         $pro=$products->profile;
         $n=explode('#', $pro);
@@ -35,8 +42,16 @@ class GoumaiController extends Controller
         $s+=$v->fukuan;
        }
         session(['res'=>$res]);
+        //历史记录 去除重复记录
+         $data=histroy::where('uid','=',session('id'))->groupBy('pid')->get();
+         //dd($data);
+         $ci=pingbis::find(1);
+         $cis=explode(',',$ci->content);
+         foreach($sp as $k=>$v){
+          $sp[$k]['content']=str_replace($cis, '*', $v->content);
+         }
         //分配模板
-        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj]);
+        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj,'his'=>$data]);
     }
 
     /**
@@ -56,42 +71,104 @@ class GoumaiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getStore(OrderRequest $request,$id)
-    {   
+    {  
+      $data1=Address::where('uid','=',session('id'))->get();
        $data=Products::find($id);
        $pname=$data->pname;
        $sl=$request->input('shuliang');
+       //商品id
+       $pid=$request->input('shangpinid');
+       //总价
        $price=$request->input('price');
+       //单价
+       $dj=$request->input('danjia');
        $guige=$request->input('guige');
        $uid=$request->input('yonghuid');
        $data->kucun=$data->kucun-$sl;
+      if($data->kucun<=0){
+        return back()->with('success','库存已经不足');
+      }
        $a1=$data->save();
-       //随机一个20位得订单号
-       $ddh=rand();
+      
+      return view('host/goumai/show',['pname'=>$pname,'sl'=>$sl,'price'=>$price,'guige'=>$guige,'data1'=>$data1,'dj'=>$dj,'pid'=>$pid,'data'=>$data]);
+     
+       
+    }
+    public function getDingdan(Request $request)
+    {   
+      $pid=$request->input('pid');
+      $pname=$request->input('name');
+       $sl=$request->input('shuliang');
+       $price=$request->input('zongjia');
+       $guige=$request->input('guige');
+       $uid=$request->input('yhid');
+       //获取收货人和地址
+        $shou=$request->input('shou');
+        $sheng=$request->input('sheng');
+        $shi=$request->input('shi');
+        $xian=$request->input('xian');
+        $address=$request->input('address');
+      
+      //实例化一个10位ddh
+       $ddh=str_random(10);
        //实例化一个表
        $order=new Orders;
-       $order->pid=$id;
+       $order->pid=$pid;
        $order->oname=$pname;
        $order->shuliang=$sl;
        $order->guige=$guige;
        $order->zongjia=$price;
-       $order->huohao=$data['huohao'];
        $order->ddh=$ddh;
        $order->uid=$uid;
-       $order->profile=$data['profile'];
+       $order->address=$shou.','.$sheng.','.$shi.','.$xian.','.$address;
        $a2=$order->save();
-       if($a1 && $a2){
-        return redirect('/goumai/dingdan')->with('success','下单成功');
-       }else{
-        return back()->with('error','下单失败');
-       }
-     
-       
+     if($a2==true){
+      echo "success";
+     }else{
+      echo "error";
+     }
+      
+      
     }
-    public function getDingdan()
+    //接受购买的收货地址
+    public function getDd(Request $request)
     {
-        echo "string";
+      //接受收货地址
+      $address=$request->input('address');
+      $name=$request->input('name');
+      $data=Products::where('pid','=',session('gmpid'))->where('ddh','=',session('gmddh'))->first();
+      dd($data);
+      $data->address=$name.','.$address;
+      $res=$data->save();
+      if($res){
+        echo "success";
+      }else{
+        echo "error";
+      }
     }
-
+    //更换默认地址
+    public function postDizhi(Request $request)
+    {
+      $data=Address::where('uid','=',session('id'))->get();
+      foreach ($data as $key => $value) {
+        $value->status=0;
+        $value->save();
+      }
+      $id=$request->input('a');
+      $data1=Address::find($id);
+      $data1->status=1;
+      $res=$data1->save();
+       if ($res==true) {
+        echo "success";
+      }else{
+        echo "error";
+      }
+    }
+    //修改地址
+    public function getBianji($id)
+    {
+     echo "string";
+    }
     /**
      * Display the specified resource.
      *
@@ -100,7 +177,8 @@ class GoumaiController extends Controller
      */
     public function getShow()
     {
-        
+            
+
     }
 
     /**
@@ -136,4 +214,5 @@ class GoumaiController extends Controller
     {
         //
     }
+    
 }

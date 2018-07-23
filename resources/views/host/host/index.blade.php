@@ -313,9 +313,8 @@
     <ul id="lists">
     @foreach($products as $k3=>$v3)
      <li class="product_display">
-      <input type="hidden" value="{{$v3->id}}" class="shoucang">
      <a href="#" class="Collect"><em></em>收藏</a>
-     <a href="#" class="img_link"><img src="/common/host/products/p_44.jpg"  width="140" height="140"/></a>
+     <a href="#" class="img_link"><img src="/uploads/{{$v3->profile}}"  width="140" height="140"/></a>
      <a href="#" class="name">{{$v3->pname}}</a>
      <h3><b>￥</b>{{$v3->price}}</h3>
     <div class="Detailed">
@@ -324,21 +323,41 @@
       </div>
      </div>
      </li>
-
+     @endforeach
+    </ul>
+    </div>
+  </div>
+   <div class="Plate_column Plate_column_left">
+    <div class="Plate_name">
+    <h2>产品名称</h2>
+    <div class="Sort_link"><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a><a href="#" class="name">分类名称</a></div>
+    <a href="#" class="Plate_link"> <img src="/common/host/images/bk_img_14.png" /></a>
+   
+    </div>
+    <div class="Plate_product">
+    <ul id="lists">
+    @foreach($products as $k3=>$v3)
+     <li class="product_display">
+     <a href="#" class="Collect"><em></em>收藏</a>
+     <a href="#" class="img_link"><img src="/uploads/{{$v3->profile}}"  width="140" height="140"/></a>
+     <a href="#" class="name">{{$v3->pname}}</a>
+     <h3><b>￥</b>{{$v3->price}}</h3>
+    <div class="Detailed">
+     <div class="content">
+      <p class="center"><a href="/goumai/index/{{$v3->id}}" class="Buy_btn">立即购买</a></p>
+      </div>
+     </div>
+     </li>
      @endforeach
     </ul>
     </div>
   </div>
    <script type="text/javascript">
-    $('.Collect').click(function(){
-      var id = $('.shoucang').val();
-      
-      alert(id);
-     /* $.get('/shoucang/show',{'name',pname},function(msg){
-          alert(1);
-      },'html');*/
-    });
-      
+      $('.Buy_btn').click(function(){
+          var s=$('.shoucang').val();
+          console.log(s);
+         
+      })
    </script>
   <!--板块名称-->
     

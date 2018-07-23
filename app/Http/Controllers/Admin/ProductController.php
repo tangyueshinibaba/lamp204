@@ -16,10 +16,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function getIndex(Request $request)
     {
-      $data=products::all();
-      return view('admin/product/index',['data'=>$data]);
+      $pname=$request->input('pname');
+      $data=products::where('pname','like','%'.$pname.'%')->paginate(3);
+      return view('admin/product/index',['data'=>$data,'pname'=>$pname]);
     }
 
     /**
@@ -52,7 +53,6 @@ class ProductController extends Controller
             $dirname=str_random(10);
             //拼接一个文件名
             $name=$dirname.'.'.$hz;
-
             //获取一个时间
             $time=date('Ymd',time());
              $filename = $time.'/'.$name;

@@ -9,6 +9,15 @@
         @endforeach
     </div>
 @endif
+ @if (session('success'))
+  <script>
+     layer.alert('{{session('success')}}', {
+      icon: 2,
+      skin: 'layer-ext-moon'
+    })
+  </script>   
+@endif
+
 <style>
 img {
     max-width: none;
@@ -204,9 +213,11 @@ document.getElementById(bg_div).style.display='none';
     <div class="clear"></div>
    <!--  <div class="pro_detail_price  margin-t20"><span class="margin-r20">市场价</span><span style=" font-size:16px"><s>￥450.00</s></span></div> -->
     <div class="clear"></div>
+    <input type="hidden" class="shangpinid" value="{{$products->id}}">
     <span class=" pro_detail_act margin-t20 fl margin-r20">单价</span>
     <span class=" pro_detail_act margin-t20 fl margin-r20" style="font-size:26px; font-weight:bold; color:#dd514c;">¥</span>
     <div class="pro_detail_act margin-t20 fl">
+    <input type="hidden" name="danjia" value="{{$products->price}}">
     <span style="font-size:26px; font-weight:bold; color:#dd514c;" class="danjia">{{$products->price}}</span></div>
     <div class="clear"></div>
     <div class="act_block margin-t5"><span>本商品可使用9999积分抵用￥9.99元</span></div>
@@ -215,7 +226,7 @@ document.getElementById(bg_div).style.display='none';
         <div class=""> 
             <i class="jian"></i>
                 <input type="text"  value="{{$products->shuliang}}" disabled="disabled"  name="shuliang" class="float-lt choose_input shuliang ">
-            <i class="jia"></i> <span>&nbsp;盒</span> <span>（库存{{$products->kucun}}盒）</span> </div>
+            <i class="jia"></i> <span>&nbsp;盒</span> <span class="kucun">（库存{{$products->kucun}}盒）</span> </div>
         <div class="clear"></div>
     </div>
     <input type="hidden" class="sllll" value="{{$products->shuliang}}" name="shuliang">
@@ -253,16 +264,46 @@ document.getElementById(bg_div).style.display='none';
             @elseif(session('username')!=null)
              <input type="submit" class="pro_detail_shop shopping" value="立即购买" style="display:inline;">
             @endif
-           
-           
               <a href="#" class="pro_detail_shop gouwu" style="float:left;">加入购物车</a>
-          
-          
         </ul>
     </div>
     </form>
+   
     
 </div>
+ <!-- <div class="liulan" style="width:300px;height:600px; float:right;margin-top:-400px;overflow:hidden;">
+    <div style="text-align:center;">浏览历史<span style="margin-left:10px;" class="xiala" style="cursor: pointer">v</span></div>
+    @foreach($his as $k5=>$v5)
+    <div style="width:300px;height:200px; cursor: pointer;margin-bittom:1px;">
+      <a href="/goumai/index/{{$v5->pid}}"><img src="/uploads/{{$v5->shuyu->profile}}" style="width:300px;height:200px" class="shuyu"></a>
+    </div>  
+    @endforeach
+   
+ </div> -->
+ <div class="us_Record">
+      <div id="Record_p" class="Record_p">
+        <div class="title_name"><span class="name left">浏览历史</span><span class="pageState right"><span>1</span>/7</span></div>
+          <div class="hd"><a class="next">&lt;</a><a class="prev">&gt;</a></div>
+            <div class="bd">
+                <ul >
+                 @foreach($his as $k5=>$v5)
+                <li class="clone">
+                        <div class="p_width">
+                    <div class="pic"><a href=""><img src="/uploads/{{$v5->shuyu->profile}}"></a></div>  
+                    <div class="title"><a href="/goumai/index/{{$v5->pid}}">{{$v5->shuyu->pname}}</a></div>
+                    <div class="Purchase_info"><span class="p_Price">￥{{$v5->shuyu->price}}</span> <a href="/goumai/index/{{$v5->pid}}" class="Purchase">立即购买</a></div>
+                </div>  
+                    </li>
+                 @endforeach
+                 </ul></div>            
+         </div>
+         <script type="text/javascript">jQuery("#Record_p").slide({ mainCell:".bd ul",effect:"leftLoop",vis:1,autoPlay:false });</script>
+        </div>
+ <script>
+ $('.xiala').click(function(){
+    $(this).parent().parent().last().append($(this).parent().next().show());
+ })
+ </script>
 <script>
 
   $('.gouwu').click(function(){
@@ -363,22 +404,6 @@ document.getElementById(bg_div).style.display='none';
     })
 
 </script>
-       <!--  <div class="float-rt pro_right">
-           <div align="center">
-               <p><img src="/common/host/images/lmrz.png" /></p>
-               <p class="margin-t10">普通会员</p>
-           </div>
-           <div align="center"><img src="/common/host/images/pro_V2_r6_c9.png" />
-               <p class="line-ht20">信用度</p>
-               <p class="line-ht20" style="color:#ec3c36;">2.5</p>
-           </div>
-           <div align="center"><img src="/common/host/images/pro_V2_r8_c10.png" />
-               <p class="line-ht30">在线联系</p>
-           </div>
-           <div align="center"><img src="/common/host/images/pro_V2_r8_c9.png" />
-               <p class="line-ht30">了解更多</p>
-           </div>
-       </div> -->
     </div>
     <div class="clear"></div>
     <script>
@@ -412,23 +437,23 @@ document.getElementById(bg_div).style.display='none';
                         
                     </ul>
                     <table width="100%" border="0">
+                   
                     @foreach($sp as $k2=>$v2)
                         <tr>
                             <td width="80" align="left"><a href="" rel="" class="preview"><img src="/uploads/{{$n[0]}}" width="60" height="60" class="border_gry" /></a></td>
-                            <td>{{$v2->content}}<br />
-                                <br />
-                                <span class="pro_judge_time">{{$v2->created_at}}</span></td>
+                            <td>{{$v2->content}}<br />    
+                            <span class="pro_judge_time">{{$v2->created_at}}</span></td>
                             <td>{{$v2->uname}}</td>
+                            
                         </tr>
-                    @endforeach
-                        
+                  @endforeach 
                     </table>
                 </div>
             </div>
         </div>
     </div>
     <div class="hotpro">
-        <div class="hotpro_title">热销产品</div>
+        <div class="hotpro_title">店长推荐</div>
         <div class="hotpro_box">
             <div class="pro-view-hot">
                 <ul>

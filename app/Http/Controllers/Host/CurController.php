@@ -11,6 +11,7 @@ use App\Models\host\Products;
 use App\Models\host\Hostcurs;
 use App\Models\host\Orders;
 use App\Models\host\User;
+use App\Models\host\Address;
 
 class CurController extends Controller
 {
@@ -30,8 +31,9 @@ class CurController extends Controller
        }
         $user=User::find($id);
         $data=Hostcurs::where('uid','=',$id)->get();
+        $changdu=count($data);
         session(['res'=>$res]);
-       return view('host.cur.index',['data'=>$data,'res'=>$res,'s'=>$s,'user'=>$user]);
+       return view('host.cur.index',['data'=>$data,'res'=>$res,'s'=>$s,'user'=>$user,'changdu'=>$changdu]);
     }
 
     /**
@@ -85,11 +87,72 @@ class CurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getShow()
-    {
-        $a=session('uname');
-        dump($a);
+    {   $res=hostcurs::where('uid','=',session('id'))->get();
+        $data=Address::where('uid','=',session('id'))->get();
+       // dd($data);
+      return view('host/cur/show',['data'=>$data,'res'=>$res]);
     }
+    public function getTijiao(Request $request)
+    {   
+        $pid=$request->input('pid');
+        $sl=$request->input('sl');
+        $zj=$request->input('zongjia');
+        $guige=$request->input('guige');
+        $pids=implode($pid,',');
+        $sls=implode($sl,',');
+        $guiges=implode($guige,',');
+       
+       $order=new Orders;
+       $order->pid=$pids;
+       $order->uid=session('id');
+       $order->shuliang=$sls;
+       $order->zongjia=$zj;
+       $order->ddh=str_random(10);
+       $order->guige=$guiges;
+       $res=$order->save();
+        if($res==true){
+            echo "success";
+            session(['ddh'=>$order->ddh,'pid'=>$pid]);
+        }else{
+            echo "error";
+        }
+     
+       
+    }
+    public function getShouhuo(Request $request)
+    {   
+        $data= Orders::where('ddh','=',session('ddh'))->where('uid','=',session('id'))->first();
+        $address=$request->input('address');
+        $name=$request->input('name');
+        $data->address=$name.','.$address;
+        $res=$data->save();
+        
+         if($res==true){
+            echo "success";
+           
+        }else{
+            echo "error";
+        }
 
+    }
+    public function getDizhi()
+    {   
+         //购物车表
+        $gou=Hostcurs::where('uid','=',session('id'))->get();
+        $arr =[];
+        foreach ($gou as $key => $value) {
+           $arr[]=$value->id;
+        }
+        $res=Hostcurs::destroy($arr);
+        if($res==true){
+        return view('host/cur/tijiao');
+        }
+      
+    }
+    public function getQrtijiao()
+    {
+        return view('host/cur/tijiao');
+    }
     /**
      * Show the form for editing the specified resource.
      *
