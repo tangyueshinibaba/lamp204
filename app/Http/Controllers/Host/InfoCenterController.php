@@ -6,23 +6,18 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\host\infocenter;
+use DB;
 use App\Models\host\Advers;
 use App\Models\host\Cates;
 
 use App\Models\host\Carousel;
-use App\Models\host\Shoucang;
+
 use App\Models\host\Hostcurs;
 
 use App\Models\host\Products;
 
-<<<<<<< HEAD
-use App\Models\admin\Fri;
-=======
-use DB;
-
-
->>>>>>> origin/yubo_host
-class HostController extends Controller
+class InfoCenterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,38 +25,24 @@ class HostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex()
-    {  
+    {
+        //
+        //session(['username' => 'shuguang']);
+        //session(['username' => '']);
         $data=Advers::all();
         $cates=Cates::all();
-        $fris = Fri::all();
         $carousel = Carousel::all();
         $products=Products::all();
         foreach($cates as $k=>$v){
-            //统计出现的次数
-            if(substr_count($v->path,",")==1)
-            {
+                //统计出现的次数
+                if(substr_count($v->path,",")==1) {
                 $b[]=$v;
-            }
-            if(substr_count($v->path,",")==2) 
-            {
+                }
+                if(substr_count($v->path,",")==2) {
                 $c[]=$v;
+                }
+              
             }
-<<<<<<< HEAD
-                  
-         }
-            $id=session('id');
-            $data1=Hostcurs::where('uid','=',$id)->get();
-            $data1=Hostcurs::all();
-            $res=count($data1);
-            $s=0;
-           foreach ($data1 as $k=>$v)
-            {
-             $s+=$v->fukuan;
-            }
-            session(['res'=>$res]);
-        
-       return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s,'fris' => $fris]);
-=======
         // dump($b);die;
          $data1=Hostcurs::all();
         $res=count($data1);
@@ -70,7 +51,9 @@ class HostController extends Controller
         $s+=$v->fukuan;
        }
         session(['res'=>$res]);
-       if(session('username') != ''){
+
+        //infoCenter
+        if(session('username') != ''){
             $uid = $uid = DB::table('hostusers')->select('id')->where('uname', '=', session('username'))->first();
             $infoCount = DB::table('infocenters')->select('id')->where('uid', '=', $uid->id)->where('status', 0)->count();
             $infoDetail = DB::table('infocenters')->where('uid', '=', $uid->id)->where('status', 0)->get();
@@ -79,25 +62,32 @@ class HostController extends Controller
             //dd($infoCount);
             //dd($infoDetail);
             //$infoCount = 0;
-            return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'infoCount'=>$infoCount, 'infoDetail'=>$infoDetail, 'infoCount_old'=>$infoCount_old, 'infoDetail_old'=>$infoDetail_old]);
+            return view('/host/ic/ic',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'infoCount'=>$infoCount, 'infoDetail'=>$infoDetail, 'infoCount_old'=>$infoCount_old, 'infoDetail_old'=>$infoDetail_old]);
         }
         else{
             //dd('i am here');
-            return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s]);    
+            return view('/host/ic/ic',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s]);    
         }
-       //return view('/host/cc/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel]);
-
->>>>>>> origin/yubo_host
     }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function getCreate()
+    public static function create($title, $content, $uname)
     {
-        return view('host.common.default');
+        //
+        $ic = new infocenter;
+        $ic -> title = $title;
+        $ic -> content = $content;
+        $uid = DB::table('hostusers')->select('id')->where('uname', '=', $uname)->first();
+        //dd($uid);
+        $ic -> uid = $uid->id;
+        $ic -> status = 0;
+        $ic -> created_at = date('Y-m-d H:i:s',time());
+        $ic -> updated_at = date('Y-m-d H:i:s',time());
+        $ic -> save();
     }
 
     /**
@@ -128,9 +118,15 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit($id)
     {
         //
+        $icenter = new infocenter;
+        $ic = $icenter::find($id);
+        $ic -> status = 1;
+        $ic -> read_at = date('Y-m-d H:i:s',time());
+        $ic -> save();
+        return 'true';
     }
 
     /**

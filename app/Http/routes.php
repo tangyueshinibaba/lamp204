@@ -292,10 +292,15 @@ Route::controller('/list', 'Host\listController');
 
 Route::controller('/carousel','Admin\CarouselController');
 
+<<<<<<< HEAD
 Route::group(['middleware'=>['login']], function(){
 	Route::controller('/adminuser','Admin\UserController');
 	Route::controller('/adminmanage', 'Admin\ManageController');
 });
+=======
+Route::controller('/ic', 'Host\InfoCenterController');
+
+>>>>>>> origin/yubo_host
 
 Route::controller('/adminlog', 'Admin\logcontroller');
 

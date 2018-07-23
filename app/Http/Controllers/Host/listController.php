@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\host\Advers;
 use App\Models\host\Cates;
+use App\Models\host\good;
 use DB;
+use App\Http\Controllers\Host\InfoCenterController;
 
 use App\Models\host\Carousel;
 
@@ -26,6 +28,8 @@ class listController extends Controller
     public function getIndex()
     {
         //
+        InfoCenterController::create('ee', 'ff', 'shuguang');
+        //session(['username' => 'shuguang']);
         $data=Advers::all();
         $cates=Cates::all();
         $carousel = Carousel::all();
@@ -54,7 +58,24 @@ class listController extends Controller
         //dd(DB::table('company')->get());
         $types = DB::table('company')->where('typeid', $typeid)->get();
         //dd($types);
-        return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s]);
+        $goods = DB::table('goods')
+                ->join('company', 'goods.company_id', '=','company.id')
+                ->join('cates', 'company.typeid', '=','cates.id')
+                ->where('company.typeid', $typeid)
+                ->select('goods.*')
+                ->paginate(1);
+        $id = 0;
+        //dd($goods);
+        if(session('username') != ''){
+            $uid = $uid = DB::table('hostusers')->select('id')->where('uname', '=', session('username'))->first();
+            $infoCount = DB::table('infocenters')->select('id')->where('uid', '=', $uid->id)->where('status', 0)->count();
+            $infoDetail = DB::table('infocenters')->where('uid', '=', $uid->id)->where('status', 0)->get();
+            $infoCount_old = DB::table('infocenters')->select('id')->where('uid', '=', $uid->id)->where('status', 1)->count();
+            $infoDetail_old = DB::table('infocenters')->where('uid', '=', $uid->id)->where('status', 1)->get();
+            return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id, 'infoCount'=>$infoCount, 'infoDetail'=>$infoDetail, 'infoCount_old'=>$infoCount_old, 'infoDetail_old'=>$infoDetail_old]);
+        }else{
+            return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id]);
+        }
     }
 
     /**
@@ -84,20 +105,208 @@ class listController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow($id)
     {
         //
+        //dd($id);
+        $data=Advers::all();
+        $cates=Cates::all();
+        $carousel = Carousel::all();
+        $products=Products::all();
+        foreach($cates as $k=>$v){
+                //统计出现的次数
+                if(substr_count($v->path,",")==1) {
+                $b[]=$v;
+                }
+                if(substr_count($v->path,",")==2) {
+                $c[]=$v;
+                }
+              
+            }
+        // dump($b);die;
+         $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+       foreach ($data1 as $k=>$v){
+        $s+=$v->fukuan;
+       }
+        session(['res'=>$res]);
+        //
+
+        //dd(DB::table('company')->get());
+        $typeid=10;
+        $types = DB::table('company')
+                ->where('typeid', $typeid)->get();
+        $goods = DB::table('goods')
+                ->join('company', 'goods.company_id', '=','company.id')
+                ->join('cates', 'company.typeid', '=','cates.id')
+                ->where('company.id', $id)
+                ->select('goods.*')
+                //->orderBy('goods.price','desc')
+                ->paginate(1);
+        //dd($goods);
+        //dd($types);
+        return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id]);
     }
 
+    // public function getOrderByPrice($id)
+    // {
+    //     //
+    //     //dd($id);
+    //     $data=Advers::all();
+    //     $cates=Cates::all();
+    //     $carousel = Carousel::all();
+    //     $products=Products::all();
+    //     foreach($cates as $k=>$v){
+    //             //统计出现的次数
+    //             if(substr_count($v->path,",")==1) {
+    //             $b[]=$v;
+    //             }
+    //             if(substr_count($v->path,",")==2) {
+    //             $c[]=$v;
+    //             }
+              
+    //         }
+    //     // dump($b);die;
+    //      $data1=Hostcurs::all();
+    //     $res=count($data1);
+    //     $s=0;
+    //    foreach ($data1 as $k=>$v){
+    //     $s+=$v->fukuan;
+    //    }
+    //     session(['res'=>$res]);
+    //     //
+
+    //     //dd(DB::table('company')->get());
+    //     $typeid=10;
+    //     $types = DB::table('company')
+    //             ->where('typeid', $typeid)->get();
+    //     //dd($id);
+    //     if($id != 0){
+    //         $goods = DB::table('goods')
+    //                 ->join('company', 'goods.company_id', '=','company.id')
+    //                 ->join('cates', 'company.typeid', '=','cates.id')
+    //                 ->where('company.id', $id)
+    //                 ->select('goods.*')
+    //                 ->orderBy('goods.price', 'desc')
+    //                 ->paginate(1);
+    //     }
+    //     //dd($goods);
+    //     //dd($types);
+    //     return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id]);
+    // }
+
+    public function getAllinfo($id){
+        $data=Advers::all();
+        $cates=Cates::all();
+        $carousel = Carousel::all();
+        $products=Products::all();
+        foreach($cates as $k=>$v){
+                //统计出现的次数
+                if(substr_count($v->path,",")==1) {
+                $b[]=$v;
+                }
+                if(substr_count($v->path,",")==2) {
+                $c[]=$v;
+                }
+              
+            }
+        // dump($b);die;
+         $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+       foreach ($data1 as $k=>$v){
+        $s+=$v->fukuan;
+       }
+        session(['res'=>$res]);
+        //
+
+        //dd(DB::table('company')->get());
+        $typeid=10;
+        $types = DB::table('company')
+                ->where('typeid', $typeid)->get();
+        //dd($id);
+        if($id != 0){
+            $goods = DB::table('goods')
+                    ->join('company', 'goods.company_id', '=','company.id')
+                    ->join('cates', 'company.typeid', '=','cates.id')
+                    ->where('company.id', $id)
+                    ->select('goods.*')
+                    ->paginate(1);
+        }else{
+            $goods = DB::table('goods')
+                ->join('company', 'goods.company_id', '=','company.id')
+                ->join('cates', 'company.typeid', '=','cates.id')
+                ->where('company.typeid', $typeid)
+                ->select('goods.*')
+                ->paginate(1);
+            $id = 0;
+        }
+        //dd($goods);
+        //dd($types);
+        return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit($id)
     {
         //
+                //
+        //dd($id);
+        $data=Advers::all();
+        $cates=Cates::all();
+        $carousel = Carousel::all();
+        $products=Products::all();
+        foreach($cates as $k=>$v){
+                //统计出现的次数
+                if(substr_count($v->path,",")==1) {
+                $b[]=$v;
+                }
+                if(substr_count($v->path,",")==2) {
+                $c[]=$v;
+                }
+              
+            }
+        // dump($b);die;
+         $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+       foreach ($data1 as $k=>$v){
+        $s+=$v->fukuan;
+       }
+        session(['res'=>$res]);
+        //
+
+        //dd(DB::table('company')->get());
+        $typeid=10;
+        $types = DB::table('company')
+                ->where('typeid', $typeid)->get();
+        //dd($id);
+        if($id != 0){
+            $goods = DB::table('goods')
+                    ->join('company', 'goods.company_id', '=','company.id')
+                    ->join('cates', 'company.typeid', '=','cates.id')
+                    ->where('company.id', $id)
+                    ->select('goods.*')
+                    ->orderBy('goods.price', 'desc')
+                    ->paginate(1);
+        }else{
+            $goods = DB::table('goods')
+                ->join('company', 'goods.company_id', '=','company.id')
+                ->join('cates', 'company.typeid', '=','cates.id')
+                ->where('company.typeid', $typeid)
+                ->select('goods.*')
+                ->orderBy('goods.price', 'desc')
+                ->paginate(1);
+            $id = 0;
+        }
+        //dd($goods);
+        //dd($types);
+        return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id]);
     }
 
     /**
@@ -118,8 +327,58 @@ class listController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
         //
+        $data=Advers::all();
+        $cates=Cates::all();
+        $carousel = Carousel::all();
+        $products=Products::all();
+        foreach($cates as $k=>$v){
+                //统计出现的次数
+                if(substr_count($v->path,",")==1) {
+                $b[]=$v;
+                }
+                if(substr_count($v->path,",")==2) {
+                $c[]=$v;
+                }
+              
+            }
+        // dump($b);die;
+         $data1=Hostcurs::all();
+        $res=count($data1);
+        $s=0;
+       foreach ($data1 as $k=>$v){
+        $s+=$v->fukuan;
+       }
+        session(['res'=>$res]);
+        //
+
+        //dd(DB::table('company')->get());
+        $typeid=10;
+        $types = DB::table('company')
+                ->where('typeid', $typeid)->get();
+        //dd($id);
+        if($id != 0){
+            $goods = DB::table('goods')
+                    ->join('company', 'goods.company_id', '=','company.id')
+                    ->join('cates', 'company.typeid', '=','cates.id')
+                    ->where('company.id', $id)
+                    ->select('goods.*')
+                    ->orderBy('goods.price', 'desc')
+                    ->paginate(1);
+        }else{
+            $goods = DB::table('goods')
+                ->join('company', 'goods.company_id', '=','company.id')
+                ->join('cates', 'company.typeid', '=','cates.id')
+                ->where('company.typeid', $typeid)
+                ->select('goods.*')
+                ->orderBy('goods.price', 'desc')
+                ->paginate(1);
+            $id = 0;
+        }
+        //dd($goods);
+        //dd($types);
+        return view('/host/list/list', ['types'=>$types, 'data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s, 'goods'=>$goods, 'id'=>$id]);
     }
 }

@@ -46,9 +46,21 @@
      <div class="Collection"><a href="#" class="green">{{ session('username')}}已登录</a><a href="/user/edit/{{ session('id')}}" class="green">个人中心</a><a href="/login/logout" class="green">退出登录</a></div>
     <div class="hd_top_manu clearfix">
       <ul class="clearfix">
+<<<<<<< HEAD
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/host">首页1</a></li> 
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="/hostwenti/index">问题反馈</a> </li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+=======
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/host">首页</a></li> 
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/ic">
+        @if($infoCount != 0)
+          <b style="color:red">消息中心({{ $infoCount }})</b>
+        @else
+          消息中心
+        @endif
+       </a></li>
+>>>>>>> origin/yubo_host
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
         <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/cur/index">我的购物车<b>({{session('res')}})</b></a></li>
        
