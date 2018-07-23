@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Orders;
 use App\Models\admin\Products;
-use App\Models\admin\User;
+use App\Models\host\User;
 class OrderController extends Controller
 {
     /**

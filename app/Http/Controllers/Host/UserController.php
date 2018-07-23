@@ -86,19 +86,8 @@ class UserController extends Controller
     public function getEdit($id)
     {
         //从数据库中读取要修改的数据
-        $data = User::find($id);
+        $user = User::find($id);
 
-        $data1=Hostcurs::all();
-        $res=count($data1);
-        $s=0;
-       foreach ($data1 as $k=>$v){
-        $s+=$v->fukuan;
-       }
-        $data2=Hostcurs::all();
-        session(['res'=>$res]);
-
-
-        return view('host.user.edit',['data' => $data,'res'=>$res,'s'=>$s]);
        
         $data1=Hostcurs::all();
         $res=count($data1);
@@ -108,7 +97,7 @@ class UserController extends Controller
         }
         $data2=Hostcurs::all();
         session(['res'=>$res]);
-        return view('host.user.edit',['data' => $data,'res' => $res,'s' => $s]);
+        return view('host.user.edit',['user' => $user,'res' => $res,'s' => $s]);
 
     }
 

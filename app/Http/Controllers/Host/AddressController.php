@@ -19,8 +19,13 @@ class AddressController extends Controller
     public function getIndex($id)
     {
         
+<<<<<<< HEAD
         $user = User::find($id);
         $address = Address::all();
+=======
+        $user = User::find(session('id'));
+        $address = Address::where('uid','=',session('id'))->get();
+>>>>>>> origin/xyf
         $n = count($address);
         //dd($n);
         $data1=Hostcurs::all();
@@ -54,7 +59,6 @@ class AddressController extends Controller
     {
 
         $data = new Address;
-        
         $data->uname = $request->input('uname','');
         $data->uid   =session('id');
         $data->sheng = $request->input('province','');
@@ -65,11 +69,10 @@ class AddressController extends Controller
         $data->youbian = $request->input('youbian','');
         $data->address = $request->input('address','');
         $data->status = $request->input('status','');
-        $data -> save();
+        $data->uid = session('id');
 
         //dd($data->uname);
-        if($data->save()){
-            
+        if($data->save()){     
             return back();
         }
     }
@@ -80,7 +83,7 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getShow()
+    public function getShow(Request $request,$id)
     {
         
     }
@@ -94,7 +97,7 @@ class AddressController extends Controller
     public function getEdit($id)
     {
         $data = Address::find($id);
-        
+        $user = User::find(session('id'));
         $data1=Hostcurs::all();
         $res=count($data1);
         $s=0;
@@ -104,7 +107,7 @@ class AddressController extends Controller
         $data2=Hostcurs::all();
         session(['res'=>$res]);
 
-        return view('host.address.edit',['res'=>$res,'s'=>$s,'data'=>$data]);
+        return view('host.address.edit',['res'=>$res,'s'=>$s,'data'=>$data,'user'=>$user]);
     }
 
     /**

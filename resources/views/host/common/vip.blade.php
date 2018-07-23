@@ -5,9 +5,9 @@
      <div class="user_title">用户中心</div>
      <div class="user_Head">
      <div class="user_portrait">
-     @if(session('username') != null)
-      <a href="#" title="修改头像" class="btn_link"></a> <img src="/common/host/images/people.png">
-     @endif
+     
+      <a href="#" title="修改头像" class="btn_link"></a> <img src="/common/host/images/user/{{$data->pic}}">
+     
       <div class="background_img"></div>
       </div>
       <div class="user_name">
@@ -66,3 +66,4 @@
       <script>jQuery(".sideMen").slide({titCell:"dt", targetCell:"dd",trigger:"click",defaultIndex:0,effect:"slideDown",delayTime:300,returnDefault:true});</script>
    </div>
  </div>
+

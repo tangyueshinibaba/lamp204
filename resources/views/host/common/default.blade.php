@@ -119,8 +119,12 @@
      <div class="Shopping_style">
 
 
-     <div class="p-total">共<b>{{session('res')}}</b>件商品　共计<strong>￥55</strong></div>
+     <div class="p-total">共<b>{{session('res')}}</b>件商品　共计<strong>￥{{$s}}</strong></div>
 
+<<<<<<< HEAD
+=======
+     
+>>>>>>> origin/xyf
 
       <a href="/cur/index" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
 
@@ -135,6 +139,12 @@
 <!--菜单栏-->
     <div class="Navigation" id="Navigation">
          <ul class="Navigation_name">
+<<<<<<< HEAD
+=======
+
+            
+
+>>>>>>> origin/xyf
             <li><a href="/host">首页</a></li>
             <li class="hour"><span class="bg_muen"></span><a href="#">半小时生活圈</a></li>
             <li><a href="#">你身边的超市</a></li>
@@ -198,6 +208,7 @@
    </div>
     </div>
 </div>
+<<<<<<< HEAD
 	</dl>     
    </div>
     </div>
@@ -207,6 +218,10 @@
 
 
 </div>
+=======
+
+
+>>>>>>> origin/xyf
 
  <!--右侧菜单栏购物车样式-->
 <div class="fixedBox">
@@ -216,7 +231,14 @@
 
 		<p class="good_cart">{{session('res')}}</p>
 
+<<<<<<< HEAD
 			<span class="fixeBoxSpan"></span> <strong> <a href="#" class="mycar">购物车</a></strong>
+=======
+		
+
+
+			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
+>>>>>>> origin/xyf
 			<div class="cartBox">
        		<div class="bjfff"></div><div class="message">购物车内暂无商品，赶紧选购吧</div>    </div></li>
     <li class="fixeBoxLi Service "> <span class="fixeBoxSpan"></span> <strong>客服</strong>
@@ -242,7 +264,7 @@
 			</div>
 			</li>
 
-    <li class="fixeBoxLi Home"> <a href="/shoucang/index"> <span class="fixeBoxSpan"></span> <strong>收藏夹</strong> </a> </li>
+    <li class="fixeBoxLi Home"> <a href="/shoucang/index/{{session('id')}}"> <span class="fixeBoxSpan"></span> <strong>收藏夹</strong> </a> </li>
     <li class="fixeBoxLi BackToTop"> <span class="fixeBoxSpan"></span> <strong>返回顶部</strong> </li>
   </ul>
 </div>

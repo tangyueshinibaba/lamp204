@@ -29,7 +29,7 @@ class CurController extends Controller
        foreach ($data1 as $k=>$v){
         $s+=$v->fukuan;
        }
-        $user=User::find($id);
+        $user=User::find(session('id'));
         $data=Hostcurs::where('uid','=',$id)->get();
         $changdu=count($data);
         session(['res'=>$res]);

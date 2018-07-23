@@ -51,7 +51,11 @@ class GoumaiController extends Controller
           $sp[$k]['content']=str_replace($cis, '*', $v->content);
          }
         //分配模板
+<<<<<<< HEAD
         return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj,'his'=>$data]);
+=======
+        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj,'res'=>$res]);
+>>>>>>> origin/xyf
     }
 
     /**

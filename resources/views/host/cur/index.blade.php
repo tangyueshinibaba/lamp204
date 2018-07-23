@@ -1,5 +1,6 @@
 @extends('host.common.default')
 @section('content')
+<<<<<<< HEAD
 <link type="text/css" href="/common/yiqi/css/css.css" rel="stylesheet" />
 <script type="text/javascript" src="/common/yiqi/js/jquery.js"></script>
 <script type="text/javascript" src="/common/yiqi/js/js.js"></script>
@@ -68,6 +69,9 @@
       <script>jQuery(".sideMen").slide({titCell:"dt", targetCell:"dd",trigger:"click",defaultIndex:0,effect:"slideDown",delayTime:300,returnDefault:true});</script>
    </div>
  </div>
+=======
+@include('host.vip.index')
+>>>>>>> origin/xyf
   <!--右侧样式-->
  @if (session('success'))
   <script>

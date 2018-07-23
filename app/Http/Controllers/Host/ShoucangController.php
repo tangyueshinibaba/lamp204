@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Products;
 use App\Models\admin\User;
 use App\Models\host\Hostcurs;
+use App\Models\host\Shoucang;
 class ShoucangController extends Controller
 {
     /**
@@ -16,9 +17,11 @@ class ShoucangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function getIndex($id)
     {
-        
+        $user = User::find($id);
+        $shoucang = Shoucang::where('uid','=',$id)->get();
+        $n = count($shoucang);
         $data1=Hostcurs::all();
         $res=count($data1);
         $s=0;
@@ -27,7 +30,7 @@ class ShoucangController extends Controller
        }
         $data2=Hostcurs::all();
         session(['res'=>$res]);
-        return view('host.shoucang.index',['res'=>$res,'s'=>$s]);
+        return view('host.shoucang.index',['res'=>$res,'s'=>$s,'user'=>$user,'shoucang'=>$shoucang,'n'=>$n]);
     }
 
     /**
@@ -57,12 +60,25 @@ class ShoucangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getShow(Request $request)
+    public function getShow(Request $request,$id)
     {
-
-        $data = $request->input('name');
-        dd($data);
-
+        $dj = $request->input('d');
+        $img = $request->input('e');
+        $pname = $request->input('f');
+        $uid = $request->input('g');
+        $data = new Shoucang;
+        if(session('username')!=null){
+            $data->pname = $pname;
+            $data->img = $img;
+            $data->price = $dj;
+            $data->pid = $id;
+            $data->uid = $uid;
+            $data->save();
+            echo 'success';
+        }else{
+            echo 'error';
+        }
+        
     }
 
     /**
@@ -94,8 +110,15 @@ class ShoucangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
-        //
+        $data = Shoucang::find($id);
+        //dd($data);
+        $id = session('id');
+        if($data->delete()){
+            return redirect('/shoucang/index/'.$id)->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
     }
 }
