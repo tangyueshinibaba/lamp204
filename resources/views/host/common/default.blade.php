@@ -29,8 +29,8 @@
 <script src="/common/host/js/iCheck.js" type="text/javascript"></script>
 <script src="/common/host/js/custom.js" type="text/javascript"></script>
 <script src="/common/host/address/area.js" type="text/javascript"></script>
-<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
-
+<!-- <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+ -->
 
 
 
@@ -46,21 +46,13 @@
      <div class="Collection"><a href="#" class="green">{{ session('username')}}已登录</a><a href="/user/edit/{{ session('id')}}" class="green">个人中心</a><a href="/login/logout" class="green">退出登录</a></div>
     <div class="hd_top_manu clearfix">
       <ul class="clearfix">
-<<<<<<< HEAD
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/host">首页1</a></li> 
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="/hostwenti/index">问题反馈</a> </li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
-=======
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/host">首页</a></li> 
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/ic">
-        @if($infoCount != 0)
-          <b style="color:red">消息中心({{ $infoCount }})</b>
-        @else
-          消息中心
-        @endif
-       </a></li>
->>>>>>> origin/yubo_host
+     
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
         <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="/cur/index">我的购物车<b>({{session('res')}})</b></a></li>
        
@@ -128,21 +120,7 @@
             <p class="Price">￥55.00</p>
             <p><a href="#">删除</a></p></div>
           </li>
-        </ul>       
-     <div class="Shopping_style">
-
-
-     <div class="p-total">共<b>{{session('res')}}</b>件商品　共计<strong>￥{{$s}}</strong></div>
-
-<<<<<<< HEAD
-=======
-     
->>>>>>> origin/xyf
-
-      <a href="/cur/index" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
-
-
-     </div>  
+        </ul>        
    </div>
  </div>
 </div>
@@ -152,16 +130,7 @@
 <!--菜单栏-->
     <div class="Navigation" id="Navigation">
          <ul class="Navigation_name">
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-            
-
->>>>>>> origin/xyf
-=======
-           
->>>>>>> origin/zsg
             <li><a href="/host">首页</a></li>
             <li class="hour"><span class="bg_muen"></span><a href="#">半小时生活圈</a></li>
             <li><a href="#">你身边的超市</a></li>
@@ -225,7 +194,7 @@
    </div>
     </div>
 </div>
-<<<<<<< HEAD
+
 	</dl>     
    </div>
     </div>
@@ -235,11 +204,6 @@
 
 
 </div>
-=======
-
-
->>>>>>> origin/xyf
-
  <!--右侧菜单栏购物车样式-->
 <div class="fixedBox">
   <ul class="fixedBoxList">
@@ -248,14 +212,10 @@
 
 		<p class="good_cart">{{session('res')}}</p>
 
-<<<<<<< HEAD
+
 			<span class="fixeBoxSpan"></span> <strong> <a href="#" class="mycar">购物车</a></strong>
-=======
 		
 
-
-			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
->>>>>>> origin/xyf
 			<div class="cartBox">
        		<div class="bjfff"></div><div class="message">购物车内暂无商品，赶紧选购吧</div>    </div></li>
     <li class="fixeBoxLi Service "> <span class="fixeBoxSpan"></span> <strong>客服</strong>

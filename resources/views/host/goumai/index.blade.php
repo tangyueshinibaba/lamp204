@@ -82,7 +82,6 @@ div.zoomMask {
     cursor: move;
     z-index: 1;
 }
-<!--弹出隐藏层-->
  .black_overlay {
     display: none;
     position: absolute;
@@ -272,15 +271,6 @@ document.getElementById(bg_div).style.display='none';
    
     
 </div>
- <!-- <div class="liulan" style="width:300px;height:600px; float:right;margin-top:-400px;overflow:hidden;">
-    <div style="text-align:center;">浏览历史<span style="margin-left:10px;" class="xiala" style="cursor: pointer">v</span></div>
-    @foreach($his as $k5=>$v5)
-    <div style="width:300px;height:200px; cursor: pointer;margin-bittom:1px;">
-      <a href="/goumai/index/{{$v5->pid}}"><img src="/uploads/{{$v5->shuyu->profile}}" style="width:300px;height:200px" class="shuyu"></a>
-    </div>  
-    @endforeach
-   
- </div> -->
  <div class="us_Record">
       <div id="Record_p" class="Record_p">
         <div class="title_name"><span class="name left">浏览历史</span><span class="pageState right"><span>1</span>/7</span></div>
@@ -289,7 +279,7 @@ document.getElementById(bg_div).style.display='none';
                 <ul >
                  @foreach($his as $k5=>$v5)
                 <li class="clone">
-                        <div class="p_width">
+                 <div class="p_width">
                     <div class="pic"><a href=""><img src="/uploads/{{$v5->shuyu->profile}}"></a></div>  
                     <div class="title"><a href="/goumai/index/{{$v5->pid}}">{{$v5->shuyu->pname}}</a></div>
                     <div class="Purchase_info"><span class="p_Price">￥{{$v5->shuyu->price}}</span> <a href="/goumai/index/{{$v5->pid}}" class="Purchase">立即购买</a></div>
@@ -299,7 +289,7 @@ document.getElementById(bg_div).style.display='none';
                  </ul></div>            
          </div>
          <script type="text/javascript">jQuery("#Record_p").slide({ mainCell:".bd ul",effect:"leftLoop",vis:1,autoPlay:false });</script>
-        </div>
+</div>
  <script>
  $('.xiala').click(function(){
     $(this).parent().parent().last().append($(this).parent().next().show());

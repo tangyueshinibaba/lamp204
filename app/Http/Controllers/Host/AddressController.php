@@ -19,13 +19,11 @@ class AddressController extends Controller
     public function getIndex($id)
     {
         
-<<<<<<< HEAD
+
         $user = User::find($id);
         $address = Address::all();
-=======
         $user = User::find(session('id'));
-        $address = Address::where('uid','=',session('id'))->get();
->>>>>>> origin/xyf
+        //$address = Address::where('uid','=',session('id'))->get();
         $n = count($address);
         //dd($n);
         $data1=Hostcurs::all();

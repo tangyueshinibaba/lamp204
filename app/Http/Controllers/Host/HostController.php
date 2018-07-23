@@ -14,14 +14,9 @@ use App\Models\host\Shoucang;
 use App\Models\host\Hostcurs;
 
 use App\Models\host\Products;
-
-<<<<<<< HEAD
 use App\Models\admin\Fri;
-=======
 use DB;
 
-
->>>>>>> origin/yubo_host
 class HostController extends Controller
 {
     /**
@@ -46,7 +41,6 @@ class HostController extends Controller
             {
                 $c[]=$v;
             }
-<<<<<<< HEAD
                   
          }
             $id=session('id');
@@ -61,7 +55,6 @@ class HostController extends Controller
             session(['res'=>$res]);
         
        return view('/host/host/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel,'res'=>$res,'s'=>$s,'fris' => $fris]);
-=======
         // dump($b);die;
          $data1=Hostcurs::all();
         $res=count($data1);
@@ -87,7 +80,6 @@ class HostController extends Controller
         }
        //return view('/host/cc/index',['data'=>$data,'cates'=>$cates,'b'=>$b,'c'=>$c,'products'=>$products,'carousel'=>$carousel]);
 
->>>>>>> origin/yubo_host
     }
     /**
      * Show the form for creating a new resource.

@@ -22,7 +22,7 @@ class GoumaiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getIndex($id)
-    {   
+    {  
         $his=new histroy;
         $his->uid=session('id');
         $his->pid=$id;
@@ -51,15 +51,8 @@ class GoumaiController extends Controller
           $sp[$k]['content']=str_replace($cis, '*', $v->content);
          }
         //分配模板
-<<<<<<< HEAD
-<<<<<<< HEAD
-        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj,'his'=>$data]);
-=======
-        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj,'res'=>$res]);
->>>>>>> origin/xyf
-=======
-        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj,'res'=>$res]);
->>>>>>> origin/zsg
+
+        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj,'his'=>$data,'res'=>$res]);
     }
     /**
      * Show the form for creating a new resource.

@@ -5,16 +5,9 @@
      <div class="user_title">用户中心</div>
      <div class="user_Head">
      <div class="user_portrait">
-<<<<<<< HEAD
-     
-      <a href="#" title="修改头像" class="btn_link"></a> <img src="/common/host/images/user/{{$data->pic}}">
-     
-=======
-       <a href="#" title="修改头像" class="btn_link"></a> <img src="/common/host/images/user/{{ $data -> pic }}">
->>>>>>> origin/zsg
-      <div class="background_img"></div>
 
-      
+      <a href="#" title="修改头像" class="btn_link"></a> <img src="/common/host/images/user/{{$data->pic}}">
+      <div class="background_img"></div>
       </div>
       <div class="user_name">
        <p><span class="name">{{ $data -> uname }}</span><a href="/repass/edit/{{session('id')}}">[修改密码]</a></p>

@@ -37,7 +37,7 @@ class HuodongController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function postStore(Request $request)
-    {
+    {  
         $data = new Products;
         //dd($data);
         $data -> pname = $request -> input('pname','');

@@ -37,7 +37,6 @@
     <li><a href="/adminproduct/create" ><span class="icon-caret-right"></span>产品详情</a></li>
     <li><a href="/adminwenti/index" ><span class="icon-caret-right"></span>反馈处理</a></li>
   </ul>   
-<<<<<<< HEAD
 
     
   <h2><span class="icon-user"></span>用户管理</h2>
@@ -47,10 +46,8 @@
     <li><a href="/adminuser"><span class="icon-caret-right"></span>用户列表</a></li>
 
   </ul>
-=======
   <h2><span class="icon-user"></span>活动管理</h2>
     <ul style="display:block"><li><a href="/adminhd/index"><span class="icon-caret-right"></span>活动列表</a></li></ul>
->>>>>>> origin/xyf
 
   <h2><span class="icon-user"></span>友情链接</h2>
 
