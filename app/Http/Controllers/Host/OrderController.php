@@ -113,4 +113,15 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function getDeleteall(request $request)
+    {   
+        $id=$request->input('che');
+        $data=Orders::destroy($id);
+        if($data){
+            echo "success";
+        }else{
+            echo 'error';
+        }
+    }
 }

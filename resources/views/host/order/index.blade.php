@@ -15,7 +15,7 @@
        <a href="#" class="">交易关闭（0）</a>
       </div>
       <div class="Order_Operation">
-     <div class="left"> <label><input name="" type="checkbox" value=""  class="checkbox"/>全选</label> <input name="" type="submit" value="批量确认收货"  class="confirm_Order"/></div>
+     <div class="left"> <label><input name="che[]" type="checkbox" value=""  class="checkbox"/>全选</label> <input name="" type="submit" value="批量删除"  class="confirm_Order"/></div>
      <div class="right_search"><input name="" type="text"  class="add_Ordertext" placeholder="请输入产品标题或订单号进行搜索"/><input name="" type="submit" value="搜索订单"  class="search_order"/></div>
       </div>
       <div class="Order_form_list">
@@ -33,7 +33,7 @@
          @foreach($data as $k => $v)
          
             <tbody>       
-           <tr class="Order_info"><td colspan="6" class="Order_form_time"><input name="" type="checkbox" value=""  class="checkbox"/>下单时间:{{$v->created_at}}| 订单号：{{$v->ddh}}</td></tr>
+           <tr class="Order_info"><td colspan="6" class="Order_form_time"><input name="che[]" type="checkbox" value="{{$v->id}}"  class="checkbox che1"/>下单时间:{{$v->created_at}}| 订单号：{{$v->ddh}}</td></tr>
            <tr class="Order_Details" >
            <td colspan="3">
            <table class="Order_product_style">
@@ -93,6 +93,38 @@
     });
     })
     
+    </script>
+    
+    <script type="text/javascript">
+      //全选
+      $('.qx').click(function(){
+        $('.checkbox').attr('checked',true);
+      })
+    </script>
+
+    <script type="text/javascript">
+      var a = $('.che1');
+        $('.confirm_Order').click(function(){
+          var b = [];
+            for (var i=0; i<a.length; i++) {
+                if (a[i].checked) {
+                    b.push(a[i].value);  // 将id都放进数组
+                }
+            }
+          if(b ==null || b.length==0){
+            return false;
+          }
+
+          $.get('/hostorder/deleteall',{'che':b},function(msg){
+              if(msg == 'success'){
+                  layer.msg('删除成功',{icon: 6});
+                  // 移除页面 节点
+                  $('input:checked').parent().parent().parent().parent().remove();
+                }else{
+                  layer.msg('删除失败', {icon: 5});
+                }
+            },'html')
+        })
     </script>
   </div>
  </div>
