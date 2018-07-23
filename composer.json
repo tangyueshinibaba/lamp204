@@ -7,8 +7,14 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
+<<<<<<< HEAD
         "anhskohbo/no-captcha": "2.*",
         "mews/captcha": "^2.2"
+=======
+        "gregwar/captcha": "v1.1.3",
+        "mews/captcha": "^2.2",
+        "socialiteproviders/weibo": "v1.0.0"
+>>>>>>> origin/zsg
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

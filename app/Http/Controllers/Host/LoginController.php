@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\host\User;
+use App\Http\Requests\LoginRequest;
 class LoginController extends Controller
 {
     /**
@@ -25,7 +26,7 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function postDologin(Request $request)
+    public function postDologin(LoginRequest $request)
     {
         $res = $request -> all();
         $username = $request -> input('username');
@@ -36,13 +37,13 @@ class LoginController extends Controller
         //从数据库取出密码
         $res1 = User::where('uname',$username) -> value('pass');
         $res2 = User::where('uname',$username) -> value('id');
-        //解密并判断是否相同
+                //解密并判断是否相同
         $pwd = \Hash::check($password,$res1);
         if ( $user && $pwd == true) {
              session(['username' => $res['username'],'id' => $res2]);
-             return redirect('/host');
+             return redirect('/host') -> with('success','登录成功，尽情购物吧');;
         } else {
-             return  back() -> with('error','用户名或密码不正确');
+             return  back() -> with ('error','用户名或密码不正确');
         }   
     }
     public function getLogout()

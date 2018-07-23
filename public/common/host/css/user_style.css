@@ -11,14 +11,16 @@
 	z-index: 12
 }
 .user_center .left_style .user_Head .background_img {
-	background: url(../images/d_toux_img_03.png) no-repeat;
+	background: url(/common/host/images/d_toux_img_03.png) no-repeat;
 	width: 198px;
 	height: 101px;
 	position: relative;
 	z-index: 11;
 	top: 0px;
+	margin:0 auto;
 }
 .user_center .left_style .user_Head img {
+	background: url(/common/host/images/people.png) no-repeat;
 	position: absolute;
 	z-index: -1;
 	width: 90px;

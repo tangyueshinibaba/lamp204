@@ -55,7 +55,7 @@ class UserController extends Controller
         $users -> phone = $phone; 
     
         if ($users -> save()) {
-            return redirect('/host')-> with('success','注册成功,唐跃是你爸爸哟');
+            return redirect('/host')-> with('success','注册成功,欢迎登录');
         } else {
             return back() -> with('error','注册失败');
         }
@@ -113,7 +113,7 @@ class UserController extends Controller
         // $data = $request -> all();
         //dump($request -> hasFile('pic'));die;
         $user = User::find($id);
-        $user -> uname = $request -> input('uname');
+        // $user -> uname = $request -> input('uname');
         $user -> sex = $request -> input('sex');
         $user -> phone = $request -> input('phone');
         $user -> age = $request -> input('age');

@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:wb="http://open.weibo.com/wb">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="/common/host/css/common.css" rel="stylesheet" type="text/css" />
@@ -28,7 +29,7 @@
 <script src="/common/host/js/iCheck.js" type="text/javascript"></script>
 <script src="/common/host/js/custom.js" type="text/javascript"></script>
 <script src="/common/host/address/area.js" type="text/javascript"></script>
-
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 
 
 
@@ -142,9 +143,13 @@
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
             
 
 >>>>>>> origin/xyf
+=======
+           
+>>>>>>> origin/zsg
             <li><a href="/host">首页</a></li>
             <li class="hour"><span class="bg_muen"></span><a href="#">半小时生活圈</a></li>
             <li><a href="#">你身边的超市</a></li>
@@ -153,7 +158,7 @@
             
             <li><a href="#">好评商户</a></li>
             <li><a href="#">热销活动</a></li>
-            <li><a href="Brands.html">联系我们</a></li>
+            <li><a href="/gywm/index">联系我们</a></li>
          </ul>           
         </div>
     <script>$("#Navigation").slide({titCell:".Navigation_name li",trigger:"click"});</script>
@@ -245,20 +250,20 @@
       <div class="ServiceBox">
         <div class="bjfffs"></div>
         <dl onclick="javascript:;">
-		    <dt><img src=""></dt>
-		       <dd><strong>QQ客服1</strong>
+		    <dt><img src="/common/host/images/h1.png"></dt>
+		       <dd><strong>QQ客服</strong>
 		          <p class="p1">9:00-22:00</p>
-		           <p class="p2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=DGG三端同步&amp;menu=yes">点击交谈</a></p>
+		           <p class="p2"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=605225291&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:605225291:51" alt="联系客服" title="联系客服"/></a></p>
 		          </dd>
 		        </dl>
 	          </div>
      </li>
-	 <li class="fixeBoxLi code cart_bd " style="display:block;" id="cartboxs">
+	    <li class="fixeBoxLi code cart_bd " style="display:block;" id="cartboxs">
 			<span class="fixeBoxSpan"></span> <strong>微信</strong>
 			<div class="cartBox">
        		<div class="bjfff"></div>
 			<div class="QR_code">
-			 <p><img src="" width="180px" height="180px" /></p>
+			 <p><img src="/common/host/images/qd.jpg" width="180px" height="180px" /></p>
 			 <p>微信扫一扫，关注我们</p>
 			</div>		
 			</div>
