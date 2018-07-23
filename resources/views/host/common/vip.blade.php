@@ -5,15 +5,15 @@
      <div class="user_title">用户中心</div>
      <div class="user_Head">
      <div class="user_portrait">
-     @if(session('username') != null)
-      <a href="#" title="修改头像" class="btn_link"></a> <img src="/common/host/images/people.png">
-     @endif
+       <a href="#" title="修改头像" class="btn_link"></a> <img src="/common/host/images/user/{{ $data -> pic }}">
       <div class="background_img"></div>
+
+      
       </div>
       <div class="user_name">
        <p><span class="name">{{ $data -> uname }}</span><a href="/repass/edit/{{session('id')}}">[修改密码]</a></p>
-       <p>访问时间：2016-1-21 10:23</p>
-       </div>           
+       <p>访问时间：{{$data->created_at}}</p>
+      </div>           
      </div>
      <div class="sideMen">
      <!--菜单列表图层-->

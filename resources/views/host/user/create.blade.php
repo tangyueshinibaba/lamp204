@@ -1,8 +1,6 @@
 
-
 <!DOCTYPE html>
 <html>
-
 <head>
 <title>昌平F4</title>
 <meta charset="gb2312">
@@ -35,10 +33,10 @@
 	</div>
 	<div class="banner-control" id="js_ban_button_box">
 		<a href="javascript:;" class="left">左</a>
-		<a href="javascript:;" class="right">右</a> </div>
+		<a href="javascript:;" class="right">右</a>
+    </div>
 	<script type="text/javascript">
-                ;(function(){
-                    
+                ;(function(){                    
                     var defaultInd = 0;
                     var list = $('#js_ban_content').children();
                     var count = 0;
@@ -105,16 +103,16 @@
                 })();
             </script>
 	<div class="container">
-	<!-- 显示错误信息 -->
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-               <script >layer.alert('{{ $error }}', {icon: 6});</script>
-            @endforeach
-        </ul>
-    </div>
-@endif
+    	<!-- 显示错误信息 -->
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                   <script >layer.alert('{{ $error }}', {icon: 6});</script>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 	<form action="/user/store" method = "post">    
   
@@ -123,16 +121,16 @@
 			<div class="reg-slogan"><h2>新用户注册</h2></div>
 			<div class="reg-form" id="js-form-mobile">
 				<h3>用户名：</h3><div class="cell">
-					<input type="text" name="uname" id="js-mobile_ipt" class="text"  value = "{{ old('uname')}}" placeholder="请输入6-12位用户名"/>
+					<input type="text" name="uname" id="js-mobile_ipt" class="text"  value = "{{ old('uname') }}" placeholder="请输入6-12位用户名"/>
 				</div>
 				<h3>密码：</h3><div class="cell">
-					<input type="password" name="pass" id="js-mobile_ipt" class="text"  value = "{{ old('pass')}}" placeholder="请输入6-12位密码"/>
+					<input type="password" name="pass" id="js-mobile_ipt" class="text"  value = "{{ old('pass') }}" placeholder="请输入6-12位密码"/>
 				</div>
 				<h3>确认密码：</h3><div class="cell">
-					<input type="password" name="pass_confirmation" id="js-mobile_ipt" class="text"  value = "{{ old('pass_confirmation')}}" placeholder="请再次输入密码"/>
+					<input type="password" name="pass_confirmation" id="js-mobile_ipt" class="text"  value = "{{ old('pass_confirmation') }}" placeholder="请确认密码"/>
 				</div>
 				<h3>手机号：</h3><div class="cell">
-					<input type="text" name="phone" id="js-mobile_ipt" class="text"  value = "{{ old('phone')}}" placeholder="请输入有效手机号"/>
+					<input type="text" name="phone" id="js-mobile_ipt" class="text"  value = "{{ old('phone') }}" placeholder="请输入有效手机号"/>
 				</div>
 				<div class="bottom">
 					<!-- <a id="js-mobile_btn" href="" class="button btn-green">
@@ -156,7 +154,7 @@
 		</div>
 	</div>
 </div>
-
+</div>
 </body>
 
 </html>

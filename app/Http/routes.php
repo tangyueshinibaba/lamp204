@@ -239,10 +239,14 @@ Route::controller('/user','Host\UserController');
 Route::controller('/login','Host\LoginController');
 //后台优惠券 zsg
 Route::controller('/yhq','Admin\YhqController');
-
-
-//修改密码
+//修改密码 zsg
 Route::controller('/repass','Host\RepassController');
+//关于我们 zsg
+Route::controller('/gywm','Host\GyController');
+// 引导用户到新浪微博的登录授权页面
+Route::get('auth/weibo', 'Auth\AuthController@weibo');
+// 用户授权后新浪微博回调的页面
+Route::get('auth/callback', 'Auth\AuthController@callback');
 
 
 

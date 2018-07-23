@@ -19,7 +19,7 @@ class FriController extends Controller
     public function getIndex(Request $request)
     {
         //读取数据库数据
-        $fris = Fri::paginate(2);
+        $fris = Fri::paginate(5);
         //dump($fris);die;
         //渲染到模板
         return view('admin.fri.index',['fris' => $fris]);

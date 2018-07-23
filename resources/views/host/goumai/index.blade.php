@@ -238,6 +238,7 @@ document.getElementById(bg_div).style.display='none';
         <input type="hidden" name="price" value="{{$products->price}}" class="productssss"><span style="font-size:26px; font-weight:bold; color:#dd514c;" class="totalMoney">{{$products->price}}</span>
         </div>
         <div class="clear"></div>
+        <wb:share-button appkey="4066904179" addition="text" type="button" default_text="%E6%8C%91%E5%95%A5%E4%B9%B0%E5%95%A5%E9%83%BD%E4%B8%A4%E5%9D%97" ralateUid="1770797211"></wb:share-button>
     </div>
     <div class="clear"></div>
     <div class="pro_detail_btn margin-t30">

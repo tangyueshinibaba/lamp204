@@ -119,22 +119,23 @@
 			<div class="reg-form" id="js-form-mobile">
 				
 				<h3>原密码：</h3><div class="cell">
-					<input type="password" name="oldpass" id="js-mobile_ipt" class="text"  value = "" placeholder="请输入原密码"/>
+					<input type="password" name="oldpass" id="js-mobile_ipt" class="text"  value = "{{ old('oldpass') }}" placeholder="请输入原密码"/>
 				</div>
 				<h3>新密码：</h3><div class="cell">
-					<input type="password" name="newpass" id="js-mobile_ipt" class="text"  value = "" placeholder="请输入新密码"/>
+					<input type="password" name="newpass" id="js-mobile_ipt" class="text"  value = "{{ old('oldpass') }}"  placeholder="请输入新密码"/>
 				</div>
 				<h3>确认新密码：</h3><div class="cell">
-					<input type="password" name="newpass_confirmation" id="js-mobile_ipt" class="text"  value = "" placeholder="确认新密码"/>
+					<input type="password" name="newpass_confirmation" id="js-mobile_ipt" class="text"  value = "{{ old('oldpass') }}"  placeholder="确认新密码"/>
 				</div>
 				<h3>手机号：</h3>
 				<div class="cell">
-					<input type="text" name="phone" id="js-mobile_ipt" class="text"  value = "" placeholder="请输入手机号"/>
+					<input type="text" name="phone" id="js-mobile_ipt" class="text"  value = "{{ old('phone') }}" placeholder="请输入手机号"/>
 				</div>
 				<div class="bottom">
-					<!-- <a id="js-mobile_btn" href="" class="button btn-green">
+					<!-- <a  href="" class="button btn-green">
 					确认注册</a> -->
-					<input type="submit"  value = "确认修改" id="js-mobile_btn" class="button btn-green" >
+					<input type="submit" id="js-mobile_btn" value = "确认修改"  class="button btn-green" >
+                    
 				</div>
 			</div>
 		</div>

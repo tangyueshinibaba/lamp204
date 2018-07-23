@@ -31,14 +31,13 @@ class GoumaiController extends Controller
         $sptj=count($sp);
         $res=count($data1);
         $s=0;
-       foreach ($data1 as $k=>$v){
+        foreach ($data1 as $k=>$v){
         $s+=$v->fukuan;
        }
         session(['res'=>$res]);
         //分配模板
-        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj]);
+        return view('host/goumai/index',['products'=>$products,'n'=>$n,'s'=>$s,'sp'=>$sp,'sptj'=>$sptj,'res'=>$res]);
     }
-
     /**
      * Show the form for creating a new resource.
      *

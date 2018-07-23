@@ -1,79 +1,73 @@
-<!doctype html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-<title>登陆</title>
-<link href="/common/host/css/base.css" rel="stylesheet" type="text/css">
-<link href="/common/host/css/css.css" rel="stylesheet" type="text/css">
-<script src="/common/host/js/jquery-2.1.1.min.js"></script>
-<style>
-.tab {
-	overflow: hidden;
-	margin-top: 20px; margin-bottom:-1px;
-}
-.tab li {
-	display: block;
-	float: left;
-	width: 100px;padding:10px 20px; cursor:pointer; border:1px solid #ccc; 
-}
-.tab li.on {
-	background: #90B831; color:#FFF;padding:10px 20px;
-}
-.conlist {padding:30px; border:1px solid #ccc; width:300px;}
-.conbox {
-	display: none;
-}
-</style>
-<script>
-$(function(){
-	$(".tab li").each(function(i){
-		$(this).click(function(){
-		$(this).addClass("on").siblings().removeClass("on");
-		$(".conlist .conbox").eq(i).show().siblings().hide();
-		})
-	})
-})
-</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>欢迎登录</title>
+<link rel="stylesheet" type="text/css" href="/common/host/login/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/common/host/login/css/body.css"/> 
+<script src="/common/host/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/layui/layui.all.js"></script>
+<script type="text/javascript" src="/layui/jquery-3.2.1.min.js"></script>
 </head>
-
 <body>
-<div class="login-top">
-    <div class="wrapper">
-        <div class="fl font30">LOGO</div>
-        <div class="fr">您好，欢迎为生活充电在线！</div>
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+               <script>
+                 layer.alert('{{$error}}', {icon: 6});
+               </script>
+            @endforeach
+        </ul>
     </div>
-</div>
-<div class="l_main">
-    <div class="l_bttitle2"> 
-        <!-- <h2>登录</h2>-->
-        <h2><a href="#">< 返回首页</a></h2>
-    </div>
-    <form action="/login/dologin" method = "post">
-       {{ csrf_field() }}
-    <div class="loginbox fl">
-        <div class="tab">
-            <ul>
-                <li class="on">我是买家</li>
-                <li>我是卖家</li>
-            </ul>
-        </div>
-        <div class="conlist">
-            <div class="conbox" style="display:block;">
-                <p>
-                    <input type="text" class="loginusername" name = "username" value = "{{ old('username')}}">
-                </p>
-                <p>
-                    <input type="password" class="loginuserpassword" name = "password">
-                </p>
-                <p><span class="fl fntz14 margin-t10"><a href="/user/create" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
-                <p>
-                    <input type="submit" class="loginbtn" value="登  录">
-                </p>
+@endif
+@if(session('error'))
+    <div class="alert alert-success">
+        <script >layer.alert('{{ session('error') }}', {icon: 6})</script>;
+    </div>  
+@endif
+<div class="container">
+    <section id="content">
+        <form action="/login/dologin" method = "post">
+        {{ csrf_field()}}
+            <h1>会员登录</h1>
+            <div>
+                <input type="text" placeholder="用户名" required="" id="username" name = "username"/>
             </div>
-        </div>
-    </div>
-    </form>
-    <div class="fr margin-r100 margin-t45"><img src="/common/host/images/login-pic.jpg" width="507" height="325"></div>
+            <div>
+                <input type="password" placeholder="密码" required="" id="password" name = "password"/>
+            </div>
+            <div style="float:left;">
+                <input type="text" placeholder="验证码" required="" id="password" name = "captcha"/ style ="width:62%" >
+            </div> 
+            <div style="float:left;">
+                <img src="{{captcha_src()}}" title="点击切换" onclick = "rand_code(this)">
+            </div>
+            <script type="text/javascript">
+                function rand_code(obj){
+                    obj.src = obj.src+'?a'+Math.random();
+                }
+            </script>
+             <div class="">
+                <span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>           
+            </div> 
+            <div style="clear:both">
+                <!-- <input type="submit" value="Log in" /> -->
+                <input type="submit" value="登录" class="btn btn-primary" id="js-btn-login"/>
+                <a href="/host"><h4>回到首页</h4></a>
+                <!-- <a href="#">Register</a> -->
+            </div>
+        </form><!-- form -->
+         <div class="button">
+            <span class="help-block u-errormessage" id="js-server-helpinfo">&nbsp;</span>
+            <a href="/gywm/index">联系我们</a>    
+        </div> <!-- button -->
+    </section><!-- content -->
 </div>
+<!-- container -->
+
+
+<br><br><br><br>
+
 </body>
 </html>
